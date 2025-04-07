@@ -2,20 +2,20 @@
     <h2 class="sm:text-9xl text-5xl font-bold text-center sm:text-left">
       {{ project?.name }}
     </h2>
-    <p class="text-xl sm:text-5xl text-neutral-700 pt-4 sm:text-left text-center">
+    <p class="text-xl sm:text-2xl text-neutral-700 pt-4 sm:text-left text-center">
       {{ project?.description }}
     </p>
     
-    <div class="botoes flex gap-2">
+    <div class="botoes flex gap-2 w-full justify-center sm:justify-start items-center">
       @if (project?.website) {
         <a [href]="project?.website" class="bg-black text-base sm:text-xl text-white border-none shadow-md p-2 rounded-md">
-          {{ 'acessar' | translate }}
+          Acessar
         </a>
       }
   
       @if (project?.repo) {
         <a [href]="project?.repo" class="bg-black text-base sm:text-xl text-white border-none shadow-md p-2 rounded-md">
-          {{ 'repositorio' | translate }}
+          Repositório
         </a>
       }
     </div>

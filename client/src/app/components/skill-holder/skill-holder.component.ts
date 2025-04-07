@@ -18,7 +18,7 @@ export class SkillHolderComponent {
   urlImagens = `${enviroment.urlBackend}/image?id=`;
   
   constructor(private translate: TranslateService) {
-    this.translate.setDefaultLang("pt");
+    // this.translate.setDefaultLang("pt");
   } 
 
 }

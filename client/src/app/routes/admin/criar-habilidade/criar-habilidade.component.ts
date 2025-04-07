@@ -43,7 +43,7 @@ export class CriarHabilidadeComponent {
         this.skillService.saveSkill({
           name: this.nameInput.nativeElement.value,
           category: this.categorySelect.nativeElement.value as SkillCategory,
-          image: imageResult[0],
+          image: imageResult ? imageResult[0] : undefined,
           type: this.typeSelect.nativeElement.value as TechnologyTypeEnum,
         }).subscribe((res) => {
           if (res) {

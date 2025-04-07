@@ -65,7 +65,7 @@ export class CriarProjetoComponent {
         website: this.websiteInput.nativeElement.value,
         techBack: [],
         techFront: [],
-        images: images,
+        images: images!,
         status: this.statusSelect.nativeElement.value as ProjetoStatus
       };
 

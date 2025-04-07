@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ProjetoType } from '../../model/projetoModel';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ScrollService } from '../../service/scroll/scroll.service';
@@ -11,7 +11,10 @@ import { enviroment } from '../../../environment';
   templateUrl: './carrossel-projetos.component.html',
   styleUrl: './carrossel-projetos.component.scss'
 })
-export class CarrosselProjetosComponent {
+export class CarrosselProjetosComponent implements OnInit, OnDestroy {
+
+  @Output()
+  currentProject: EventEmitter<number> = new EventEmitter<number>();
 
   @Input("projects")
   projects: ProjetoType[] = [];
@@ -31,26 +34,32 @@ export class CarrosselProjetosComponent {
     private translate: TranslateService,
     private scroll: ScrollService,
   ) {
-    this.translate.setDefaultLang("pt");
+    // this.translate.setDefaultLang("pt");
+    this.currentProject.emit(this.iProjetoAtual);
   }
 
   ngOnInit(): void {
     this.criarIntervalo();
+    this.currentProject.emit(this.iProjetoAtual);
   }
 
   ngOnDestroy(): void {
     this.pararIntervalo();
   }
 
+  changeProject(iProject: number) {
+    this.iProjetoAtual = iProject;
+    this.currentProject.emit(this.iProjetoAtual);
+  }
+
   proximoProjeto(): void {
     this.intervalo = 0;
-    this.iProjetoAtual = (this.iProjetoAtual + 1) % this.projects.length;
+    this.changeProject((this.iProjetoAtual + 1) % this.projects.length);
   }
 
   anteriorProjeto(): void {
     this.intervalo = 0;
-    this.iProjetoAtual =
-      this.iProjetoAtual === 0 ? this.projects.length - 1 : this.iProjetoAtual - 1;
+    this.changeProject(this.iProjetoAtual === 0 ? this.projects.length - 1 : this.iProjetoAtual - 1);
   }
 
   pararIntervalo(): void {
@@ -70,6 +79,7 @@ export class CarrosselProjetosComponent {
   }
 
   onTouchStart(event: TouchEvent): void {
+    return;
     this.pararIntervalo();
     this.posInicialDrag = { x: event.touches[0].clientX, y: event.touches[0].clientY };
     this.posAtualDrag = event.touches[0].clientX;
@@ -79,6 +89,7 @@ export class CarrosselProjetosComponent {
 
   @HostListener('window:touchmove', ['$event'])
   touchMoveEvent(event: TouchEvent): void {
+    return;
     if (this.isTouching) {
       this.posAtualDrag = event.touches[0].clientX;
     }
@@ -86,6 +97,7 @@ export class CarrosselProjetosComponent {
 
   @HostListener('window:touchend')
   onTouchEnd(): void {
+    return;
     this.isTouching = false;
     const diffParaMudar = 100;
     const diff = this.posAtualDrag - this.posInicialDrag.x;

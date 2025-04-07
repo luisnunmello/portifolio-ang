@@ -1,7 +1,7 @@
 
-<div class="flex flex-col lg:flex-row gap-4">
-    <h4 class="text-base font-bold md:text-2xl">{{`Index.${title}` | translate}}</h4>
-    <div class="habilidade-container flex gap-4">
+<div class="flex flex-col gap-4 bg-white p-12 shadow-md flex-1 min-h-[400px] items-center rounded-xl ">
+    <h4 class="text-base font-bold md:text-2xl text-blue-700">{{title}}</h4>
+    <div class="habilidade-container flex gap-4 flex-col">
     @for (skill of skills; track skill.id) {              
         <p key={valor} class="text-neutral-600 text-base md:text-lg flex justify-center gap-1">
         @if (skill.image) {

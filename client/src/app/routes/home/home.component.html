@@ -2,29 +2,113 @@
   <app-header class="w-full flex gap-2 z-10" />
   <section
     id="hero-section"
-    class="h-[90vh] w-full overflow-hidden relative py"
+    class="h-[90vh] w-full overflow-hidden relative py flex gap-4"
   >
-    <div class="presentation" class="px-[208px] py-24 h-full">
+    <div class="presentation" class="px-[208px] py-24 h-full flex">
       <div
         id="presentation-left"
-        class="h-full flex flex-col justify-center items-start w-fit"
+        class="h-full flex flex-col justify-center items-start w-fit gap-8 text-justify"
       >
-        <h1 class="text-upper text-8xl font-bold">Luís Eduardo</h1>
-        <h2 class="text-upper text-5xl font-bold text-blue-800">
-          Desenvolvedor FullStack
-        </h2>
+        <div class="presentation-text text-nowrap">
+          <h1 class="text-upper text-8xl font-bold">Luís Eduardo</h1>
+          <h2 class="text-upper text-5xl font-bold text-blue-800">
+            Desenvolvedor FullStack
+          </h2>
+        </div>
+        <p class="text-4xl font-bold text-neutral-700">4 anos de prática e estudo para fazer seu aplicativo perfeito!</p>
+        <div class="button-holder flex gap-2">
+          <button class="p-4 text-2xl font-bold border border-2 rounded-xl border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white duration-150">Contatar de graça  →</button>
+        </div>
       </div>
     </div>
-
+    <div id="presentation-right"
+    class="w-full flex h-full ">
+      <img src="/images/eu.png" alt="foto" class="w-[820px] h-full image-fit object-cover"/>
+    </div>
     <p
       id="background-filler-text"
-      class="absolute -z-10 top-0 w-full h-full text-5xl text-neutral-100 pointer-events-none"
+      class="absolute -z-10 top-0 w-full h-full text-5xl text-neutral-50 pointer-events-none"
       #backgroundFillerText
     >
       {{
-        "&quot;&lt;div class=&quot;container&quot;&gt;&lt;h1 onclick=&quot;alert(&#x27;Hello World!&#x27;)&quot;&gt;Click Me&lt;/h1&gt;&lt;p id=&quot;text&quot;&gt;This is a paragraph with &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italic&lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&#x27;red&#x27;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function randomNumber(){return Math.floor(Math.random()*100);}console.log(&quot;Random number: &quot;+randomNumber());document.addEventListener(&quot;DOMContentLoaded&quot;,function(){document.body.style.backgroundColor=&quot;#f0f0f0&quot;;});&lt;/script&gt;&lt;/div&gt;&lt;/em&gt; text.&lt;/p&gt;&lt;button &lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function raonclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function ra"
+        "&quot;&lt;div class=&quot;container&quot;&gt;&lt;h1 onclick=&quot;alert(&#x27;Hello World!&#x27;)&quot;&gt;Click Me&lt;/h1&gt;&lt;p id=&quot;text&quot;&gt;This is a paragraph with &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italic&lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&#x27;red&#x27;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function randomNumber(){return Math.floor(Math.random()*100);}console.log(&quot;Random number: &quot;+randomNumber());document.addEventListener(&quot;DOMContentLoaded&quot;,function(){document.body.style.backgroundColor=&quot;#f0f0f0&quot;;});&lt;/script&gt;&lt;/div&gt;&lt;/em&gt; text.&lt;/p&gt;&lt;button &lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function raonclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function raick Me&lt;/h1&gt;&lt;p id=&quot;text&quot;&gt;This is a paragraph with &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italic&lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&#x27;red&#x27;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function randomNumber(){return Math.floor(Math.random()*100);}console.log(&quot;Random number: &quot;+randomNumber());document.addEventListener(&quot;DOMContentLoaded&quot;,function(){document.body.style.backgroundColor=&quot;#f0f0f0&quot;;});&lt;/script&gt;&lt;/div&gt;&lt;/em&gt; text.&lt;/p&gt;&lt;button &lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function raonclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function raick Me&lt;/h1&gt;&lt;p id=&quot;text&quot;&gt;This is a paragraph with &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italic&lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&#x27;red&#x27;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function randomNumber(){return Math.floor(Math.random()*100);}console.log(&quot;Random number: &quot;+randomNumber());document.addEventListener(&quot;DOMContentLoaded&quot;,function(){document.body.style.backgroundColor=&quot;#f0f0f0&quot;;});&lt;/script&gt;&lt;/div&gt;&lt;/em&gt; text.&lt;/p&gt;&lt;button &lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function raonclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function ra"
       }}
     </p>
+  </section>
+  <h2 class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700">Sobre</h2>
+  <section class="py-24 px-[208px] flex bg-neutral-50 gap-4">
+    <div id="about-left" class="w-full  relative  overflow-auto">
+      <div class="absolute flex flex-wrap gap-4 px-4 pb-4">
+        <app-skill-holder class="flex-1" title="Linguagens" [skills]="skillByCategory.LANGUAGE"></app-skill-holder>
+        <app-skill-holder class="flex-1" title="Frameworks" [skills]="skillByCategory.FRAMEWORK"></app-skill-holder>
+        <app-skill-holder class="flex-1" title="Versionamento" [skills]="skillByCategory.VERSIONING"></app-skill-holder>
+        <app-skill-holder class="flex-2" title="Bancos de Dados" [skills]="skillByCategory.DATABASE"></app-skill-holder>
+        <app-skill-holder class="flex-2" title="Sistemas Operacionais" [skills]="skillByCategory.OPERATIONAL_SYSTEM" ></app-skill-holder>
+      </div>
+      
+
+    </div>
+    <div id="about-right" class="w-full flex flex-col gap-4">
+      <div id="about-me" class="bg-white p-20 flex flex-col gap-6 shadow-md rounded-xl">
+        <span class="text-3xl font-bold text-blue-700">Sobre mim</span>
+        <span class="text-xl">
+          Olá, meu nome é Luís Eduardo!<br><br>
+          Sou um grande entusiasta da  área de tecnologia e também de  programação.<br><br>
+          Hoje, devido a uma experiência de aprendizado variada, me sinto confiante em diversos tipos de projetos, sempre tendo um conhecimento passado para me guiar. </span>
+      </div>
+      <div id="stats-holder" class="text-blue-700 font-bold text-xl flex gap-4 flex-wrap" >
+        <div class="stat bg-white px-8 py-4 shadow-md flex-3 rounded-xl">3+
+          <span class="text-base text-nowrap">Anos Experiência</span>
+        </div>
+        <div class="stat bg-white px-8 py-4 shadow-md flex-4 rounded-xl">10+
+          <span class="text-base text-nowrap">Tecnologias Dominadas</span>
+        </div>
+        <div class="stat bg-white px-8 py-4 shadow-md flex-3 rounded-xl">10+
+          <span class="text-base text-nowrap">Projetos Completos</span>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  <h2 class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700">Projetos</h2>
+  <section class="py-24 px-[208px] flex bg-neutral-50 gap-4 flex">
+    <div class="bg-white shadow-md flex-2 flex flex-col p-8 gap-4 rounded-xl">
+      <header class="flex flex-col gap-2">
+        <span class="font-bold text-2xl">{{ currentProject?.name }}</span>
+        <div class="skill-holder flex gap-2">
+          @for (skill of currentProject?.techBack; track $index) {
+            <span class="text-base font-bold">{{skill.name}}</span>
+          }
+        </div>
+      </header>
+      
+      
+      <span>{{ currentProject?.description }}</span>
+    </div>
+    <div class="aspect-video bg-white shadow-md h-[600px] overflow-hidden rounded-xl">
+      <app-carrossel-projetos [projects]="projects" (currentProject)="updateProject($event)"></app-carrossel-projetos>
+    </div>
+  </section>
+  <h2 class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700">Contato</h2>
+  <section class="py-24 px-[208px] flex bg-neutral-50 gap-4 flex">
+    <div class="p-8 bg-white w-full font-bold rounded-xl shadow-md flex flex-col gap-8">
+      <header>
+        <h3 class="text-3xl">Tem alguma ideia de projeto, ou deseja entrar em contato?</h3>
+        <p class="text-2xl text-neutral-700">Consulte comigo de <span class="text-blue-700">graça!</span></p>
+      </header>
+      <form class="w-full flex flex-col gap-2">
+        <div class="contact-form-top w-full flex flex-col gap-2">
+          <p>Digite seu celular ou e-mail como forma de indentificação. <span class="text-red-700">*</span></p>
+          <div class="input-holder flex gap-2">
+            <input type="text" class="text-blue-700 border p-3 border-blue-700 rounded-xl w-full" placeholder="Celular">
+            <input type="text" class="text-blue-700 border p-3 border-blue-700 rounded-xl w-full" placeholder="Email">
+          </div>
+          
+        </div>
+        <textarea type="text" class="text-blue-700 border p-3 border-blue-700 rounded-xl w-full h-[300px]" placeholder="Mensagem"></textarea>
+        <button type="submit" class="text-blue-700 border py-3 px-9 border-blue-700 rounded-xl w-fit hover:bg-blue-700 hover:text-white duration-75">Enviar</button>
+      </form>
+    </div>
   </section>
 </main>
 <router-outlet />

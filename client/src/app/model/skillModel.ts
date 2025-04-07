@@ -20,7 +20,7 @@ export type SkillType = {
     
     id?: number,
     name: String,
-    image: ImageType,
+    image?: ImageType,
     category: SkillCategory,
     type: TechnologyTypeEnum
     

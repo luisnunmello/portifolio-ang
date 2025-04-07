@@ -3,56 +3,25 @@
   (mouseleave)="criarIntervalo()"
   (touchstart)="onTouchStart($event)"
   (touchend)="onTouchEnd()"
+  class="relative h-full overflow-hidden"
 >
-  <div class="button-container absolute bottom-12 z-30 flex gap-4 w-full justify-center">
+  <div class="button-container absolute bottom-12 z-30 flex gap-4 w-full justify-center text-xs items-center font-bold">
+    <button class="aspect-square w-8 bg-white rounded-xl text-blue-700 hover:bg-blue-100 duration-75 active:bg-blue-700 active:text-white" (click)="anteriorProjeto()"><</button>
     @for (project of projects; track i; let i = $index) {
       <button
-        (click)="iProjetoAtual = i"
-        [class]="`w-4 h-4 shadow-md rounded-full ${iProjetoAtual === i ? 'bg-neutral-900' : 'bg-neutral-500'}`"
-      ></button>
+        (click)="changeProject(i)"
+        [class]="`h-8 aspect-square shadow-md rounded-full duration-75 ${iProjetoAtual === i ? 'bg-blue-700 text-white' : 'bg-white hover:bg-blue-100 text-blue-700'}`"
+      >{{i + 1}}</button>
     }
+    <button class="aspect-square w-8 bg-white rounded-xl text-blue-700 hover:bg-blue-100 duration-75 active:bg-blue-700 active:text-white" (click)="this.proximoProjeto()">></button>
   </div>
   <div class="bottom-0 absolute bg-green-200 h-2 z-30 duration-200" [style.width.%]="(intervalo / tempoParaTrocar) * 100"></div>
 
   @for (project of projects; track i; let i = $index) {
-    <div class="h-[695px] w-full bg-white absolute duration-150 rounded-3xl overflow-hidden"
+    <div class="h-full w-full bg-white absolute duration-150 rounded-xl overflow-hidden"
       [style.transform]="'translateX(calc(' + ((100 * i) - (100 * iProjetoAtual)) + '% + ' + ((isTouching && isDragging) ? posAtualDrag - posInicialDrag.x : 0) + 'px))'">
+      <div class="black-overlay absolute h-full w-full bg-black/20 z-30"></div>
       <a [routerLink]="project?.id ? '/proj/' + project.id : '#'" class="absolute w-full h-full z-30 hover:bg-black/5 duration-75"></a>
-      <div class="overlay z-40 w-full absolute">
-        <div class="botoes-topo absolute left-4 top-24 sm:left-auto sm:top-4 sm:right-4 flex gap-2">
-          @if (project.website) {
-            <a class="bg-black text-base sm:text-xl text-white border-none shadow-md p-2 rounded-md" [href]="project.website">
-              {{ 'Index.acessar' | translate }}
-            </a>
-          }
-          @if (project.repo) {
-            <a class="bg-black text-base sm:text-xl text-white border-none shadow-md  p-2 rounded-md" [href]="project.repo">
-              {{ 'Index.repositorio' | translate }}
-            </a>
-          }
-          @if (project.images.length > 1) {
-            <a class="bg-blue-400 text-base sm:text-xl text-white border-none shadow-md  p-2 rounded-md" [href]="project?.id ? '/proj/' + project.id : '#'">
-              {{ project.images.length }} {{ 'Index.imagens' | translate }}
-            </a>
-          }
-        </div>
-        <div class="project-metadata absolute top-4 left-4 bg-black text-white px-4 py-2 rounded-md shadow-md">
-          <div class="tecnologias flex gap-2">
-            @for (tech of project.techBack.concat(project.techFront); track tech.id; let i = $index) {
-              <span class="text-base sm:text-2xl flex gap-1">
-                @if (tech.image) {
-                  
-                  <img [src]="urlImagens + tech.image.id" width="20" height="20" alt="icone tec"/>
-                }
-                {{ tech.name }}
-              </span>
-            }
-          </div>
-          <h3 class="stroke-black stroke-1 text-2xl sm:text-5xl">
-            {{ project.name }}
-          </h3>
-        </div>
-      </div>
       <img class="absolute h-full w-full object-contain" [src]="project.images[0] ? urlImagens + project.images[0].id : ''" [alt]="project.description ? project.description : 'imagem project ' + project.images" width="1280" height="720"/>
     </div>
   }

@@ -24,7 +24,7 @@ import br.com.luisbrb.portifolio.springboot.model.ImageTypeEnum;
 import br.com.luisbrb.portifolio.springboot.model.entities.ImageEntity;
 
 @RestController
-@RequestMapping("/image")
+@RequestMapping("/api/image")
 public class ImageRestController {
     
     private ImageRepository imageRepository;
@@ -49,7 +49,7 @@ public class ImageRestController {
         if (!AuthenticationUtils.isLoggedIn(authCookie)) {
             return null;
         };
-        
+
         List<ImageEntity> imageList = new ArrayList<>();
         for (MultipartFile image : formData) {
             ImageTypeEnum type = null;

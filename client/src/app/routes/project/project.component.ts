@@ -16,7 +16,7 @@ export class ProjectComponentComponent {
   urlImagens = `${enviroment.urlBackend}/image?id=`;
   
   constructor(private translateService: TranslateService, private projectService: ProjetoServiceService, private route: ActivatedRoute) {
-    this.translateService.setDefaultLang("pt");
+    // this.translateService.setDefaultLang("pt");
     const id = route.snapshot.paramMap.get("id");
     if (!id) {
       return;

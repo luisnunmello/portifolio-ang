@@ -26,17 +26,24 @@ export class AppComponent {
 
   urlImagens = `${enviroment.urlBackend}/image?id=`;
 
-  @ViewChild("backgroundFillerText") backgroundFillerText!: ElementRef<HTMLParagraphElement>;
+  currentProject?: ProjetoType = undefined; 
 
+  @ViewChild("backgroundFillerText") backgroundFillerText!: ElementRef<HTMLParagraphElement>;
+  
   constructor(private translate: TranslateService, private projetoService: ProjetoServiceService, private skillService: SkillService) {
-    this.translate.setDefaultLang("pt");
+    // this.translate.setDefaultLang("pt");
     this.projetoService.getProjects().subscribe((projects) => {
       this.projects = projects;
+      this.currentProject = this.projects[0];
     });
     this.skillService.getSkills().subscribe((skills) => {
       this.skills = skills;
       this.sortSkillsByCategory(skills);
     })
+  }
+
+  public updateProject(iProject: number) {
+    this.currentProject = this.projects[iProject];
   }
 
   public afterREnder() {
