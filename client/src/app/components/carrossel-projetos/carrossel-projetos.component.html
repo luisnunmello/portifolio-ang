@@ -5,20 +5,38 @@
   (touchend)="onTouchEnd()"
   class="relative h-full overflow-hidden"
 >
+
+  <header class="absolute w-full z-30 p-4 block sm:hidden flex items-center justify-between font-bold">
+    <h3 [class]="`${isInformationToggled ? 'text-blue-800/0' : 'text-blue-800'} duration-75 text-2xl`">{{projects.at(iProjetoAtual)?.name}}</h3>
+  </header>
+  <button (click)="toggleInformation()" [class]="`block h-12 sm:hidden absolute top-4 right-4 z-50 aspect-square p-4 text-xl flex items-center justify-center rounded-xl shadow-md ${isInformationToggled ? 'bg-blue-700 text-white' : 'text-blue-700 hover:bg-blue-50 bg-white'}  duration-75`">i</button>
+  <div [class]="`overlay w-full h-full bg-white z-40 absolute duration-75 rounded-xl p-4 flex flex-col`" [style]="`${isInformationToggled ? 'transform: translateX(0%)' : 'transform: translateX(100%)'}`">
+    <h3 class="text-blue-800 text-2xl font-bold">{{projects.at(iProjetoAtual)?.name}}</h3>
+    <p class="text-blue-900 text-lg font-bold pt-4 w-full h-full">{{ projects.at(iProjetoAtual)?.description }}</p>
+    <div class="flex text-xl gap-2">
+      @for (tech of projects.at(iProjetoAtual)?.techBack; track tech.id; let i = $index) {
+        @if (tech.image) {<img class="w-8 aspect-square" [src]="`${urlImagens}${tech.image.id}`">} {{ tech.name }}
+      }
+
+      @for (tech of projects.at(iProjetoAtual)?.techFront; track tech.id; let i = $index) {
+        @if (tech.image) {<img class="w-8 aspect-square" [src]="`${urlImagens}${tech.image.id}`">} {{ tech.name }}
+      }
+    </div>
+  </div>
   <div class="button-container absolute bottom-12 z-30 flex gap-4 w-full justify-center text-xs items-center font-bold">
-    <button class="aspect-square w-8 bg-white rounded-xl text-blue-700 hover:bg-blue-100 duration-75 active:bg-blue-700 active:text-white" (click)="anteriorProjeto()"><</button>
+    <button class="aspect-square w-12 bg-white rounded-xl text-blue-700 hover:bg-blue-100 duration-75 active:bg-blue-700 active:text-white" (click)="anteriorProjeto()"><</button>
     @for (project of projects; track i; let i = $index) {
       <button
         (click)="changeProject(i)"
-        [class]="`h-8 aspect-square shadow-md rounded-full duration-75 ${iProjetoAtual === i ? 'bg-blue-700 text-white' : 'bg-white hover:bg-blue-100 text-blue-700'}`"
+        [class]="`h-12 aspect-square shadow-md rounded-full duration-75 ${iProjetoAtual === i ? 'bg-blue-700 text-white' : 'bg-white hover:bg-blue-100 text-blue-700'}`"
       >{{i + 1}}</button>
     }
-    <button class="aspect-square w-8 bg-white rounded-xl text-blue-700 hover:bg-blue-100 duration-75 active:bg-blue-700 active:text-white" (click)="this.proximoProjeto()">></button>
+    <button class="aspect-square w-12 bg-white rounded-xl text-blue-700 hover:bg-blue-100 duration-75 active:bg-blue-700 active:text-white" (click)="this.proximoProjeto()">></button>
   </div>
   <div class="bottom-0 absolute bg-green-200 h-2 z-30 duration-200" [style.width.%]="(intervalo / tempoParaTrocar) * 100"></div>
 
   @for (project of projects; track i; let i = $index) {
-    <div class="h-full w-full bg-white absolute duration-150 rounded-xl overflow-hidden"
+    <div class="h-full w-full bg-white absolute duration-150 overflow-hidden"
       [style.transform]="'translateX(calc(' + ((100 * i) - (100 * iProjetoAtual)) + '% + ' + ((isTouching && isDragging) ? posAtualDrag - posInicialDrag.x : 0) + 'px))'">
       <div class="black-overlay absolute h-full w-full bg-black/20 z-30"></div>
       <a [routerLink]="project?.id ? '/proj/' + project.id : '#'" class="absolute w-full h-full z-30 hover:bg-black/5 duration-75"></a>

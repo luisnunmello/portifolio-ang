@@ -14,10 +14,12 @@ import { enviroment } from '../../../environment';
 export class CarrosselProjetosComponent implements OnInit, OnDestroy {
 
   @Output()
-  currentProject: EventEmitter<number> = new EventEmitter<number>();
+  iCurrentProject: EventEmitter<number> = new EventEmitter<number>();
 
   @Input("projects")
   projects: ProjetoType[] = [];
+
+  currentProject?: ProjetoType = undefined;
 
   iProjetoAtual = 0;
   nextInterval: any;
@@ -28,6 +30,8 @@ export class CarrosselProjetosComponent implements OnInit, OnDestroy {
   posAtualDrag = 0;
   tempoParaTrocar = 5000;
 
+  isInformationToggled = false;
+
   urlImagens = `${enviroment.urlBackend}/image?id=`;
 
   constructor(
@@ -35,21 +39,26 @@ export class CarrosselProjetosComponent implements OnInit, OnDestroy {
     private scroll: ScrollService,
   ) {
     // this.translate.setDefaultLang("pt");
-    this.currentProject.emit(this.iProjetoAtual);
+    this.iCurrentProject.emit(this.iProjetoAtual);
   }
 
   ngOnInit(): void {
     this.criarIntervalo();
-    this.currentProject.emit(this.iProjetoAtual);
+    this.iCurrentProject.emit(this.iProjetoAtual);
   }
 
   ngOnDestroy(): void {
     this.pararIntervalo();
   }
 
+  toggleInformation() {
+    this.isInformationToggled = !this.isInformationToggled;
+  }
+
   changeProject(iProject: number) {
     this.iProjetoAtual = iProject;
-    this.currentProject.emit(this.iProjetoAtual);
+    this.currentProject = this.projects[this.iProjetoAtual];
+    this.iCurrentProject.emit(this.iProjetoAtual);
   }
 
   proximoProjeto(): void {

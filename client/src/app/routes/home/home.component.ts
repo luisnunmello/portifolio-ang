@@ -24,6 +24,8 @@ export class AppComponent {
   skills: SkillType[] = [];
   skillByCategory: {[key in SkillCategory]: SkillType[]} = {DATABASE: [], FRAMEWORK: [], LANGUAGE: [], OPERATIONAL_SYSTEM: [], VERSIONING: []};
 
+  dateStart = new Date("12/4/2021");
+
   urlImagens = `${enviroment.urlBackend}/image?id=`;
 
   currentProject?: ProjetoType = undefined; 

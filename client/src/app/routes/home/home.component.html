@@ -1,28 +1,48 @@
-<main class="flex flex-col justify-center overflow-x-hidden w-full">
-  <app-header class="w-full flex gap-2 z-10" />
+<main class="flex flex-col justify-center overflow-x-hidden w-full pb-24">
+  <app-header class="w-full flex gap-2 z-60" />
   <section
-    id="hero-section"
-    class="h-[90vh] w-full overflow-hidden relative py flex gap-4"
+    id="home"
+    class="h-fit sm:h-[90vh] w-full overflow-hidden relative py flex flex-col sm:flex-row gap-4 scroll-mt-12"
   >
-    <div class="presentation" class="px-[208px] py-24 h-full flex">
+    <div class="presentation" class="sm:px-[208px] sm:py-24 h-full flex flex-col">
       <div
         id="presentation-left"
-        class="h-full flex flex-col justify-center items-start w-fit gap-8 text-justify"
+        class="h-[70vh] sm:h-full flex flex-col justify-center items-center sm:items-start w-fit gap-8 text-justify p-6"
       >
         <div class="presentation-text text-nowrap">
-          <h1 class="text-upper text-8xl font-bold">Luís Eduardo</h1>
-          <h2 class="text-upper text-5xl font-bold text-blue-800">
+          <h1 class="text-upper text-6xl sm:text-8xl font-bold">Luís Eduardo</h1>
+          <h2 class="text-upper text-3xl sm:text-5xl font-bold text-blue-800">
             Desenvolvedor FullStack
           </h2>
         </div>
-        <p class="text-4xl font-bold text-neutral-700">4 anos de prática e estudo para fazer seu aplicativo perfeito!</p>
-        <div class="button-holder flex gap-2">
-          <button class="p-4 text-2xl font-bold border border-2 rounded-xl border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white duration-150">Contatar de graça  →</button>
+        <p class="text-xl sm:text-4xl font-semibold text-neutral-700">4 anos de prática e estudo para fazer seu aplicativo perfeito!</p>
+        <div class="button-holder flex gap-2 w-full text-blue-700">
+          <button class="border-2 border-green-700 p-4 rounded-xl aspect-square text-green-700 hover:bg-green-700 hover:text-white duration-75 justify-center items-center flex">
+            <svg width="24px" height="24px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+              <title>Whatsapp-color</title>
+              <desc>Created with Sketch.</desc>
+              <defs>
+          
+            </defs>
+                <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Color-" transform="translate(-700.000000, -360.000000)" fill="currentColor">
+                        <path d="M723.993033,360 C710.762252,360 700,370.765287 700,383.999801 C700,389.248451 701.692661,394.116025 704.570026,398.066947 L701.579605,406.983798 L710.804449,404.035539 C714.598605,406.546975 719.126434,408 724.006967,408 C737.237748,408 748,397.234315 748,384.000199 C748,370.765685 737.237748,360.000398 724.006967,360.000398 L723.993033,360.000398 L723.993033,360 Z M717.29285,372.190836 C716.827488,371.07628 716.474784,371.034071 715.769774,371.005401 C715.529728,370.991464 715.262214,370.977527 714.96564,370.977527 C714.04845,370.977527 713.089462,371.245514 712.511043,371.838033 C711.806033,372.557577 710.056843,374.23638 710.056843,377.679202 C710.056843,381.122023 712.567571,384.451756 712.905944,384.917648 C713.258648,385.382743 717.800808,392.55031 724.853297,395.471492 C730.368379,397.757149 732.00491,397.545307 733.260074,397.27732 C735.093658,396.882308 737.393002,395.527239 737.971421,393.891043 C738.54984,392.25405 738.54984,390.857171 738.380255,390.560912 C738.211068,390.264652 737.745308,390.095816 737.040298,389.742615 C736.335288,389.389811 732.90737,387.696673 732.25849,387.470894 C731.623543,387.231179 731.017259,387.315995 730.537963,387.99333 C729.860819,388.938653 729.198006,389.89831 728.661785,390.476494 C728.238619,390.928051 727.547144,390.984595 726.969123,390.744481 C726.193254,390.420348 724.021298,389.657798 721.340985,387.273388 C719.267356,385.42535 717.856938,383.125756 717.448104,382.434484 C717.038871,381.729275 717.405907,381.319529 717.729948,380.938852 C718.082653,380.501232 718.421026,380.191036 718.77373,379.781688 C719.126434,379.372738 719.323884,379.160897 719.549599,378.681068 C719.789645,378.215575 719.62006,377.735746 719.450874,377.382942 C719.281687,377.030139 717.871269,373.587317 717.29285,372.190836 Z" id="Whatsapp">
+            
+              </path>
+                    </g>
+                </g>
+            </svg>
+          </button>
+          <button class="border-2 border-blue-700 p-4 rounded-xl aspect-square hover:bg-blue-700 hover:text-white duration-75 justify-center items-center flex">
+            <svg width="24px" height="24px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill="currentColor" d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.519-.925-1.519-.926 0-1.068.724-1.068 1.47v2.834H6.676V6.498h1.707v.783h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.185 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.031c0-.566.466-1.032 1.032-1.032.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.498h1.78v5.727zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z"/></svg>
+          </button>
+          <!-- <a href="#contact" class="p-4 text-lg sm:text-2xl font-bold border border-2 rounded-xl border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white duration-150 text-nowrap">Contatar de graça  →</a> -->
         </div>
       </div>
     </div>
     <div id="presentation-right"
-    class="w-full flex h-full ">
+    class="w-full flex h-full -mt-56 sm:mt-0 pointer-events-none">
       <img src="/images/eu.png" alt="foto" class="w-[820px] h-full image-fit object-cover"/>
     </div>
     <p
@@ -35,10 +55,10 @@
       }}
     </p>
   </section>
-  <h2 class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700">Sobre</h2>
-  <section class="py-24 px-[208px] flex bg-neutral-50 gap-4">
-    <div id="about-left" class="w-full  relative  overflow-auto">
-      <div class="absolute flex flex-wrap gap-4 px-4 pb-4">
+  <h2 id="about" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700 scroll-mt-12">Sobre</h2>
+  <section  class="py-4 sm:py-24 px-4 sm:px-[208px] flex flex-col-reverse sm:flex-row bg-neutral-50 gap-4 ">
+    <div id="about-left" class="w-full  relative  overflow-auto min-h-[450px] ">
+      <div class="absolute flex  sm:flex-wrap gap-4 px-4 pb-4 pt-4 sm:pt-0">
         <app-skill-holder class="flex-1" title="Linguagens" [skills]="skillByCategory.LANGUAGE"></app-skill-holder>
         <app-skill-holder class="flex-1" title="Frameworks" [skills]="skillByCategory.FRAMEWORK"></app-skill-holder>
         <app-skill-holder class="flex-1" title="Versionamento" [skills]="skillByCategory.VERSIONING"></app-skill-holder>
@@ -49,30 +69,30 @@
 
     </div>
     <div id="about-right" class="w-full flex flex-col gap-4">
-      <div id="about-me" class="bg-white p-20 flex flex-col gap-6 shadow-md rounded-xl">
+      <div id="about-me" class="bg-white p-8 sm:p-20 flex flex-col gap-6 shadow-md rounded-xl">
         <span class="text-3xl font-bold text-blue-700">Sobre mim</span>
-        <span class="text-xl">
-          Olá, meu nome é Luís Eduardo!<br><br>
+        <span class="text-xl text-justify font-semibold text-neutral-700">
+          Olá, me chamo Luís Eduardo!<br><br>
           Sou um grande entusiasta da  área de tecnologia e também de  programação.<br><br>
-          Hoje, devido a uma experiência de aprendizado variada, me sinto confiante em diversos tipos de projetos, sempre tendo um conhecimento passado para me guiar. </span>
+          Hoje, devido a uma experiência de aprendizado variada, me sinto confiante no desenvolvimento de diversos tipos de projetos, sempre tendo um conhecimento passado para me guiar. </span>
       </div>
       <div id="stats-holder" class="text-blue-700 font-bold text-xl flex gap-4 flex-wrap" >
-        <div class="stat bg-white px-8 py-4 shadow-md flex-3 rounded-xl">3+
-          <span class="text-base text-nowrap">Anos Experiência</span>
+        <div class="stat bg-white px-8 py-4 shadow-md flex-3 rounded-xl">4+<br>
+          <span class="text-base text-nowrap">Anos de Experiência</span>
         </div>
-        <div class="stat bg-white px-8 py-4 shadow-md flex-4 rounded-xl">10+
+        <div class="stat bg-white px-8 py-4 shadow-md flex-4 rounded-xl">{{skills.length}}+<br>
           <span class="text-base text-nowrap">Tecnologias Dominadas</span>
         </div>
-        <div class="stat bg-white px-8 py-4 shadow-md flex-3 rounded-xl">10+
+        <div class="stat bg-white px-8 py-4 shadow-md flex-3 rounded-xl">{{ projects.length }}+<br>
           <span class="text-base text-nowrap">Projetos Completos</span>
         </div>
       </div>
       
     </div>
   </section>
-  <h2 class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700">Projetos</h2>
-  <section class="py-24 px-[208px] flex bg-neutral-50 gap-4 flex">
-    <div class="bg-white shadow-md flex-2 flex flex-col p-8 gap-4 rounded-xl">
+  <h2 id="projects" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700 scroll-mt-12">Projetos</h2>
+  <section  class="p-4 sm:py-24 sm:px-[208px] flex bg-neutral-50 gap-4 flex ">
+    <div class="bg-white shadow-md flex-2 flex flex-col p-8 gap-4 rounded-xl sm:block hidden">
       <header class="flex flex-col gap-2">
         <span class="font-bold text-2xl">{{ currentProject?.name }}</span>
         <div class="skill-holder flex gap-2">
@@ -86,11 +106,11 @@
       <span>{{ currentProject?.description }}</span>
     </div>
     <div class="aspect-video bg-white shadow-md h-[600px] overflow-hidden rounded-xl">
-      <app-carrossel-projetos [projects]="projects" (currentProject)="updateProject($event)"></app-carrossel-projetos>
+      <app-carrossel-projetos [projects]="projects" (iCurrentProject)="updateProject($event)"></app-carrossel-projetos>
     </div>
   </section>
-  <h2 class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700">Contato</h2>
-  <section class="py-24 px-[208px] flex bg-neutral-50 gap-4 flex">
+  <!-- <h2 id="contact" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700 scroll-mt-12">Contato</h2>
+  <section  class="p-4 sm:py-24 sm:px-[208px] flex bg-neutral-50 gap-4 flex ">
     <div class="p-8 bg-white w-full font-bold rounded-xl shadow-md flex flex-col gap-8">
       <header>
         <h3 class="text-3xl">Tem alguma ideia de projeto, ou deseja entrar em contato?</h3>
@@ -109,6 +129,7 @@
         <button type="submit" class="text-blue-700 border py-3 px-9 border-blue-700 rounded-xl w-fit hover:bg-blue-700 hover:text-white duration-75">Enviar</button>
       </form>
     </div>
-  </section>
+  </section> -->
 </main>
+<footer class=" p-2 w-full flex items-center justify-center">Luís Eduardo © All rights reserved 2025</footer>
 <router-outlet />
