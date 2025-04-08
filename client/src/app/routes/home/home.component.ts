@@ -30,10 +30,13 @@ export class AppComponent {
 
   currentProject?: ProjetoType = undefined; 
 
+  isMobile = false;
+
   @ViewChild("backgroundFillerText") backgroundFillerText!: ElementRef<HTMLParagraphElement>;
   
   constructor(private translate: TranslateService, private projetoService: ProjetoServiceService, private skillService: SkillService) {
     // this.translate.setDefaultLang("pt");
+    this.isMobile = this.checkIsMobile();
     this.projetoService.getProjects().subscribe((projects) => {
       this.projects = projects;
       this.currentProject = this.projects[0];
@@ -42,6 +45,21 @@ export class AppComponent {
       this.skills = skills;
       this.sortSkillsByCategory(skills);
     })
+  }
+
+  public checkIsMobile() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
   }
 
   public updateProject(iProject: number) {
