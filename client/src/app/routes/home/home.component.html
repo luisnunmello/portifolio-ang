@@ -4,7 +4,7 @@
     id="home"
     class="h-fit sm:h-[90vh] w-full overflow-hidden relative py flex flex-col sm:flex-row gap-4 scroll-mt-12"
   >
-    <div class="presentation" class="sm:px-[208px] sm:py-24 h-full flex flex-col">
+    <div class="presentation" class="2xl:pl-[208px] sm:px-6 sm:py-24 h-full flex flex-col">
       <div
         id="presentation-left"
         class="h-[70vh] sm:h-full flex flex-col justify-center items-center sm:items-start w-fit gap-8 text-justify p-6"
@@ -56,7 +56,7 @@
     </p>
   </section>
   <h2 id="about" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700 scroll-mt-12">Sobre</h2>
-  <section  class="py-4 sm:py-24 px-4 sm:px-[208px] flex flex-col-reverse sm:flex-row bg-neutral-50 gap-4 ">
+  <section  class="py-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex flex-col-reverse sm:flex-row bg-neutral-50 gap-4 ">
     <div id="about-left" class="w-full  relative  overflow-auto min-h-[450px] ">
       <div class="absolute flex  sm:flex-wrap gap-4 px-4 pb-4 pt-4 sm:pt-0">
         <app-skill-holder class="flex-1" title="Linguagens" [skills]="skillByCategory.LANGUAGE"></app-skill-holder>
@@ -91,8 +91,8 @@
     </div>
   </section>
   <h2 id="projects" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700 scroll-mt-12">Projetos</h2>
-  <section  class="p-4 sm:py-24 sm:px-[208px] flex bg-neutral-50 gap-4 flex ">
-    <div class="bg-white shadow-md flex-2 flex flex-col p-8 gap-4 rounded-xl sm:block hidden">
+  <section  class="p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex bg-neutral-50 gap-4 flex ">
+    <div class="bg-white shadow-md flex-2 flex flex-col p-8 gap-4 rounded-xl lg:block hidden md:min-w-[400px]">
       <header class="flex flex-col gap-2">
         <span class="font-bold text-2xl">{{ currentProject?.name }}</span>
         <div class="skill-holder flex gap-2">
