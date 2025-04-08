@@ -23,15 +23,19 @@
       }
     </div>
   </div>
-  <div class="button-container absolute bottom-12 z-30 flex gap-4 w-full justify-center text-xs items-center font-bold">
-    <button class="aspect-square w-12 bg-white rounded-xl text-blue-700 hover:bg-blue-100 duration-75 active:bg-blue-700 active:text-white" (click)="anteriorProjeto()"><</button>
-    @for (project of projects; track i; let i = $index) {
-      <button
-        (click)="changeProject(i)"
-        [class]="`h-12 aspect-square shadow-md rounded-full duration-75 ${iProjetoAtual === i ? 'bg-blue-700 text-white' : 'bg-white hover:bg-blue-100 text-blue-700'}`"
-      >{{i + 1}}</button>
-    }
-    <button class="aspect-square w-12 bg-white rounded-xl text-blue-700 hover:bg-blue-100 duration-75 active:bg-blue-700 active:text-white" (click)="this.proximoProjeto()">></button>
+  <div class="button-container absolute bottom-4 z-30 flex gap-4 w-full justify-center text-xs items-top font-bold px-4">
+    <button class="aspect-square h-12 w-12 bg-white rounded-xl text-blue-700 hover:bg-blue-100 duration-75 active:bg-blue-700 active:text-white" (click)="anteriorProjeto()"><</button>
+    <div class="page-holder flex gap-4 overflow-auto pb-4" #projectPageHolder>
+      @for (project of projects; track i; let i = $index) {
+        <button
+          [id]="`page-${i}`"
+          (click)="changeProject(i)"
+          [class]="`h-12 aspect-square shadow-md rounded-full duration-75 ${iProjetoAtual === i ? 'bg-blue-700 text-white' : 'bg-white hover:bg-blue-100 text-blue-700'}`"
+        >{{i + 1}}</button>
+      }
+    </div>
+    
+    <button class="aspect-square h-12 w-12 bg-white rounded-xl text-blue-700 hover:bg-blue-100 duration-75 active:bg-blue-700 active:text-white" (click)="this.proximoProjeto()">></button>
   </div>
   <div class="bottom-0 absolute bg-green-200 h-2 z-30 duration-200" [style.width.%]="(intervalo / tempoParaTrocar) * 100"></div>
 

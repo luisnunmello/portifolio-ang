@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { ProjetoType } from '../../model/projetoModel';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ScrollService } from '../../service/scroll/scroll.service';
@@ -18,6 +18,9 @@ export class CarrosselProjetosComponent implements OnInit, OnDestroy {
 
   @Input("projects")
   projects: ProjetoType[] = [];
+
+  @ViewChild("projectPageHolder", {static: true}) projectPageHolder!: ElementRef<HTMLDivElement>;
+  projectPage?: HTMLDivElement = undefined;
 
   currentProject?: ProjetoType = undefined;
 
@@ -45,6 +48,8 @@ export class CarrosselProjetosComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.criarIntervalo();
     this.iCurrentProject.emit(this.iProjetoAtual);
+    console.log(this.projectPageHolder);
+    this.projectPage = this.projectPageHolder.nativeElement;
   }
 
   ngOnDestroy(): void {
@@ -59,6 +64,8 @@ export class CarrosselProjetosComponent implements OnInit, OnDestroy {
     this.iProjetoAtual = iProject;
     this.currentProject = this.projects[this.iProjetoAtual];
     this.iCurrentProject.emit(this.iProjetoAtual);
+    const pageButton = (this.projectPageHolder.nativeElement.querySelector(`#page-${iProject}`));
+    pageButton?.scrollIntoView({behavior: "smooth"});
   }
 
   proximoProjeto(): void {
