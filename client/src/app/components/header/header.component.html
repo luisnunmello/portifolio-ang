@@ -1,53 +1,129 @@
-<header class="py-4 w-full fixed top-0  bg-white flex justify-between sm:justify-start items-center px-4 " #header>
-  <span class="block text-2xl 2xl:pl-[208px] sm:pl-4 sm:pr-6 text-blue-700 font-bold">Luís Eduardo</span>
-  <nav class="hidden sm:flex py-6 justify-start gap-6 text-2xl font-bold">
-    <a href="#home" class="hover:text-blue-700 duration-75">Inicio</a>
-    <a href="#about" class="hover:text-blue-700 duration-75">Sobre</a>
-    <a href="#projects" class="hover:text-blue-700 duration-75">Projetos</a>
+<header
+  class="py-4 w-full fixed top-0 bg-white flex justify-between sm:justify-start items-center px-4"
+  #header
+>
+  <span
+    class="block text-2xl 2xl:pl-[208px] sm:pl-4 sm:pr-6 text-blue-700 font-bold"
+    >Luís Eduardo</span
+  >
+  <nav class="hidden sm:flex py-6 justify-start text-2xl text-blue-700">
+    <a href="#home" class="hover:text-blue-900 duration-75 border-r-2 px-6"
+      >Inicio</a
+    >
+    <a href="#about" class="hover:text-blue-900 duration-75 border-r-2 px-6"
+      >Sobre</a
+    >
+    <a href="#projects" class="hover:text-blue-900 duration-75 px-6"
+      >Projetos</a
+    >
     <!-- <a href="#contact" class="hover:text-blue-700 duration-75">Contato</a> -->
   </nav>
-  <button class="border-2 border-blue-700  aspect-square rounded-xl w-12 text-blue-700 justify-center items-center flex sm:hidden" (click)="toggleMenu()">
-    <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    
+  <button
+    class="border-2 border-blue-700 aspect-square rounded-xl w-12 text-blue-700 justify-center items-center flex sm:hidden"
+    (click)="toggleMenu()"
+  >
+    <svg
+      width="20px"
+      height="20px"
+      viewBox="0 0 20 20"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+    >
       <title>hamburger</title>
       <desc>Created with Sketch Beta.</desc>
-      <defs>
-  
-  </defs>
-      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-          <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-212.000000, -888.000000)" fill="currentColor">
-              <path d="M230,904 L214,904 C212.896,904 212,904.896 212,906 C212,907.104 212.896,908 214,908 L230,908 C231.104,908 232,907.104 232,906 C232,904.896 231.104,904 230,904 L230,904 Z M230,896 L214,896 C212.896,896 212,896.896 212,898 C212,899.104 212.896,900 214,900 L230,900 C231.104,900 232,899.104 232,898 C232,896.896 231.104,896 230,896 L230,896 Z M214,892 L230,892 C231.104,892 232,891.104 232,890 C232,888.896 231.104,888 230,888 L214,888 C212.896,888 212,888.896 212,890 C212,891.104 212.896,892 214,892 L214,892 Z" id="hamburger" sketch:type="MSShapeGroup">
-  
-  </path>
-          </g>
+      <defs></defs>
+      <g
+        id="Page-1"
+        stroke="none"
+        stroke-width="1"
+        fill="none"
+        fill-rule="evenodd"
+        sketch:type="MSPage"
+      >
+        <g
+          id="Icon-Set-Filled"
+          sketch:type="MSLayerGroup"
+          transform="translate(-212.000000, -888.000000)"
+          fill="currentColor"
+        >
+          <path
+            d="M230,904 L214,904 C212.896,904 212,904.896 212,906 C212,907.104 212.896,908 214,908 L230,908 C231.104,908 232,907.104 232,906 C232,904.896 231.104,904 230,904 L230,904 Z M230,896 L214,896 C212.896,896 212,896.896 212,898 C212,899.104 212.896,900 214,900 L230,900 C231.104,900 232,899.104 232,898 C232,896.896 231.104,896 230,896 L230,896 Z M214,892 L230,892 C231.104,892 232,891.104 232,890 C232,888.896 231.104,888 230,888 L214,888 C212.896,888 212,888.896 212,890 C212,891.104 212.896,892 214,892 L214,892 Z"
+            id="hamburger"
+            sketch:type="MSShapeGroup"
+          ></path>
+        </g>
       </g>
     </svg>
   </button>
 </header>
-<div class="overlay-header-menu bg-white fixed w-full h-full duration-150 shadow-md p-4" [style]="isMenuToggled ? 'transform: translateX(0%)' : 'transform:translateX(100%)'">
-  <header class="w-full flex  justify-end">
-    <button class="bg-blue-700 aspect-square rounded-xl w-12 text-white justify-center items-center flex sm:hidden" (click)="toggleMenu()">
-      <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-      
+<div
+  class="overlay-header-menu bg-white fixed w-full h-full duration-150 shadow-md p-4"
+  [style]="
+    isMenuToggled ? 'transform: translateX(0%)' : 'transform:translateX(100%)'
+  "
+>
+  <header class="w-full flex justify-end">
+    <button
+      class="bg-blue-700 aspect-square rounded-xl w-12 text-white justify-center items-center flex sm:hidden"
+      (click)="toggleMenu()"
+    >
+      <svg
+        width="20px"
+        height="20px"
+        viewBox="0 0 20 20"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+      >
         <title>hamburger</title>
         <desc>Created with Sketch Beta.</desc>
-        <defs>
-    
-    </defs>
-        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-            <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-212.000000, -888.000000)" fill="currentColor">
-                <path d="M230,904 L214,904 C212.896,904 212,904.896 212,906 C212,907.104 212.896,908 214,908 L230,908 C231.104,908 232,907.104 232,906 C232,904.896 231.104,904 230,904 L230,904 Z M230,896 L214,896 C212.896,896 212,896.896 212,898 C212,899.104 212.896,900 214,900 L230,900 C231.104,900 232,899.104 232,898 C232,896.896 231.104,896 230,896 L230,896 Z M214,892 L230,892 C231.104,892 232,891.104 232,890 C232,888.896 231.104,888 230,888 L214,888 C212.896,888 212,888.896 212,890 C212,891.104 212.896,892 214,892 L214,892 Z" id="hamburger" sketch:type="MSShapeGroup">
-    
-    </path>
-            </g>
+        <defs></defs>
+        <g
+          id="Page-1"
+          stroke="none"
+          stroke-width="1"
+          fill="none"
+          fill-rule="evenodd"
+          sketch:type="MSPage"
+        >
+          <g
+            id="Icon-Set-Filled"
+            sketch:type="MSLayerGroup"
+            transform="translate(-212.000000, -888.000000)"
+            fill="currentColor"
+          >
+            <path
+              d="M230,904 L214,904 C212.896,904 212,904.896 212,906 C212,907.104 212.896,908 214,908 L230,908 C231.104,908 232,907.104 232,906 C232,904.896 231.104,904 230,904 L230,904 Z M230,896 L214,896 C212.896,896 212,896.896 212,898 C212,899.104 212.896,900 214,900 L230,900 C231.104,900 232,899.104 232,898 C232,896.896 231.104,896 230,896 L230,896 Z M214,892 L230,892 C231.104,892 232,891.104 232,890 C232,888.896 231.104,888 230,888 L214,888 C212.896,888 212,888.896 212,890 C212,891.104 212.896,892 214,892 L214,892 Z"
+              id="hamburger"
+              sketch:type="MSShapeGroup"
+            ></path>
+          </g>
         </g>
       </svg>
     </button>
   </header>
   <nav class="flex flex-col text-xl py-8 text-blue-700 font-bold">
-    <a href="#home" (click)="toggleMenu()" class="hover:text-blue-700 duration-75 py-4">Inicio</a>
-    <a href="#about" (click)="toggleMenu()" class="hover:text-blue-700 duration-75 border-t border-blue-700 py-4">Sobre</a>
-    <a href="#projects" (click)="toggleMenu()"class="hover:text-blue-700 duration-75 border-t border-blue-700 py-4 ">Projetos</a>
+    <a
+      href="#home"
+      (click)="toggleMenu()"
+      class="hover:text-blue-700 duration-75 py-4"
+      >Inicio</a
+    >
+    <a
+      href="#about"
+      (click)="toggleMenu()"
+      class="hover:text-blue-700 duration-75 border-t border-blue-700 py-4"
+      >Sobre</a
+    >
+    <a
+      href="#projects"
+      (click)="toggleMenu()"
+      class="hover:text-blue-700 duration-75 border-t border-blue-700 py-4"
+      >Projetos</a
+    >
     <!-- <a href="#contact" (click)="toggleMenu()"  class="hover:text-blue-700 duration-75 border-t border-blue-700 py-4">Contato</a> -->
   </nav>
 </div>
