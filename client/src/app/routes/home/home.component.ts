@@ -11,10 +11,12 @@ import { NgFor } from '@angular/common';
 import { enviroment } from '../../../environment';
 import { SkillHolderComponent } from "../../components/skill-holder/skill-holder.component";
 import { HeaderComponent } from "../../components/header/header.component";
+import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import { ContactService } from '../../service/contact/contact.service';
 
 @Component({
   selector: 'home-root',
-  imports: [RouterOutlet, TranslateModule, CarrosselProjetosComponent, SkillHolderComponent, HeaderComponent],
+  imports: [RouterOutlet, TranslateModule, CarrosselProjetosComponent, SkillHolderComponent, HeaderComponent, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -32,9 +34,17 @@ export class AppComponent {
 
   isMobile = false;
 
+  isIndentificationMessageValid = true;
+
+  messageSubmitForm = new FormGroup({
+    email: new FormControl(""),
+    cellphone: new FormControl(""),
+    message: new FormControl("")
+  });
+
   @ViewChild("backgroundFillerText") backgroundFillerText!: ElementRef<HTMLParagraphElement>;
   
-  constructor(private translate: TranslateService, private projetoService: ProjetoServiceService, private skillService: SkillService) {
+  constructor(private translate: TranslateService, private projetoService: ProjetoServiceService, private skillService: SkillService, private contactService: ContactService) {
     // this.translate.setDefaultLang("pt");
     this.isMobile = this.checkIsMobile();
     this.projetoService.getProjects().subscribe((projects) => {
@@ -45,6 +55,23 @@ export class AppComponent {
       this.skills = skills;
       this.sortSkillsByCategory(skills);
     })
+  }
+
+  public onSubmitMessage() {  
+    this.isIndentificationMessageValid = true;
+    console.log(this.messageSubmitForm);
+    this.contactService.submitMessage({id: null, message: this.messageSubmitForm.value.message!, email: this.messageSubmitForm.value.email!, cellphone: this.messageSubmitForm.value.cellphone!}).subscribe((res) => {
+      console.log(res);
+    })
+  }
+
+  public checkIsIndentificationValid() {
+    if (!this.messageSubmitForm.value.cellphone && !this.messageSubmitForm.value.email) {
+      this.isIndentificationMessageValid = false;
+    } else {
+      this.isIndentificationMessageValid = true;
+    }
+    return this.isIndentificationMessageValid;
   }
 
   public checkIsMobile() {
@@ -66,7 +93,7 @@ export class AppComponent {
     this.currentProject = this.projects[iProject];
   }
 
-  public afterREnder() {
+  public afterRender() {
     this.setFillerText();
   }
 
