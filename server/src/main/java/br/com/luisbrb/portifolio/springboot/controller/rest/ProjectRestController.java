@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.luisbrb.portifolio.springboot.controller.AuthenticationUtils;
-import br.com.luisbrb.portifolio.springboot.controller.repositories.ProjectRepository;
-import br.com.luisbrb.portifolio.springboot.controller.repositories.SkillRepository;
+import br.com.luisbrb.portifolio.springboot.dao.repositories.ProjectRepository;
+import br.com.luisbrb.portifolio.springboot.dao.repositories.SkillRepository;
 import br.com.luisbrb.portifolio.springboot.model.Constants;
 import br.com.luisbrb.portifolio.springboot.model.entities.ProjectEntity;
 import org.springframework.web.bind.annotation.RequestBody;

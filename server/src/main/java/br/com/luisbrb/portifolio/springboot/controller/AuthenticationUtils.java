@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import br.com.luisbrb.portifolio.springboot.controller.repositories.AuthorizationRepository;
+import br.com.luisbrb.portifolio.springboot.dao.repositories.AuthorizationRepository;
 import br.com.luisbrb.portifolio.springboot.model.entities.AuthorizationEntity;
 
 @Component

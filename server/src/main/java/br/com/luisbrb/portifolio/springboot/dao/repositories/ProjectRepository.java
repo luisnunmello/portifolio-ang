@@ -1,4 +1,4 @@
-package br.com.luisbrb.portifolio.springboot.controller.repositories;
+package br.com.luisbrb.portifolio.springboot.dao.repositories;
 import org.springframework.data.repository.CrudRepository;
 
 import br.com.luisbrb.portifolio.springboot.model.entities.ProjectEntity;

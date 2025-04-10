@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.luisbrb.portifolio.springboot.controller.AuthenticationUtils;
-import br.com.luisbrb.portifolio.springboot.controller.repositories.ImageRepository;
+import br.com.luisbrb.portifolio.springboot.dao.repositories.ImageRepository;
 import br.com.luisbrb.portifolio.springboot.model.Constants;
 import br.com.luisbrb.portifolio.springboot.model.ImageTypeEnum;
 import br.com.luisbrb.portifolio.springboot.model.entities.ImageEntity;
