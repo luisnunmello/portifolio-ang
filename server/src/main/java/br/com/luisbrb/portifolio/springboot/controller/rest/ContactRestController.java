@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.luisbrb.portifolio.springboot.controller.repositories.ContactRepository;
+import br.com.luisbrb.portifolio.springboot.dao.repositories.ContactRepository;
 import br.com.luisbrb.portifolio.springboot.model.entities.ContactEntity;
 import jakarta.validation.Valid;
 
