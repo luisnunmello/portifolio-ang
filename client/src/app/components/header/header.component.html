@@ -1,12 +1,12 @@
 <header
-  class="py-4 w-full fixed top-0 bg-white flex justify-between sm:justify-start items-center px-4"
+  class="py-4 w-full fixed top-0 bg-white flex justify-between items-center px-4"
   #header
 >
   <span
-    class="block text-2xl 2xl:pl-[208px] sm:pl-4 sm:pr-6 text-black font-bold"
+    class="block text-2xl sm:pl-4 sm:pr-6 text-black font-bold"
     >Luís Eduardo</span
   >
-  <nav class="hidden sm:flex py-6 justify-start text-2xl text-blue-700 font-bold">
+  <!-- <nav class="hidden sm:flex py-6 justify-start text-2xl text-blue-700 font-bold">
     <a href="#home" class="hover:text-blue-900 duration-75 border-r-2 px-6"
       >Inicio</a
     >
@@ -17,9 +17,9 @@
       >Projetos</a
     >
     <a href="#contact" class="hover:text-blue-900 duration-75 px-6">Contato</a>
-  </nav>
+  </nav> -->
   <button
-    class="border-2 border-blue-700 aspect-square rounded-xl w-12 text-blue-700 justify-center items-center flex sm:hidden"
+    class="border-2 border-blue-700 aspect-square rounded-xl w-12 text-blue-700 justify-center items-center flex"
     (click)="toggleMenu()"
   >
     <svg
@@ -58,15 +58,16 @@
     </svg>
   </button>
 </header>
+<div [class]="`overlay-background-menu  w-full h-full  z-10 fixed top-0 left-0 ${isMenuToggled ? 'bg-black/50' : 'bg-transparent pointer-events-none'}`"></div>
 <div
-  class="overlay-header-menu bg-white fixed w-full h-full duration-150 shadow-md p-4"
+  class="overlay-header-menu bg-white fixed sm:w-fit w-full h-full duration-150 shadow-md p-4 sm:min-w-[350px] right-0 z-10"
   [style]="
     isMenuToggled ? 'transform: translateX(0%)' : 'transform:translateX(100%)'
   "
 >
   <header class="w-full flex justify-end">
     <button
-      class="bg-blue-700 aspect-square rounded-xl w-12 text-white justify-center items-center flex sm:hidden"
+      class="bg-blue-700 aspect-square rounded-xl w-12 text-white justify-center items-center flex"
       (click)="toggleMenu()"
     >
       <svg
@@ -109,25 +110,25 @@
     <a
       href="#home"
       (click)="toggleMenu()"
-      class="hover:text-blue-700 duration-75 py-4"
+      class="hover:text-blue-700 duration-75 py-4 w-full"
       >Inicio</a
     >
     <a
       href="#about"
       (click)="toggleMenu()"
-      class="hover:text-blue-700 duration-75 border-t border-blue-700 py-4"
+      class="hover:text-blue-700 duration-75 border-t border-blue-700 py-4 w-full"
       >Sobre</a
     >
     <a
       href="#projects"
       (click)="toggleMenu()"
-      class="hover:text-blue-700 duration-75 border-t border-blue-700 py-4"
+      class="hover:text-blue-700 duration-75 border-t border-blue-700 py-4 w-full"
       >Projetos</a
     >
     <a
       href="#contact"
       (click)="toggleMenu()"
-      class="hover:text-blue-700 duration-75 border-t border-blue-700 py-4"
+      class="hover:text-blue-700 duration-75 border-t border-blue-700 py-4 w-full"
       >Contato</a
     >
   </nav>

@@ -19,7 +19,7 @@ export class HeaderComponent {
 
   public reflectMenuOpenChanges() {
     if (this.isMenuToggled) {
-      this.scrollService.lockScroll();
+      // this.scrollService.lockScroll();
       return;
     }
     this.scrollService.unlockScroll();
