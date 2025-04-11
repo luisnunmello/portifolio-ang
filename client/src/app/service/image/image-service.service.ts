@@ -26,7 +26,7 @@ export class ImageServiceService {
         subscriber.next(undefined);
         return;
       }
-      this.httpClient.post<ImageType[]>(`${enviroment.urlBackend}/image`, formData, {withCredentials: true}).subscribe((res) => {
+      this.httpClient.post<ImageType[]>(`${enviroment.urlBackend}/image/create`, formData, {withCredentials: true}).subscribe((res) => {
         subscriber.next(res);
       });
     })

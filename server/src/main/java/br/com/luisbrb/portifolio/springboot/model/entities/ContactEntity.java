@@ -2,7 +2,6 @@ package br.com.luisbrb.portifolio.springboot.model.entities;
 
 import java.io.Serializable;
 
-import br.com.luisbrb.portifolio.springboot.model.ImageTypeEnum;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -23,6 +22,7 @@ import lombok.ToString;
 @ToString
 public class ContactEntity implements Serializable {
     private @Id() @GeneratedValue Long id;
+    private String name;
     private String email;
     private String cellphone;
     private @NotEmpty String message;

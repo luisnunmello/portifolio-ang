@@ -10,7 +10,7 @@ export class ProjetoServiceService {
   constructor(private httpClient: HttpClient) { }
 
   public criarProjeto(projeto: ProjetoType) {
-    return this.httpClient.post(`${enviroment.urlBackend}/project`, projeto, {withCredentials: true})
+    return this.httpClient.post(`${enviroment.urlBackend}/project/create`, projeto, {withCredentials: true})
   }
 
   public getProjects() {

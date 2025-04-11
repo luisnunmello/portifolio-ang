@@ -1,29 +1,33 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { LoginService } from '../../../service/login/login.service';
 import { RouterLink } from '@angular/router';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterLink],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
   @ViewChild("passwordComponent") passwordComponent!: ElementRef<HTMLInputElement>;
   loggedIn?: boolean;
-  password: string = "";
-
-  setPassword(event: Event) {
-    console.log((event.target as HTMLInputElement).value);
-    this.password = (event.target as HTMLInputElement).value;
-  }
-
+  loginForm = new FormGroup({
+    password: new FormControl("")
+  })
 
   constructor(private loginService: LoginService) {
-    this.loggedIn = loginService.loggedIn;
-  } 
+    if (!loginService.loggedIn) {
+      loginService.checkLogin().subscribe((value) => {
+        this.loggedIn = value;
+      })
+    } else {
+      this.loggedIn = loginService.loggedIn;
+    }
+  }
+
   doLogin() {
-    this.loginService.doLogin(this.password).subscribe((res) => {
+    this.loginService.doLogin(this.loginForm.value.password!).subscribe((res) => {
       this.loggedIn = res;
     });
   }

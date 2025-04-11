@@ -1,12 +1,12 @@
 package br.com.luisbrb.portifolio.springboot.controller.rest;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +14,6 @@ import br.com.luisbrb.portifolio.springboot.controller.AuthenticationUtils;
 import br.com.luisbrb.portifolio.springboot.dao.repositories.AuthorizationRepository;
 import br.com.luisbrb.portifolio.springboot.model.Constants;
 import br.com.luisbrb.portifolio.springboot.model.entities.AuthorizationEntity;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -37,8 +36,10 @@ public class AuthRestController {
     }
 
     @PostMapping("")
-    public boolean auth(@CookieValue(name = Constants.AUTH_COOKIE, required = false) String authCookie, @RequestBody LoginBody loginBody, HttpServletResponse response) {
+    public boolean auth(@CookieValue(name = Constants.AUTH_COOKIE, required = false) String _authCookie, @RequestBody LoginBody loginBody, HttpServletResponse response) {
         List<AuthorizationEntity> optAuthorizationEntity = authorizationRepository.findAll();
+        String authCookie = _authCookie == null ? _authCookie : UUID.randomUUID().toString();
+
         if (optAuthorizationEntity.isEmpty()) {
             UUID uuid = UUID.randomUUID();
             response.addCookie(new Cookie(Constants.AUTH_COOKIE, uuid.toString()));
@@ -46,29 +47,31 @@ public class AuthRestController {
             return true;
         }
 
+
         AuthorizationEntity authorizationEntity = optAuthorizationEntity.get(0);
+        if (authorizationEntity.getUserCookie() == authCookie) {
+            return true;
+        }
+
         if (authorizationEntity.getPassword() == null) {
             authorizationEntity.setPassword(loginBody.password);
+            authorizationEntity.setUserCookie(authCookie);
             authorizationRepository.save(authorizationEntity);
             return true;
         }
 
-        if (authorizationEntity.getPassword().equals(loginBody.password)) {
+        if (!authorizationEntity.getPassword().equals(loginBody.password)) {
             return false;
         }
 
+        authorizationEntity.setPassword(loginBody.password);
         authorizationEntity.setUserCookie(authCookie);
         authorizationRepository.save(authorizationEntity);
-
         return true;
     }
 
     @PostMapping("/changePass")
-    public boolean changePass(@CookieValue("auth-id") String authCookie, @RequestBody LoginBody loginBody) {
-        if (!AuthenticationUtils.isLoggedIn(authCookie)) {
-            return false;
-        };
-
+    public boolean changePass(@RequestBody LoginBody loginBody) {
         List<AuthorizationEntity> optAuthorizationEntity = authorizationRepository.findAll();
         if (optAuthorizationEntity.isEmpty()) {
             return false;
@@ -80,17 +83,14 @@ public class AuthRestController {
     }
 
     @PostMapping("/logout")
-    public boolean logout(@CookieValue("auth-id") String authCookie) {
-        if (!AuthenticationUtils.isLoggedIn(authCookie)) {
-            return false;
-        };
-
+    public boolean logout() {
         List<AuthorizationEntity> optAuthorizationEntity = authorizationRepository.findAll();
         if (optAuthorizationEntity.isEmpty()) {
             return false;
         }
         AuthorizationEntity authorizationEntity = optAuthorizationEntity.get(0);
-        authorizationRepository.delete(authorizationEntity);
+        authorizationEntity.setUserCookie(null);
+        authorizationRepository.save(authorizationEntity);
         return true;
     }
 }

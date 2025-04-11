@@ -44,12 +44,8 @@ public class ImageRestController {
         return "";
     }
 
-    @PostMapping(path = "", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<List<ImageEntity>> save(@CookieValue(name = Constants.AUTH_COOKIE) String authCookie, @RequestPart("image") MultipartFile[] formData) throws IOException {
-        if (!AuthenticationUtils.isLoggedIn(authCookie)) {
-            return null;
-        };
-
+    @PostMapping(path = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<List<ImageEntity>> save( @RequestPart("image") MultipartFile[] formData) throws IOException {
         List<ImageEntity> imageList = new ArrayList<>();
         for (MultipartFile image : formData) {
             ImageTypeEnum type = null;

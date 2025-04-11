@@ -12,11 +12,11 @@ export class SkillService {
   constructor(private httpClient: HttpClient) {}
 
   public getSkills() {
-    return this.httpClient.get<SkillType[]>(`${enviroment.urlBackend}/skill/all`);
+    return this.httpClient.get<SkillType[]>(`${enviroment.urlBackend}/skill/all`, {withCredentials: true});
   }
 
   public saveSkill(skill: SkillType) {
-    return this.httpClient.post<SkillType>(`${enviroment.urlBackend}/skill/`, skill, {withCredentials: true});
+    return this.httpClient.post<SkillType>(`${enviroment.urlBackend}/skill/create`, skill, {withCredentials: true});
   }
 
 

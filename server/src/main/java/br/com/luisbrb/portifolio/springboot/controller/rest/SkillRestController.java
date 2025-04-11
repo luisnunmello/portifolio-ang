@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.luisbrb.portifolio.springboot.controller.AuthenticationUtils;
 import br.com.luisbrb.portifolio.springboot.dao.repositories.SkillRepository;
 import br.com.luisbrb.portifolio.springboot.model.Constants;
 import br.com.luisbrb.portifolio.springboot.model.entities.SkillEntity;
@@ -23,11 +22,8 @@ public class SkillRestController {
         this.skillRepository = skillRepository;
     }
 
-    @PostMapping("/")
+    @PostMapping("/create")
     public SkillEntity save(@CookieValue(name = Constants.AUTH_COOKIE) String authCookie, @RequestBody SkillEntity skillEntity) {
-        if (!AuthenticationUtils.isLoggedIn(authCookie)) {
-            return null;
-        };
         return skillRepository.save(skillEntity);
     }
 
@@ -38,10 +34,6 @@ public class SkillRestController {
 
     @PutMapping("/edit")
     public SkillEntity edit(@CookieValue(name = Constants.AUTH_COOKIE) String authCookie, @RequestBody SkillEntity skillEntity) {
-        if (!AuthenticationUtils.isLoggedIn(authCookie)) {
-            return null;
-        };
-        
         if (skillEntity.getId() == null) {
             return null;
         }

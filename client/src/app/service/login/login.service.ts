@@ -2,22 +2,25 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { enviroment } from '../../../environment';
 import { Observable } from 'rxjs';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  public loggedIn?: boolean;
-  
+  public loggedIn?: boolean = undefined;
+  public loginForm = new FormGroup({
+    password: new FormControl("")
+  })
+
   constructor(private httpClient: HttpClient) { 
     this.checkLogin().subscribe((res) => {
       this.loggedIn = res;
-      console.log(`Is already logged in ${res}`)
     });
   }
 
   checkLogin() {
-    return this.httpClient.get<boolean>(`${enviroment.urlBackend}/auth/check`);
+    return this.httpClient.get<boolean>(`${enviroment.urlBackend}/auth/check`, {withCredentials: true});
   }
 
   doLogin(password: string) {

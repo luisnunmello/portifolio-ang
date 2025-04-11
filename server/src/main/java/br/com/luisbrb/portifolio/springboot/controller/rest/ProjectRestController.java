@@ -38,12 +38,8 @@ public class ProjectRestController {
         return this.projectRepository.findById(id);
     }
 
-    @PutMapping()
-    public ProjectEntity edit(@CookieValue(name = Constants.AUTH_COOKIE) String authCookie, @RequestBody ProjectEntity entity) {
-        if (!AuthenticationUtils.isLoggedIn(authCookie)) {
-            return null;
-        };
-
+    @PutMapping("/edit")
+    public ProjectEntity edit(@RequestBody ProjectEntity entity) {
         if (entity.getId() == null || !projectRepository.existsById(entity.getId())) {
             return null;
         }
@@ -51,12 +47,8 @@ public class ProjectRestController {
         return projectRepository.save(entity);
     }
 
-    @PostMapping()
-    public ProjectEntity save(@CookieValue(name = Constants.AUTH_COOKIE) String authCookie, @RequestBody ProjectEntity entity) {
-        if (!AuthenticationUtils.isLoggedIn(authCookie)) {
-            return null;
-        };
-
+    @PostMapping("/create")
+    public ProjectEntity save(@RequestBody ProjectEntity entity) {
         entity.setId(null);
         if (!entity.getTechBack().isEmpty()) {
             entity.getTechBack().forEach(skillTech -> {

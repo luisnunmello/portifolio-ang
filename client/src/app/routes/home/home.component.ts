@@ -34,9 +34,11 @@ export class AppComponent {
 
   isMobile = false;
 
-  isIndentificationMessageValid = true;
+  isIndentificationMessageValid?: boolean = undefined;
+  isNameTyped?: boolean = undefined;
 
   messageSubmitForm = new FormGroup({
+    name: new FormControl(""),
     email: new FormControl(""),
     cellphone: new FormControl(""),
     message: new FormControl("")
@@ -60,9 +62,17 @@ export class AppComponent {
   public onSubmitMessage() {  
     this.isIndentificationMessageValid = true;
     console.log(this.messageSubmitForm);
-    this.contactService.submitMessage({id: null, message: this.messageSubmitForm.value.message!, email: this.messageSubmitForm.value.email!, cellphone: this.messageSubmitForm.value.cellphone!}).subscribe((res) => {
+    this.contactService.submitMessage({id: null, message: this.messageSubmitForm.value.message!, email: this.messageSubmitForm.value.email!, cellphone: this.messageSubmitForm.value.cellphone!, name: this.messageSubmitForm.value.name!}).subscribe((res) => {
       console.log(res);
     })
+  }
+
+  public checkIsNameTyped() {
+    if (!this.messageSubmitForm.value.name || this.messageSubmitForm.value.name.trim() === "") {
+      this.isNameTyped = false;
+    } else {
+      this.isNameTyped = true;
+    }
   }
 
   public checkIsIndentificationValid() {

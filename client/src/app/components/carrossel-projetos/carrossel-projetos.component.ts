@@ -65,7 +65,7 @@ export class CarrosselProjetosComponent implements OnInit, OnDestroy {
     this.currentProject = this.projects[this.iProjetoAtual];
     this.iCurrentProject.emit(this.iProjetoAtual);
     const pageButton = (this.projectPageHolder.nativeElement.querySelector(`#page-${iProject}`));
-    pageButton?.scrollIntoView({behavior: "smooth"});
+    pageButton?.scrollIntoView({behavior: "smooth", block: "nearest"});
   }
 
   proximoProjeto(): void {

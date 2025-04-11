@@ -7,8 +7,11 @@
         <a routerLink="/admin/create/skill">Create Skill</a>
     }
     @else {
-        <input class="p-2 border border-neutral-200" placeholder="senha" (change)="setPassword($event)" #passwordComponent>
-        <button (click)="doLogin()" class="p-2 border border-neutral-200">Login</button>
+        <form (ngSubmit)="doLogin()" [formGroup]="loginForm">
+            <input formControlName="password"  class="p-2 border border-neutral-200" placeholder="senha" #passwordComponent>
+            <button class="p-2 border border-neutral-200">Login</button>
+        </form>
+        
     }
     
 </main>
