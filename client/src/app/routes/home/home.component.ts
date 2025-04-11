@@ -60,8 +60,12 @@ export class AppComponent {
   }
 
   public onSubmitMessage() {  
-    this.isIndentificationMessageValid = true;
-    console.log(this.messageSubmitForm);
+    const isNameTyped = this.checkIsNameTyped();
+    const isIndentificationMessageValid = this.checkIsIndentificationValid();
+    if (!isNameTyped || !isIndentificationMessageValid) {
+      return;
+    }
+
     this.contactService.submitMessage({id: null, message: this.messageSubmitForm.value.message!, email: this.messageSubmitForm.value.email!, cellphone: this.messageSubmitForm.value.cellphone!, name: this.messageSubmitForm.value.name!}).subscribe((res) => {
       console.log(res);
     })
@@ -73,6 +77,7 @@ export class AppComponent {
     } else {
       this.isNameTyped = true;
     }
+    return this.isNameTyped;
   }
 
   public checkIsIndentificationValid() {
