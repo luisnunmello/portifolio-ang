@@ -13,6 +13,7 @@ import { SkillHolderComponent } from "../../components/skill-holder/skill-holder
 import { HeaderComponent } from "../../components/header/header.component";
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import { ContactService } from '../../service/contact/contact.service';
+import { NotificationService } from '../../service/notification/notification.service';
 
 @Component({
   selector: 'home-root',
@@ -46,7 +47,7 @@ export class AppComponent {
 
   @ViewChild("backgroundFillerText") backgroundFillerText!: ElementRef<HTMLParagraphElement>;
   
-  constructor(private translate: TranslateService, private projetoService: ProjetoServiceService, private skillService: SkillService, private contactService: ContactService) {
+  constructor(private translate: TranslateService, private projetoService: ProjetoServiceService, private skillService: SkillService, private contactService: ContactService, private notificationService: NotificationService) {
     // this.translate.setDefaultLang("pt");
     this.isMobile = this.checkIsMobile();
     this.projetoService.getProjects().subscribe((projects) => {
@@ -57,6 +58,8 @@ export class AppComponent {
       this.skills = skills;
       this.sortSkillsByCategory(skills);
     })
+
+    // notificationService.show({title: "Teste", description: "Teste zao teste testes jfaifjwafowejf", status: 401})
   }
 
   public onSubmitMessage() {  
@@ -67,7 +70,7 @@ export class AppComponent {
     }
 
     this.contactService.submitMessage({id: null, message: this.messageSubmitForm.value.message!, email: this.messageSubmitForm.value.email!, cellphone: this.messageSubmitForm.value.cellphone!, name: this.messageSubmitForm.value.name!}).subscribe((res) => {
-      console.log(res);
+      this.notificationService.show({title: "Alerta", description: "Contato enviado :)"});
     })
   }
 

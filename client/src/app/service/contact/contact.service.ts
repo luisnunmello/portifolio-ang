@@ -11,6 +11,6 @@ export class ContactService {
   constructor(private httpClient: HttpClient) { }
 
   public submitMessage(message: MessageType) {
-    return this.httpClient.post(`${enviroment.urlBackend}/contact`, message);
+    return this.httpClient.post<MessageType>(`${enviroment.urlBackend}/contact`, message);
   }
 }

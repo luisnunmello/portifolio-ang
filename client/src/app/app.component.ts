@@ -2,10 +2,11 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { AlertComponent } from "./components/alert/alert.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TranslateModule],
+  imports: [RouterOutlet, TranslateModule, AlertComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
