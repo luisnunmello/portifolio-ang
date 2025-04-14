@@ -70,7 +70,15 @@ export class AppComponent {
     }
 
     this.contactService.submitMessage({id: null, message: this.messageSubmitForm.value.message!, email: this.messageSubmitForm.value.email!, cellphone: this.messageSubmitForm.value.cellphone!, name: this.messageSubmitForm.value.name!}).subscribe((res) => {
-      this.notificationService.show({title: "Alerta", description: "Contato enviado :)"});
+      if (res.status !== 200) {
+        if (typeof res.body === "string") {
+          this.notificationService.show({title: "Erro", description: res.body, status: res.status});
+        } else {
+          this.notificationService.show({title: "Erro", description: `Erro desconhecido ${res.body}`, status: res.status});
+        }
+        return;
+      }
+      this.notificationService.show({title: "Sucesso", description: "Contato enviado :)", status: res.status});
     })
   }
 
