@@ -1,8 +1,11 @@
 package br.com.luisbrb.portifolio.springboot.controller.rest;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,19 +40,21 @@ public class AuthRestController {
 
     @PostMapping("")
     public boolean auth(@CookieValue(name = Constants.AUTH_COOKIE, required = false) String _authCookie, @RequestBody LoginBody loginBody, HttpServletResponse response) {
-        List<AuthorizationEntity> optAuthorizationEntity = authorizationRepository.findAll();
-        String authCookie = _authCookie == null ? _authCookie : UUID.randomUUID().toString();
+        List<AuthorizationEntity> authorizationEntities = authorizationRepository.getAuthorization();
 
-        if (optAuthorizationEntity.isEmpty()) {
+        String authCookie = _authCookie != null ? _authCookie : UUID.randomUUID().toString();
+        if (_authCookie == null) {
+            response.addCookie(new Cookie(Constants.AUTH_COOKIE, authCookie));
+        }
+
+        if (authorizationEntities.isEmpty()) {
             UUID uuid = UUID.randomUUID();
-            response.addCookie(new Cookie(Constants.AUTH_COOKIE, uuid.toString()));
             authorizationRepository.save(new AuthorizationEntity(null, loginBody.password, uuid.toString()));
             return true;
         }
 
-
-        AuthorizationEntity authorizationEntity = optAuthorizationEntity.get(0);
-        if (authorizationEntity.getUserCookie() == authCookie) {
+        AuthorizationEntity authorizationEntity = authorizationEntities.get(0);
+        if (AuthenticationUtils.isLoggedIn(authCookie)) {
             return true;
         }
 
