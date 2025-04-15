@@ -84,6 +84,7 @@ public class AuthRestController {
 
         AuthorizationEntity authorizationEntity = optAuthorizationEntity.get(0);
         authorizationEntity.setPassword(loginBody.password);
+        authorizationRepository.save(authorizationEntity);
         return true;
     }
 
