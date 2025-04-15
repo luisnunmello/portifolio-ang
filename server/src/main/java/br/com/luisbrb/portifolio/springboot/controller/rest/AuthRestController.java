@@ -77,7 +77,7 @@ public class AuthRestController {
 
     @PostMapping("/changePass")
     public boolean changePass(@RequestBody LoginBody loginBody) {
-        List<AuthorizationEntity> optAuthorizationEntity = authorizationRepository.findAll();
+        List<AuthorizationEntity> optAuthorizationEntity = authorizationRepository.getAuthorization();
         if (optAuthorizationEntity.isEmpty()) {
             return false;
         }
@@ -89,7 +89,7 @@ public class AuthRestController {
 
     @PostMapping("/logout")
     public boolean logout() {
-        List<AuthorizationEntity> optAuthorizationEntity = authorizationRepository.findAll();
+        List<AuthorizationEntity> optAuthorizationEntity = authorizationRepository.getAuthorization();
         if (optAuthorizationEntity.isEmpty()) {
             return false;
         }
