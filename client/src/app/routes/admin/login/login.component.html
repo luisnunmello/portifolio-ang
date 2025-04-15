@@ -3,6 +3,11 @@
     Login status: {{ loggedIn }}
     @if (loggedIn) {
         <button (click)="doLogout()" class="p-2 border border-neutral-200">Logout</button>
+        
+        <form (ngSubmit)="doChangePassword()" [formGroup]="loginForm">
+            <input formControlName="password"  class="p-2 border border-neutral-200" placeholder="senha" #passwordComponent>
+            <button class="p-2 border border-neutral-200" type="submit">Change Password</button>
+        </form>
         <a routerLink="/admin/create/project">Create Project</a>
         <a routerLink="/admin/create/skill">Create Skill</a>
     }

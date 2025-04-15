@@ -36,4 +36,10 @@ export class LoginComponent {
       this.loggedIn = false;
     });
   }
+
+  doChangePassword() {
+    this.loginService.changePass(this.loginForm.value.password!).subscribe((res) => {
+      console.log(res);
+    });
+  }
 }

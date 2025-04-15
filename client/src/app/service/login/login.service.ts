@@ -41,4 +41,8 @@ export class LoginService {
       });
     });
   }
+
+  changePass(newPassword: string) {
+    return this.httpClient.post<boolean>(`${enviroment.urlBackend}/auth/changePass`, {password: newPassword}, {withCredentials: true})
+  }
 }
