@@ -1,5 +1,5 @@
 <main
-  class="flex flex-col justify-center overflow-x-hidden w-full pb-24 bg-gradient-to-r from-neutral-50 to-neutral-100"
+  class="flex flex-col justify-center overflow-x-hidden w-full pb-24 bg-white"
 >
   <app-header class="w-full flex gap-2 z-60" />
   <section
@@ -111,10 +111,10 @@
   <!-- <h2 id="about" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700 scroll-mt-24">Sobre</h2> -->
   <section
     id="about"
-    class="py-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex flex-col-reverse sm:flex-row gap-4 scroll-mt-24"
+    class="py-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex flex-col-reverse sm:flex-row gap-4 scroll-mt-24 sm:h-[90vh]"
   >
     <div id="about-left" class="w-full relative overflow-auto min-h-[450px]">
-      <div class="absolute flex sm:flex-wrap gap-4 px-4 pb-4 pt-4 sm:pt-0">
+      <div class="absolute flex sm:flex-wrap gap-4 px-4 py-4 ">
         <app-skill-holder
           class="flex-1"
           title="Linguagens"
@@ -145,7 +145,7 @@
     <div id="about-right" class="w-full flex flex-col gap-4">
       <div
         id="about-me"
-        class="bg-white p-8 sm:p-20 flex flex-col gap-6 shadow-md rounded-xl"
+        class="bg-white border border-neutral-200 p-8 sm:p-20 flex flex-col gap-6 shadow-md rounded-xl h-full"
       >
         <span class="text-3xl font-bold text-blue-700">Sobre mim</span>
         <span class="text-xl text-justify font-semibold text-neutral-700">
@@ -161,15 +161,15 @@
         id="stats-holder"
         class="text-blue-700 font-bold text-xl flex gap-4 flex-wrap"
       >
-        <div class="stat bg-white px-8 py-4 shadow-md flex-3 rounded-xl">
+        <div class="stat bg-white px-8 py-4 shadow-md flex-3 rounded-xl border border-neutral-200">
           4+<br />
           <span class="text-base text-nowrap">Anos de Experiência</span>
         </div>
-        <div class="stat bg-white px-8 py-4 shadow-md flex-4 rounded-xl">
+        <div class="stat bg-white px-8 py-4 shadow-md flex-4 rounded-xl border border-neutral-200">
           {{ skills.length }}+<br />
           <span class="text-base text-nowrap">Tecnologias Dominadas</span>
         </div>
-        <div class="stat bg-white px-8 py-4 shadow-md flex-3 rounded-xl">
+        <div class="stat bg-white px-8 py-4 shadow-md flex-3 rounded-xl border border-neutral-200">
           {{ projects.length }}+<br />
           <span class="text-base text-nowrap">Projetos Completos</span>
         </div>
@@ -182,7 +182,7 @@
     class="p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24"
   >
     <div
-      class="bg-white shadow-md flex-2 flex flex-col p-8 gap-4 rounded-xl lg:block hidden md:min-w-[400px]"
+      class="bg-white border border-neutral-200 shadow-md flex-2 flex flex-col p-8 gap-4 rounded-xl lg:block hidden md:min-w-[400px]"
     >
       <header class="flex flex-col gap-2">
         <span class="font-bold text-2xl">{{ currentProject?.name }}</span>
@@ -207,7 +207,7 @@
   <!-- <h2 id="contact" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700 scroll-mt-24">Contato</h2> -->
   <section id="contact" class="p-4 p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24">
     <div
-      class="p-8 bg-white w-full font-bold rounded-xl shadow-md flex flex-col gap-8"
+      class="p-8 bg-white w-full font-bold rounded-xl shadow-md flex flex-col gap-8 border border-neutral-200"
     >
       <header>
         <h3 class="text-3xl">
@@ -286,7 +286,8 @@
     </div>
   </section>
 </main>
-<footer class="p-2 w-full flex items-center justify-center">
+<footer class="p-2 w-full flex items-center justify-center gap-2">
   Luís Eduardo © All rights reserved 2025
+  <a class="underline text-blue-600" href="https://github.com/luis10barbo/portifolio-ang">Github Repository</a>
 </footer>
 <router-outlet />
