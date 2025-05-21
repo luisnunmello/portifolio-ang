@@ -2,27 +2,27 @@
         <div class="flex flex-col gap-4 input-holder max-w-lg">
             <div class="flex flex-col gap-2 max-w-sm">
                 <label for="name-input">Nome</label>
-                <input id="name-input" class="p-2 border border-neutral-200" #nameInput>
+                <input id="name-input" class="p-2 border-border-neutral-200" #nameInput>
             </div>
             <div class="flex flex-col gap-2 max-w-sm">
                 <label for="description-input">Description</label>
-                <input id="description-input" class="p-2 border border-neutral-200" #descriptionInput>
+                <input id="description-input" class="p-2 border-border-neutral-200" #descriptionInput>
             </div>
             <div class="flex flex-col gap-2 max-w-sm">
                 <label for="repo-input">Repo</label>
-                <input id="repo-input" class="p-2 border border-neutral-200" #repoInput> 
+                <input id="repo-input" class="p-2 border-border-neutral-200" #repoInput> 
             </div>
             <div class="flex flex-col gap-2 max-w-sm">
                 <label for="website-input">Website</label>
-                <input id="website-input" class="p-2 border border-neutral-200" #websiteInput>
+                <input id="website-input" class="p-2 border-border-neutral-200" #websiteInput>
             </div>
             <div class="flex flex-col gap-2 max-w-sm">
                 <label for="download-input">Download</label>
-                <input id="download-input" class="p-2 border border-neutral-200" #downloadInput>
+                <input id="download-input" class="p-2 border-border-neutral-200" #downloadInput>
             </div>
             <div class="flex flex-col gap-2 max-w-sm">
                 <label for="status-input">Status</label>
-                <select id="status-input" class="p-2 border border-neutral-200" #statusSelect>
+                <select id="status-input" class="p-2 border-border-neutral-200" #statusSelect>
                     <option value="COMPLETE">Completo</option>
                     <option value="INPROGRESS">Em Progresso</option>
                     <option value="INCOMPLETE">Incompleto</option>
@@ -52,12 +52,12 @@
                     }
                 </div>
                 
-                <div  class="image-selector p-4 max-w-xs border border-neutral-200 flex flex-col justify-center items-center">
+                <div  class="image-selector p-4 max-w-xs border-border-neutral-200 flex flex-col justify-center items-center">
                     <label for="input-image" class="flex-1">Select an image</label>
                     <input (change)="onChangeImages($event)" type="file" multiple name="" accept="image/png, image/gif, image/jpeg, image/jpg" id="input-image" class="flex-1 text-center" #imagesInput>
                 </div>
             </div>
         </div>
         
-        <button class="p-2 border border-neutral-200 h-fit hover:bg-neutral-100 max-w-sm" (click)="clickSubmit()">Criar</button>
+        <button class="p-2 border-border-neutral-200 h-fit hover:bg-neutral-100 max-w-sm" (click)="clickSubmit()">Criar</button>
 </main>

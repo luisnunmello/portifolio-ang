@@ -1,7 +1,7 @@
 <main
-  class="flex flex-col justify-center overflow-x-hidden w-full pb-24 bg-white"
+  class="flex flex-col justify-center overflow-x-hidden w-full pb-24"
 >
-  <app-header class="w-full flex gap-2 z-60" />
+  <app-header class="w-full flex gap-2 z-60 shadow-pretty" />
   <section
     id="home"
     class="h-fit sm:h-[90vh] w-full overflow-hidden relative py flex flex-col sm:flex-row gap-4 scroll-mt-24 bg-white"
@@ -108,7 +108,7 @@
       }}
     </p>
   </section>
-  <!-- <h2 id="about" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700 scroll-mt-24">Sobre</h2> -->
+  <!-- <h2 id="about" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-pretty text-neutral-700 scroll-mt-24">Sobre</h2> -->
   <section
     id="about"
     class="py-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex flex-col-reverse sm:flex-row gap-4 scroll-mt-24 sm:h-[90vh]"
@@ -145,10 +145,10 @@
     <div id="about-right" class="w-full flex flex-col gap-4">
       <div
         id="about-me"
-        class="bg-white border border-neutral-200 p-8 sm:p-20 flex flex-col gap-6 shadow-md rounded-xl h-full"
+        class="bg-white border-border-neutral-200 p-8 sm:p-20 flex flex-col gap-6 shadow-pretty rounded-xl h-full"
       >
         <span class="text-3xl font-bold text-blue-700">Sobre mim</span>
-        <span class="text-xl text-justify font-semibold text-neutral-700">
+        <span class="text-xl text-justify font-normal text-neutral-900">
           Olá, me chamo Luís Eduardo!<br /><br />
           Sou um grande entusiasta da área de tecnologia e também de
           programação.<br /><br />
@@ -161,28 +161,28 @@
         id="stats-holder"
         class="text-blue-700 font-bold text-xl flex gap-4 flex-wrap"
       >
-        <div class="stat bg-white px-8 py-4 shadow-md flex-3 rounded-xl border border-neutral-200">
+        <div class="stat bg-white px-8 py-4 shadow-pretty flex-3 rounded-xl border-border-neutral-200">
           4+<br />
           <span class="text-base text-nowrap">Anos de Experiência</span>
         </div>
-        <div class="stat bg-white px-8 py-4 shadow-md flex-4 rounded-xl border border-neutral-200">
+        <div class="stat bg-white px-8 py-4 shadow-pretty flex-4 rounded-xl border-border-neutral-200">
           {{ skills.length }}+<br />
           <span class="text-base text-nowrap">Tecnologias Dominadas</span>
         </div>
-        <div class="stat bg-white px-8 py-4 shadow-md flex-3 rounded-xl border border-neutral-200">
+        <div class="stat bg-white px-8 py-4 shadow-pretty flex-3 rounded-xl border-border-neutral-200">
           {{ projects.length }}+<br />
           <span class="text-base text-nowrap">Projetos Completos</span>
         </div>
       </div>
     </div>
   </section>
-  <!-- <h2 id="projects" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700 scroll-mt-12">Projetos</h2> -->
+  <!-- <h2 id="projects" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-pretty text-neutral-700 scroll-mt-12">Projetos</h2> -->
   <section
     id="projects"
     class="p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24"
   >
     <div
-      class="bg-white border border-neutral-200 shadow-md flex-2 flex flex-col p-8 gap-4 rounded-xl lg:block hidden md:min-w-[400px]"
+      class="bg-white border-border-neutral-200 shadow-pretty flex-2 flex flex-col p-8 gap-4 rounded-xl lg:block hidden md:min-w-[400px]"
     >
       <header class="flex flex-col gap-2">
         <span class="font-bold text-2xl">{{ currentProject?.name }}</span>
@@ -196,7 +196,7 @@
       <span>{{ currentProject?.description }}</span>
     </div>
     <div
-      class="aspect-video bg-white shadow-md h-[600px] overflow-hidden rounded-xl"
+      class="aspect-video bg-white shadow-pretty h-[600px] overflow-hidden rounded-xl"
     >
       <app-carrossel-projetos
         [projects]="projects"
@@ -204,16 +204,16 @@
       ></app-carrossel-projetos>
     </div>
   </section>
-  <!-- <h2 id="contact" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-md text-neutral-700 scroll-mt-24">Contato</h2> -->
+  <!-- <h2 id="contact" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-pretty text-neutral-700 scroll-mt-24">Contato</h2> -->
   <section id="contact" class="p-4 p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24">
     <div
-      class="p-8 bg-white w-full font-bold rounded-xl shadow-md flex flex-col gap-8 border border-neutral-200"
+      class="p-8 bg-white w-full font-bold rounded-xl shadow-pretty flex flex-col gap-8 border-border-neutral-200"
     >
       <header>
         <h3 class="text-3xl">
           Tem alguma ideia de projeto, ou deseja entrar em contato?
         </h3>
-        <p class="text-2xl text-neutral-700">
+        <p class="text-2xl text-neutral-900 font-normal">
           Consulte comigo de <span class="text-blue-700">graça!</span>
         </p>
       </header>
@@ -223,7 +223,7 @@
         (ngSubmit)="onSubmitMessage()"
       >
         <div class="contact-form-top w-full flex flex-col gap-2">
-          <p>
+          <p class="text-neutral-700 font-normal">
             Digite seu celular ou e-mail como forma de indentificação.
             <span class="text-red-700">*</span>
           </p>
@@ -241,7 +241,7 @@
         </p>
           <input
           type="text"
-          [class]="`duration-75 ${isNameTyped === false ? 'text-red-700 border-red-700 outline-red-700' : 'border-blue-700 text-blue-700'} border p-3 rounded-xl w-full`"
+          [class]="`duration-75 ${isNameTyped === false ? 'text-red-700 border-red-700 outline-red-700' : 'border-neutral-300 text-neutral-700'} border p-3 rounded-xl w-full`"
           placeholder="Nome"
           formControlName="name"
           autocomplete="name"
@@ -251,7 +251,7 @@
           <div class="input-holder flex gap-2">
             <input
               type="tel"
-              [class]="`duration-75 ${isIndentificationMessageValid === false ? 'text-red-700 border-red-700 outline-red-700' : 'border-blue-700 text-blue-700'} border p-3 rounded-xl w-full`"
+              [class]="`duration-75 ${isIndentificationMessageValid === false ? 'text-red-700 border-red-700 outline-red-700' : 'border-neutral-300 text-neutral-700'} border p-3 rounded-xl w-full`"
               placeholder="Celular"
               formControlName="cellphone"
               autocomplete="tel"
@@ -260,7 +260,7 @@
             />
             <input
               type="email"
-              [class]="`duration-75 ${isIndentificationMessageValid === false ? 'text-red-700 border-red-700 outline-red-700' : 'border-blue-700 text-blue-700'} border p-3 rounded-xl w-full`"
+              [class]="`duration-75 ${isIndentificationMessageValid === false ? 'text-red-700 border-red-700 outline-red-700' : 'border-neutral-300 text-neutral-700'} border p-3 rounded-xl w-full`"
               placeholder="Email"
               formControlName="email"
               autocomplete="email"
@@ -271,23 +271,24 @@
         </div>
         <textarea
           type="text"
-          class="text-blue-700 border p-3 border-blue-700 rounded-xl w-full h-[300px]"
+          class="text-neutral-700 border p-3 border-neutral-300 rounded-xl w-full h-[300px]"
           placeholder="Mensagem"
           formControlName="message"
           title="Digite uma mensagem"
         ></textarea>
         <button
           type="submit"
-          class="cursor-pointer text-blue-700 border py-3 px-9 border-blue-700 rounded-xl w-fit hover:bg-blue-700 hover:text-white duration-75"
+          class="cursor-pointer text-neutral-700 border py-3 px-9 border-neutral-300 rounded-xl w-fit hover:bg-blue-700 hover:text-white duration-75"
         >
           Enviar
         </button>
       </form>
     </div>
   </section>
+  <footer class="p-4 w-full flex items-center justify-center gap-2">
+    Luís Eduardo © All rights reserved 2025
+    <a class="underline text-blue-600" href="https://github.com/luis10barbo/portifolio-ang">Github Repository</a>
+  </footer>
 </main>
-<footer class="p-2 w-full flex items-center justify-center gap-2">
-  Luís Eduardo © All rights reserved 2025
-  <a class="underline text-blue-600" href="https://github.com/luis10barbo/portifolio-ang">Github Repository</a>
-</footer>
+
 <router-outlet />

@@ -8,13 +8,13 @@
     
     <div class="botoes flex gap-2 w-full justify-center sm:justify-start items-center">
       @if (project?.website) {
-        <a [href]="project?.website" class="bg-black text-base sm:text-xl text-white border-none shadow-md p-2 rounded-md">
+        <a [href]="project?.website" class="bg-black text-base sm:text-xl text-white border-none shadow-pretty p-2 rounded-md">
           Acessar
         </a>
       }
   
       @if (project?.repo) {
-        <a [href]="project?.repo" class="bg-black text-base sm:text-xl text-white border-none shadow-md p-2 rounded-md">
+        <a [href]="project?.repo" class="bg-black text-base sm:text-xl text-white border-none shadow-pretty p-2 rounded-md">
           Repositório
         </a>
       }

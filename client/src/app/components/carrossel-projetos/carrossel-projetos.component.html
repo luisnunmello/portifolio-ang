@@ -7,9 +7,9 @@
 >
 
   <header class="absolute w-full z-30 p-4 block lg:hidden flex items-center justify-between font-bold">
-    <h3 [class]="`${isInformationToggled ? 'text-blue-800/0' : 'text-blue-800'} duration-75 text-2xl text-shadow-md`">{{projects.at(iProjetoAtual)?.name}}</h3>
+    <h3 [class]="`${isInformationToggled ? 'text-blue-800/0' : 'text-blue-800'} duration-75 text-2xl text-shadow-pretty`">{{projects.at(iProjetoAtual)?.name}}</h3>
   </header>
-  <button (click)="toggleInformation()" [class]="`cursor-pointer block h-12 lg:hidden absolute top-4 right-4 z-50 aspect-square p-4 text-xl flex items-center justify-center rounded-xl shadow-md ${isInformationToggled ? 'bg-blue-700 text-white' : 'text-blue-700 hover:bg-blue-50 bg-white'}  duration-75`">i</button>
+  <button (click)="toggleInformation()" [class]="`cursor-pointer block h-12 lg:hidden absolute top-4 right-4 z-50 aspect-square p-4 text-xl flex items-center justify-center rounded-xl shadow-pretty ${isInformationToggled ? 'bg-blue-700 text-white' : 'text-blue-700 hover:bg-blue-50 bg-white'}  duration-75`">i</button>
   <div [class]="`overlay w-full h-full bg-white z-40 absolute duration-75 rounded-xl p-4 flex flex-col`" [style]="`${isInformationToggled ? 'transform: translateX(0%)' : 'transform: translateX(100%)'}`">
     <h3 class="text-blue-800 text-2xl font-bold">{{projects.at(iProjetoAtual)?.name}}</h3>
     <p class="text-blue-900 text-lg font-bold pt-12 w-full h-full text-justify">{{ projects.at(iProjetoAtual)?.description }}</p>
@@ -30,7 +30,7 @@
         <button
           [id]="`page-${i}`"
           (click)="changeProject(i)"
-          [class]="`h-12 aspect-square shadow-md rounded-full duration-75 ${iProjetoAtual === i ? 'bg-blue-700 text-white' : 'bg-white hover:bg-blue-100 text-blue-700'}`"
+          [class]="`h-12 aspect-square shadow-pretty rounded-full duration-75 ${iProjetoAtual === i ? 'bg-blue-700 text-white' : 'bg-white hover:bg-blue-100 text-blue-700'}`"
         >{{i + 1}}</button>
       }
     </div>

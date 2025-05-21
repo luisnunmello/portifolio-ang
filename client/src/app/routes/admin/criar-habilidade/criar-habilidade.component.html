@@ -2,11 +2,11 @@
     <div class="flex flex-col gap-4 input-holder max-w-lg">
         <div class="flex flex-col gap-2 max-w-sm">
             <label for="name-input">Nome</label>
-            <input id="name-input" class="p-2 border border-neutral-200" #nameInput>
+            <input id="name-input" class="p-2 border-border-neutral-200" #nameInput>
         </div>
         <div class="flex flex-col gap-2 max-w-sm">
             <label for="description-input">Skill Category</label>
-            <select id="status-input" class="p-2 border border-neutral-200" #categorySelect>
+            <select id="status-input" class="p-2 border-border-neutral-200" #categorySelect>
                 <option value="LANGUAGE">Language</option>
                 <option value="FRAMEWORK">Framework</option>
                 <option value="DATABASE">Database</option>
@@ -16,7 +16,7 @@
         </div>
         <div class="flex flex-col gap-2 max-w-sm">
             <label for="status-input">Type</label>
-            <select id="status-input" class="p-2 border border-neutral-200" #typeSelect>
+            <select id="status-input" class="p-2 border-border-neutral-200" #typeSelect>
                 <option value="BACKEND">Backend</option>
                 <option value="FRONTEND">Frontend</option>
             </select>
@@ -28,12 +28,12 @@
                 }
             </div>
             
-            <div  class="image-selector p-4 max-w-xs border border-neutral-200 flex flex-col justify-center items-center">
+            <div  class="image-selector p-4 max-w-xs border-border-neutral-200 flex flex-col justify-center items-center">
                 <label for="input-image" class="flex-1">Select an image</label>
                 <input (change)="onChangeImages($event)" type="file" name="" accept="image/png, image/gif, image/jpeg, image/jpg, image/svg+xml" id="input-image" class="flex-1 text-center" #imageInput>
             </div>
         </div>
     </div>
     
-    <button class="p-2 border border-neutral-200 h-fit hover:bg-neutral-100 max-w-sm" (click)="clickSubmit()">Criar</button>
+    <button class="p-2 border-border-neutral-200 h-fit hover:bg-neutral-100 max-w-sm" (click)="clickSubmit()">Criar</button>
 </main>
