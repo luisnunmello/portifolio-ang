@@ -1,23 +1,35 @@
 
-<main class="flex flex-col gap-2">
-    Login status: {{ loggedIn }}
+<main class="flex flex-col gap-8 justify-center items-center h-screen bg-slate-100/50">
+    <div id="card" class="bg-white flex flex-col p-8 gap-8 rounded-lg w-2/3 max-w-lg">
+        <header class="flex justify-between">
+            <p class="text-2xl">Admin</p>
+            @if (loggedIn) {
+                <button type="button" (click)="doLogout()" class="px-4 py-2 border border-neutral-200 rounded-lg cursor-pointer hover:bg-red-50 hover:border-red-300 hover:text-red-700 border-red-200 text-red-500">Logout</button>
+            }
+        </header>
     @if (loggedIn) {
-        <button (click)="doLogout()" class="p-2 border-border-neutral-200">Logout</button>
+        <div class="flex gap-4">
+            <a routerLink="/admin/projects/create" class="w-full aspect-square border border-slate-300 rounded-lg flex justify-center items-center p-4 text-center hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50 duration-75">Manage Projects</a>
+            <a routerLink="/admin/skills/create" class="w-full aspect-square border border-slate-300 rounded-lg flex justify-center items-center p-4 text-center  hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50 duration-75">Manage Skills</a>
         
-        <form (ngSubmit)="doChangePassword()" [formGroup]="loginForm">
-            <input formControlName="password"  class="p-2 border-border-neutral-200" placeholder="senha" #passwordComponent>
-            <button class="p-2 border-border-neutral-200" type="submit">Change Password</button>
+        </div>
+        <div class="w-full bg-slate-300 h-0.25"></div>
+        <form (ngSubmit)="doChangePassword()" [formGroup]="loginForm" class="flex flex-col gap-4">
+            <label for="password">New password</label>
+            <input formControlName="password"  class="p-2 border border-slate-200 rounded-lg" placeholder="Type your new password here" #passwordComponent>
+            <div class="flex gap-4">
+                <button class="px-4 py-2 border border-neutral-200 rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700">Change Password</button>
+            </div>
         </form>
-        <a routerLink="/admin/create/project">Create Project</a>
-        <a routerLink="/admin/create/skill">Create Skill</a>
     }
     @else {
-        <form (ngSubmit)="doLogin()" [formGroup]="loginForm">
-            <input formControlName="password"  class="p-2 border-border-neutral-200" placeholder="senha" #passwordComponent>
-            <button class="p-2 border-border-neutral-200">Login</button>
+        <form (ngSubmit)="doLogin()" [formGroup]="loginForm" class="flex flex-col gap-4">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password"  class="p-2 border border-slate-200 rounded-lg" placeholder="Type password here" #passwordComponent>
+            <button class="px-4 py-2 border border-neutral-200 rounded-lg ml-auto cursor-pointer hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700">Login</button>
         </form>
         
     }
-    
+    </div>
 </main>
 

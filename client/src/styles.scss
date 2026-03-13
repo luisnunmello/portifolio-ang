@@ -12,5 +12,5 @@
 }
 
 main {
-  background: radial-gradient(circle,rgba(255, 255, 255, 1) 0%, rgba(250, 250, 250, 1) 100%);
+  background: color-mix(in oklab, oklch(96.8% 0.007 247.896) 50%, transparent);
 }

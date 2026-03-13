@@ -23,6 +23,7 @@ import { NotificationService } from '../../service/notification/notification.ser
 })
 export class AppComponent {
   title = 'portifolio';
+  linkedInUrl = "https://www.linkedin.com/in/luisnunmello/";
   projects: ProjetoType[] = [];
   skills: SkillType[] = [];
   skillByCategory: {[key in SkillCategory]: SkillType[]} = {DATABASE: [], FRAMEWORK: [], LANGUAGE: [], OPERATIONAL_SYSTEM: [], VERSIONING: []};

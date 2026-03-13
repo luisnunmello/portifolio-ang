@@ -1,7 +1,7 @@
 <main
   class="flex flex-col justify-center overflow-x-hidden w-full pb-24"
 >
-  <app-header class="w-full flex gap-2 z-60 shadow-pretty" />
+  <app-header class="w-full flex gap-2 z-60" />
   <section
     id="home"
     class="h-fit sm:h-[90vh] w-full overflow-hidden relative py flex flex-col sm:flex-row gap-4 scroll-mt-24 bg-white"
@@ -23,7 +23,7 @@
           </h2>
         </div>
         <p
-          class="text-xl sm:text-4xl w-[350px] sm:w-full font-semibold text-neutral-800"
+          class="text-xl sm:text-4xl w-[350px] sm:w-full text-neutral-800"
         >
           4 anos de prática e estudo para fazer seu aplicativo perfeito!
         </p>
@@ -68,7 +68,7 @@
             </svg>
           </a>
           <a
-            href="https://www.linkedin.com/in/luis-eduardo-832957265/"
+            [href]="linkedInUrl"
             class="border-2 border-blue-700 p-4 rounded-xl aspect-square hover:bg-blue-700 hover:text-white duration-75 justify-center items-center flex"
           >
             <svg
@@ -108,10 +108,10 @@
       }}
     </p>
   </section>
-  <!-- <h2 id="about" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-pretty text-neutral-700 scroll-mt-24">Sobre</h2> -->
+  <!-- <h2 id="about" class="divider p-12 font-bold w-full flex justify-center text-3xl  text-neutral-700 scroll-mt-24">Sobre</h2> -->
   <section
     id="about"
-    class="py-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex flex-col-reverse sm:flex-row gap-4 scroll-mt-24 sm:h-[90vh]"
+    class="bg-slate-100/30 py-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex flex-col-reverse sm:flex-row gap-4 scroll-mt-24 sm:h-[90vh]"
   >
     <div id="about-left" class="w-full relative overflow-auto min-h-[450px]">
       <div class="absolute flex sm:flex-wrap gap-4 px-4 py-4 ">
@@ -145,7 +145,7 @@
     <div id="about-right" class="w-full flex flex-col gap-4">
       <div
         id="about-me"
-        class="bg-white border-border-neutral-200 p-8 sm:p-20 flex flex-col gap-6 shadow-pretty rounded-xl h-full"
+        class="bg-white border-border-neutral-200 p-8 sm:p-20 flex flex-col gap-6 rounded-xl h-full"
       >
         <span class="text-3xl font-bold text-blue-700">Sobre mim</span>
         <span class="text-xl text-justify font-normal text-neutral-900">
@@ -161,28 +161,28 @@
         id="stats-holder"
         class="text-blue-700 font-bold text-xl flex gap-4 flex-wrap"
       >
-        <div class="stat bg-white px-8 py-4 shadow-pretty flex-3 rounded-xl border-border-neutral-200">
+        <div class="stat bg-white px-8 py-4  flex-3 rounded-xl border-border-neutral-200">
           4+<br />
           <span class="text-base text-nowrap">Anos de Experiência</span>
         </div>
-        <div class="stat bg-white px-8 py-4 shadow-pretty flex-4 rounded-xl border-border-neutral-200">
+        <div class="stat bg-white px-8 py-4  flex-4 rounded-xl border-border-neutral-200">
           {{ skills.length }}+<br />
           <span class="text-base text-nowrap">Tecnologias Dominadas</span>
         </div>
-        <div class="stat bg-white px-8 py-4 shadow-pretty flex-3 rounded-xl border-border-neutral-200">
+        <div class="stat bg-white px-8 py-4  flex-3 rounded-xl border-border-neutral-200">
           {{ projects.length }}+<br />
           <span class="text-base text-nowrap">Projetos Completos</span>
         </div>
       </div>
     </div>
   </section>
-  <!-- <h2 id="projects" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-pretty text-neutral-700 scroll-mt-12">Projetos</h2> -->
+  <!-- <h2 id="projects" class="divider p-12 font-bold w-full flex justify-center text-3xl  text-neutral-700 scroll-mt-12">Projetos</h2> -->
   <section
     id="projects"
-    class="p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24"
+    class="bg-slate-100/30 p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24"
   >
     <div
-      class="bg-white border-border-neutral-200 shadow-pretty flex-2 flex flex-col p-8 gap-4 rounded-xl lg:block hidden md:min-w-[400px]"
+      class="bg-white border-border-neutral-200  flex-2 flex flex-col p-8 gap-4 rounded-xl lg:block hidden md:min-w-[400px]"
     >
       <header class="flex flex-col gap-2">
         <span class="font-bold text-2xl">{{ currentProject?.name }}</span>
@@ -196,7 +196,7 @@
       <span>{{ currentProject?.description }}</span>
     </div>
     <div
-      class="aspect-video bg-white shadow-pretty h-[600px] overflow-hidden rounded-xl"
+      class="aspect-video bg-white  h-[600px] overflow-hidden rounded-xl"
     >
       <app-carrossel-projetos
         [projects]="projects"
@@ -204,10 +204,10 @@
       ></app-carrossel-projetos>
     </div>
   </section>
-  <!-- <h2 id="contact" class="divider p-12 font-bold w-full flex justify-center text-3xl shadow-pretty text-neutral-700 scroll-mt-24">Contato</h2> -->
-  <section id="contact" class="p-4 p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24">
+  <!-- <h2 id="contact" class="divider p-12 font-bold w-full flex justify-center text-3xl  text-neutral-700 scroll-mt-24">Contato</h2> -->
+  <section id="contact" class="bg-slate-100/30 p-4 p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24">
     <div
-      class="p-8 bg-white w-full font-bold rounded-xl shadow-pretty flex flex-col gap-8 border-border-neutral-200"
+      class="p-8 bg-white w-full font-bold rounded-xl  flex flex-col gap-8 border-border-neutral-200"
     >
       <header>
         <h3 class="text-3xl">

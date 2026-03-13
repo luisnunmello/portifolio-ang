@@ -11,11 +11,11 @@ export const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: "admin/create/project",
+        path: "admin/projects/create",
         component: CriarProjetoComponent
     },
     {
-        path: "admin/create/skill",
+        path: "admin/skills/create",
         component: CriarHabilidadeComponent
     },
     {
