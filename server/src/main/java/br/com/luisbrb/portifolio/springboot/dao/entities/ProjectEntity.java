@@ -1,10 +1,10 @@
-package br.com.luisbrb.portifolio.springboot.model.entities;
+package br.com.luisbrb.portifolio.springboot.dao.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.luisbrb.portifolio.springboot.model.ProjectStatusEnum;
+import br.com.luisbrb.portifolio.springboot.model.enums.ProjectStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,7 +33,7 @@ public class ProjectEntity implements Serializable {
     private String repo;
     private String website;
     private String download;
-    private @NotNull @Column(nullable = false) ProjectStatusEnum status;
+    private @NotNull @Column(nullable = false) ProjectStatus status;
     private @ManyToMany(targetEntity = SkillEntity.class) List<SkillEntity> techFront = new ArrayList<>();
     private @ManyToMany(targetEntity = SkillEntity.class) List<SkillEntity> techBack = new ArrayList<>();
     private @OneToMany(targetEntity = ImageEntity.class) List<ImageEntity> images = new ArrayList<>(); 

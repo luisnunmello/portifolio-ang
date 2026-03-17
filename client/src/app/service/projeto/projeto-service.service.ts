@@ -18,7 +18,7 @@ export class ProjetoServiceService {
   }
   
   public getProject(id: number | string) {
-    return this.httpClient.get<ProjetoType>(`${enviroment.urlBackend}/project/?id=${id}`, {withCredentials: true});
+    return this.httpClient.get<ProjetoType>(`${enviroment.urlBackend}/project?id=${id}`, {withCredentials: true});
   }
 
    public editProject(project: ProjetoType) {

@@ -2,7 +2,7 @@ package br.com.luisbrb.portifolio.springboot.dao.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.luisbrb.portifolio.springboot.model.entities.SkillEntity;
+import br.com.luisbrb.portifolio.springboot.dao.entities.SkillEntity;
 
 public interface SkillRepository extends JpaRepository<SkillEntity, Long> {
     

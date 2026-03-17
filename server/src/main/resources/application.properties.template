@@ -8,3 +8,7 @@ spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.hibernate.ddl-auto=update
 
 spring.devtools.livereload.enabled=true
+server.port=8080
+discord.channel=
+discord.user=
+discord.token=

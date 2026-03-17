@@ -1,9 +1,9 @@
-package br.com.luisbrb.portifolio.springboot.model.entities;
+package br.com.luisbrb.portifolio.springboot.dao.entities;
 
 import java.io.Serializable;
 
-import br.com.luisbrb.portifolio.springboot.model.SkillCategory;
-import br.com.luisbrb.portifolio.springboot.model.TechnologyTypeEnum;
+import br.com.luisbrb.portifolio.springboot.model.enums.SkillCategory;
+import br.com.luisbrb.portifolio.springboot.model.enums.TechnologyType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,5 +29,5 @@ public class SkillEntity implements Serializable {
     private @NotNull @Column(nullable = false) String name;
     private @ManyToOne(targetEntity = ImageEntity.class) ImageEntity image;
     private SkillCategory category;
-    private TechnologyTypeEnum type;
+    private TechnologyType type;
 }

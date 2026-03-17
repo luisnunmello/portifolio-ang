@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.luisbrb.portifolio.springboot.controller.integrations.discord.DiscordBotComponent;
 import br.com.luisbrb.portifolio.springboot.dao.repositories.ContactRepository;
-import br.com.luisbrb.portifolio.springboot.model.entities.ContactEntity;
+import br.com.luisbrb.portifolio.springboot.dao.entities.ContactEntity;
 import jakarta.validation.Valid;
 
 @RestController

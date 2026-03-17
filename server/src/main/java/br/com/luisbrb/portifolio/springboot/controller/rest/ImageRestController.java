@@ -8,7 +8,6 @@ import java.util.Optional;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,11 +16,9 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import br.com.luisbrb.portifolio.springboot.controller.AuthenticationUtils;
 import br.com.luisbrb.portifolio.springboot.dao.repositories.ImageRepository;
-import br.com.luisbrb.portifolio.springboot.model.Constants;
-import br.com.luisbrb.portifolio.springboot.model.ImageTypeEnum;
-import br.com.luisbrb.portifolio.springboot.model.entities.ImageEntity;
+import br.com.luisbrb.portifolio.springboot.model.enums.ImageExtension;
+import br.com.luisbrb.portifolio.springboot.dao.entities.ImageEntity;
 
 @RestController
 @RequestMapping("/api/image")
@@ -48,17 +45,17 @@ public class ImageRestController {
     public ResponseEntity<List<ImageEntity>> save( @RequestPart("image") MultipartFile[] formData) throws IOException {
         List<ImageEntity> imageList = new ArrayList<>();
         for (MultipartFile image : formData) {
-            ImageTypeEnum type = null;
+            ImageExtension type = null;
             switch (getFileExtension(image.getOriginalFilename())) {
                 case "png":
-                    type = ImageTypeEnum.PNG;
+                    type = ImageExtension.PNG;
                     break;
                 case "jpeg":
                 case "jpg":
-                    type = ImageTypeEnum.JPEG;
+                    type = ImageExtension.JPEG;
                     break;
                 case "svg":
-                    type = ImageTypeEnum.SVG;
+                    type = ImageExtension.SVG;
                     break;
                 default:
                     return ResponseEntity.badRequest().build();

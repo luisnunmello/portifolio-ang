@@ -3,12 +3,12 @@ package br.com.luisbrb.portifolio.springboot.controller.integrations.discord;
 import java.io.IOException;
 import java.util.Collections;
 
+import br.com.luisbrb.portifolio.springboot.ConfigComponent;
 import org.springframework.stereotype.Component;
 
-import br.com.luisbrb.portifolio.springboot.controller.ConfigComponent;
 import br.com.luisbrb.portifolio.springboot.controller.LoggerComponent;
 import br.com.luisbrb.portifolio.springboot.controller.integrations.discord.listeners.SlashCommandListener;
-import br.com.luisbrb.portifolio.springboot.model.entities.ContactEntity;
+import br.com.luisbrb.portifolio.springboot.dao.entities.ContactEntity;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import lombok.Getter;
@@ -46,7 +46,7 @@ public class DiscordBotComponent {
     private void init() throws IOException {
         setChannelId(configComponent.getProperty("discord.channel"));
         setUserId(configComponent.getProperty("discord.user"));
-        
+
         if (configComponent.getProperty("discord.token") == null) {
             logger.info("No discord token provided, ignoring discord bot");
             return;

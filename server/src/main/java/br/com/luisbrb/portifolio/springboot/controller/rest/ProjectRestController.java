@@ -4,11 +4,9 @@ import java.util.Optional;
 
 import org.springframework.web.bind.annotation.*;
 
-import br.com.luisbrb.portifolio.springboot.controller.AuthenticationUtils;
 import br.com.luisbrb.portifolio.springboot.dao.repositories.ProjectRepository;
 import br.com.luisbrb.portifolio.springboot.dao.repositories.SkillRepository;
-import br.com.luisbrb.portifolio.springboot.model.Constants;
-import br.com.luisbrb.portifolio.springboot.model.entities.ProjectEntity;
+import br.com.luisbrb.portifolio.springboot.dao.entities.ProjectEntity;
 
 @RestController
 @RequestMapping("/api/project")
@@ -26,7 +24,7 @@ public class ProjectRestController {
         return projectRepository.findAll();
     }
 
-    @GetMapping("/")
+    @GetMapping("/get")
     Optional<ProjectEntity> get(@RequestParam("id") Long id) {
         return this.projectRepository.findById(id);
     }

@@ -2,7 +2,7 @@ package br.com.luisbrb.portifolio.springboot.controller.integrations.discord.lis
 
 import java.util.logging.Logger;
 
-import br.com.luisbrb.portifolio.springboot.controller.ConfigComponent;
+import br.com.luisbrb.portifolio.springboot.ConfigComponent;
 import br.com.luisbrb.portifolio.springboot.controller.integrations.discord.DiscordBotComponent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;

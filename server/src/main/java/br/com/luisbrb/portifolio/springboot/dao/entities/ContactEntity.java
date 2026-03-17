@@ -1,4 +1,4 @@
-package br.com.luisbrb.portifolio.springboot.model.entities;
+package br.com.luisbrb.portifolio.springboot.dao.entities;
 
 import java.io.Serializable;
 

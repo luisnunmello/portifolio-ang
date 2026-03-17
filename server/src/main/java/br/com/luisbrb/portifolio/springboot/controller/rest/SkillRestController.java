@@ -3,12 +3,11 @@ package br.com.luisbrb.portifolio.springboot.controller.rest;
 import java.util.List;
 import java.util.Optional;
 
-import br.com.luisbrb.portifolio.springboot.dto.requests.RemoveSkillRequestDTO;
 import org.springframework.web.bind.annotation.*;
 
 import br.com.luisbrb.portifolio.springboot.dao.repositories.SkillRepository;
 import br.com.luisbrb.portifolio.springboot.model.Constants;
-import br.com.luisbrb.portifolio.springboot.model.entities.SkillEntity;
+import br.com.luisbrb.portifolio.springboot.dao.entities.SkillEntity;
 
 @RestController
 @RequestMapping("/api/skill")
