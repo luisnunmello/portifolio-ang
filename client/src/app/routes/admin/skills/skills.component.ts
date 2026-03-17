@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { AdminPageCardComponent } from "../../../components/admin-page-card/admin-page-card.component";
+import { AdminPageCardComponent } from "../../../components/admin/admin-page-card/admin-page-card.component";
 import { SkillService } from '../../../service/skill/skill-service.service';
 import { SkillType } from '../../../model/skillModel';
 import { imagesUrl } from '../../../service/constants';

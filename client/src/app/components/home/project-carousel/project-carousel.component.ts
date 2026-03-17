@@ -1,17 +1,17 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
-import { ProjetoType } from '../../model/projetoModel';
+import { ProjetoType } from '../../../model/projetoModel';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ScrollService } from '../../service/scroll/scroll.service';
+import { ScrollService } from '../../../service/scroll/scroll.service';
 import { RouterLink } from '@angular/router';
-import { enviroment } from '../../../environment';
+import { enviroment } from '../../../../environment';
 
 @Component({
-  selector: 'app-carrossel-projetos',
+  selector: 'app-project-carousel',
   imports: [RouterLink, TranslateModule],
-  templateUrl: './carrossel-projetos.component.html',
-  styleUrl: './carrossel-projetos.component.scss'
+  templateUrl: './project-carousel.component.html',
+  styleUrl: './project-carousel.component.scss'
 })
-export class CarrosselProjetosComponent implements OnInit, OnDestroy {
+export class ProjectCarouselComponent implements OnInit, OnDestroy {
 
   @Output()
   iCurrentProject: EventEmitter<number> = new EventEmitter<number>();

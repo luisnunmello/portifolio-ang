@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { AdminPageCardComponent } from '../../components/admin-page-card/admin-page-card.component';
+import { AdminPageCardComponent } from '../../components/admin/admin-page-card/admin-page-card.component';
 import { LoginService } from '../../service/login/login.service';
 
 @Component({

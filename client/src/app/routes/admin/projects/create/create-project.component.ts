@@ -4,7 +4,7 @@ import { SkillType } from '../../../../model/skillModel';
 import { ImageServiceService } from '../../../../service/image/image-service.service';
 import { ProjetoServiceService } from '../../../../service/projeto/projeto-service.service';
 import { SkillService } from '../../../../service/skill/skill-service.service';
-import { AdminPageCardComponent } from "../../../../components/admin-page-card/admin-page-card.component";
+import { AdminPageCardComponent } from "../../../../components/admin/admin-page-card/admin-page-card.component";
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ImageType } from '../../../../model/imageModel';

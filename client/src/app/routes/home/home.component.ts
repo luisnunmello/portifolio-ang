@@ -4,20 +4,20 @@ import { RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ProjetoServiceService } from '../../service/projeto/projeto-service.service';
 import { ProjetoType } from '../../model/projetoModel';
-import { CarrosselProjetosComponent } from "../../components/carrossel-projetos/carrossel-projetos.component";
+import { ProjectCarouselComponent } from "../../components/home/project-carousel/project-carousel.component";
 import { SkillCategory, SkillType } from '../../model/skillModel';
 import { SkillService } from '../../service/skill/skill-service.service';
 import { NgFor } from '@angular/common';
 import { enviroment } from '../../../environment';
-import { SkillHolderComponent } from "../../components/skill-holder/skill-holder.component";
-import { HeaderComponent } from "../../components/header/header.component";
+import { SkillHolderComponent } from "../../components/home/skill-holder/skill-holder.component";
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import { ContactService } from '../../service/contact/contact.service';
 import { NotificationService } from '../../service/notification/notification.service';
+import { HeaderComponent } from '../../components/shared/header/header.component';
 
 @Component({
   selector: 'home-root',
-  imports: [RouterOutlet, TranslateModule, CarrosselProjetosComponent, SkillHolderComponent, HeaderComponent, ReactiveFormsModule],
+  imports: [RouterOutlet, TranslateModule, ProjectCarouselComponent, SkillHolderComponent, HeaderComponent, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

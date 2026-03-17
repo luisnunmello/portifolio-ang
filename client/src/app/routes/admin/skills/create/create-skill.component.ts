@@ -3,7 +3,7 @@ import { enviroment } from '../../../../../environment';
 import { SkillCategory, SkillType, TechnologyTypeEnum } from '../../../../model/skillModel';
 import { ImageServiceService } from '../../../../service/image/image-service.service';
 import { SkillService } from '../../../../service/skill/skill-service.service';
-import { AdminPageCardComponent } from "../../../../components/admin-page-card/admin-page-card.component";
+import { AdminPageCardComponent } from "../../../../components/admin/admin-page-card/admin-page-card.component";
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { ImageType } from '../../../../model/imageModel';

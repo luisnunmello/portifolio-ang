@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { AdminPageCardComponent } from "../../../components/admin-page-card/admin-page-card.component";
+import { AdminPageCardComponent } from "../../../components/admin/admin-page-card/admin-page-card.component";
 import { ProjetoType } from '../../../model/projetoModel';
 import { ProjetoServiceService } from '../../../service/projeto/projeto-service.service';
 import { imagesUrl } from '../../../service/constants';

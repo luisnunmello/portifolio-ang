@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { SkillType } from '../../model/skillModel';
-import { enviroment } from '../../../environment';
+import { SkillType } from '../../../model/skillModel';
+import { enviroment } from '../../../../environment';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { imagesUrl } from '../../service/constants';
+import { imagesUrl } from '../../../service/constants';
 
 @Component({
   selector: 'app-skill-holder',
