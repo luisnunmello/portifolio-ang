@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { SkillType } from '../../model/skillModel';
 import { enviroment } from '../../../environment';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { imagesUrl } from '../../service/constants';
 
 @Component({
   selector: 'app-skill-holder',
@@ -15,7 +16,7 @@ export class SkillHolderComponent {
   title?: String = undefined;
   @Input("skills")
   skills: SkillType[] = []
-  urlImagens = `${enviroment.urlBackend}/image?id=`;
+  imagesUrl =  imagesUrl
   
   constructor(private translate: TranslateService) {
     // this.translate.setDefaultLang("pt");

@@ -1,14 +1,10 @@
 package br.com.luisbrb.portifolio.springboot.controller.rest;
 
 import java.util.List;
+import java.util.Optional;
 
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import br.com.luisbrb.portifolio.springboot.dto.requests.RemoveSkillRequestDTO;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.luisbrb.portifolio.springboot.dao.repositories.SkillRepository;
 import br.com.luisbrb.portifolio.springboot.model.Constants;
@@ -32,6 +28,12 @@ public class SkillRestController {
         return skillRepository.findAll();
     }
 
+    @GetMapping("/get")
+    public SkillEntity get(@RequestParam("id") long id) {
+        Optional<SkillEntity> optSkill = skillRepository.findById(id);
+        return optSkill.orElse(null);
+    }
+
     @PutMapping("/edit")
     public SkillEntity edit(@CookieValue(name = Constants.AUTH_COOKIE) String authCookie, @RequestBody SkillEntity skillEntity) {
         if (skillEntity.getId() == null) {
@@ -41,5 +43,10 @@ public class SkillRestController {
             return null;
         }
         return skillRepository.save(skillEntity);
+    }
+
+    @DeleteMapping("/remove")
+    public void remove(@RequestParam("id") long id) {
+        skillRepository.deleteById(id);
     }
 }

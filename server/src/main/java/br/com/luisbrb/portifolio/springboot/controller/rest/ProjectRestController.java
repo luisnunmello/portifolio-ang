@@ -2,20 +2,13 @@ package br.com.luisbrb.portifolio.springboot.controller.rest;
 
 import java.util.Optional;
 
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.luisbrb.portifolio.springboot.controller.AuthenticationUtils;
 import br.com.luisbrb.portifolio.springboot.dao.repositories.ProjectRepository;
 import br.com.luisbrb.portifolio.springboot.dao.repositories.SkillRepository;
 import br.com.luisbrb.portifolio.springboot.model.Constants;
 import br.com.luisbrb.portifolio.springboot.model.entities.ProjectEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/api/project")
@@ -45,6 +38,11 @@ public class ProjectRestController {
         }
 
         return projectRepository.save(entity);
+    }
+
+    @DeleteMapping("/remove")
+    public void edit(@RequestParam("id") Long id) {
+        projectRepository.deleteById(id);
     }
 
     @PostMapping("/create")

@@ -1,0 +1,21 @@
+<app-admin-page-card>
+    <header class="flex w-full gap-4">
+        <a routerLink="/admin" class="p-2 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 rounded-lg aspect-square flex items-center">
+            <i class="pi pi-angle-left"></i>
+        </a>
+        <p class="text-2xl">Skills</p>
+    </header>
+    <div class="skills-container grid grid-cols-3 gap-4">
+    @if (skills()) {
+        @for (skill of skills(); track skill.id) {
+            <a [href]="`admin/skills/edit?id=${skill.id}`" class="relative skill w-full p-4 border border-slate-200 flex gap-2 justify-start hover:border-slate-300 hover:bg-slate-50 cursor-pointer rounded-lg overflow-hidden">
+                @if (skill.image) {
+                    <img [src]="`${imagesUrl}${skill.image.id}`" style="max-width: 24px; max-height: 24px;" alt="icone" />
+                }
+                <p key={valor} class="text-neutral-600 text-base md:text-lg flex gap-1 text-nowrap w-full">{{skill.name}}</p>
+            </a>          
+        }
+    }
+    </div>
+    <a routerLink="create" class="relative skill ml-auto w-fit py-2 px-4 border border-slate-200 flex gap-2 justify-start hover:border-slate-300 hover:bg-slate-50 cursor-pointer rounded-lg overflow-hidden">Create New Skill</a>
+</app-admin-page-card>

@@ -5,7 +5,7 @@
     @for (skill of skills; track skill.id) {              
         <p key={valor} class="text-neutral-600 text-base md:text-lg flex justify-center gap-1 text-nowrap">
         @if (skill.image) {
-            <img [src]="`${urlImagens}${skill.image.id}`" style="max-width: 24px; max-height: 24px;" alt="icone" />
+            <img [src]="`${imagesUrl}${skill.image.id}`" style="max-width: 24px; max-height: 24px;" alt="icone" />
         }
         {{skill.name}}</p>
     }

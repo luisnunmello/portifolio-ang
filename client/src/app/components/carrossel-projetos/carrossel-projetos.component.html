@@ -44,7 +44,7 @@
       [style.transform]="'translateX(calc(' + ((100 * i) - (100 * iProjetoAtual)) + '% + ' + ((isTouching && isDragging) ? posAtualDrag - posInicialDrag.x : 0) + 'px))'">
       <div class="black-overlay absolute h-full w-full bg-black/20 z-30"></div>
       <a [routerLink]="project?.id ? '/proj/' + project.id : '#'" class="absolute w-full h-full z-30 hover:bg-black/5 duration-75"></a>
-      <img class="absolute h-full w-full object-contain" [src]="project.images[0] ? urlImagens + project.images[0].id : ''" [alt]="project.description ? project.description : 'imagem project ' + project.images" width="1280" height="720"/>
+      <img class="absolute h-full w-full object-contain" [src]="project.images?.at(0) ? urlImagens + project.images?.at(0)?.id : ''" [alt]="project.description ? project.description : 'imagem project ' + project.images" width="1280" height="720"/>
     </div>
   }
 </div>

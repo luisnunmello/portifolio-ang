@@ -13,5 +13,5 @@ export type ProjetoType = {
     status: ProjetoStatus
     techBack: SkillType[],
     techFront: SkillType[],
-    images: ImageType[]
+    images?: ImageType[]
 }

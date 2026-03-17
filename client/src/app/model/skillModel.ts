@@ -19,7 +19,7 @@ export type SkillType = {
     // private TechnologyTypeEnum type;
     
     id?: number,
-    name: String,
+    name: string,
     image?: ImageType,
     category: SkillCategory,
     type: TechnologyTypeEnum

@@ -1,10 +1,8 @@
-<main
-  class="flex flex-col justify-center overflow-x-hidden w-full pb-24"
->
+<main class="flex flex-col justify-center overflow-x-hidden w-full pb-24">
   <app-header class="w-full flex gap-2 z-60" />
   <section
     id="home"
-    class="h-fit sm:h-[90vh] w-full overflow-hidden relative py flex flex-col sm:flex-row gap-4 scroll-mt-24 bg-white"
+    class="h-fit sm:h-[90vh] w-full overflow-hidden relative py flex flex-col sm:flex-row gap-4 scroll-mt-24 bg-radial-[at_50%_25%] from-white to-slate-200"
   >
     <div
       class="presentation"
@@ -22,9 +20,7 @@
             Desenvolvedor FullStack
           </h2>
         </div>
-        <p
-          class="text-xl sm:text-4xl w-[350px] sm:w-full text-neutral-800"
-        >
+        <p class="text-xl sm:text-4xl w-[350px] sm:w-full text-slate-800">
           4 anos de prática e estudo para fazer seu aplicativo perfeito!
         </p>
         <div class="button-holder flex gap-2 w-full text-blue-700">
@@ -84,7 +80,11 @@
               />
             </svg>
           </a>
-          <a href="#contact" class="p-4 text-lg sm:text-2xl font-bold border border-2 rounded-xl border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white duration-150 text-nowrap">Contatar de graça  →</a>
+          <a
+            href="#contact"
+            class="p-4 text-lg sm:text-2xl font-bold border border-2 rounded-xl border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white duration-150 text-nowrap"
+            >Contatar de graça →</a
+          >
         </div>
       </div>
     </div>
@@ -98,7 +98,7 @@
         class="w-[820px] h-full image-fit object-cover"
       />
     </div>
-    <p
+    <!-- <p
       id="background-filler-text"
       class="absolute z-0 top-0 w-full h-full text-5xl text-neutral-100 pointer-events-none"
       #backgroundFillerText
@@ -106,7 +106,7 @@
       {{
         "&quot;&lt;div class=&quot;container&quot;&gt;&lt;h1 onclick=&quot;alert(&#x27;Hello World!&#x27;)&quot;&gt;Click Me&lt;/h1&gt;&lt;p id=&quot;text&quot;&gt;This is a paragraph with &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italic&lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&#x27;red&#x27;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function randomNumber(){return Math.floor(Math.random()*100);}console.log(&quot;Random number: &quot;+randomNumber());document.addEventListener(&quot;DOMContentLoaded&quot;,function(){document.body.style.backgroundColor=&quot;#f0f0f0&quot;;});&lt;/script&gt;&lt;/div&gt;&lt;/em&gt; text.&lt;/p&gt;&lt;button &lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function raonclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function raick Me&lt;/h1&gt;&lt;p id=&quot;text&quot;&gt;This is a paragraph with &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italic&lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&#x27;red&#x27;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function randomNumber(){return Math.floor(Math.random()*100);}console.log(&quot;Random number: &quot;+randomNumber());document.addEventListener(&quot;DOMContentLoaded&quot;,function(){document.body.style.backgroundColor=&quot;#f0f0f0&quot;;});&lt;/script&gt;&lt;/div&gt;&lt;/em&gt; text.&lt;/p&gt;&lt;button &lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function raonclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function raick Me&lt;/h1&gt;&lt;p id=&quot;text&quot;&gt;This is a paragraph with &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italic&lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&#x27;red&#x27;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function randomNumber(){return Math.floor(Math.random()*100);}console.log(&quot;Random number: &quot;+randomNumber());document.addEventListener(&quot;DOMContentLoaded&quot;,function(){document.body.style.backgroundColor=&quot;#f0f0f0&quot;;});&lt;/script&gt;&lt;/div&gt;&lt;/em&gt; text.&lt;/p&gt;&lt;button &lt;/em&gt; text.&lt;/p&gt;&lt;button onclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function raonclick=&quot;document.getElementById(&#x27;text&#x27;).style.color=&quot;red&quot;&quot;&gt;Change Color&lt;/button&gt;&lt;script&gt;function ra"
       }}
-    </p>
+    </p> -->
   </section>
   <!-- <h2 id="about" class="divider p-12 font-bold w-full flex justify-center text-3xl  text-neutral-700 scroll-mt-24">Sobre</h2> -->
   <section
@@ -114,7 +114,7 @@
     class="bg-slate-100/30 py-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex flex-col-reverse sm:flex-row gap-4 scroll-mt-24 sm:h-[90vh]"
   >
     <div id="about-left" class="w-full relative overflow-auto min-h-[450px]">
-      <div class="absolute flex sm:flex-wrap gap-4 px-4 py-4 ">
+      <div class="absolute flex sm:flex-wrap gap-4 px-4 py-4">
         <app-skill-holder
           class="flex-1"
           title="Linguagens"
@@ -149,8 +149,7 @@
       >
         <span class="text-3xl font-bold text-blue-700">Sobre mim</span>
         <span class="text-xl text-justify font-normal text-neutral-900">
-          Olá, me chamo Luís Eduardo!<br /><br />
-          Sou um grande entusiasta da área de tecnologia e também de
+          Sou um grande entusiasta da área de tecnologia e de
           programação.<br /><br />
           Hoje, devido a uma experiência de aprendizado variada, me sinto
           confiante no desenvolvimento de diversos tipos de projetos, sempre
@@ -161,15 +160,21 @@
         id="stats-holder"
         class="text-blue-700 font-bold text-xl flex gap-4 flex-wrap"
       >
-        <div class="stat bg-white px-8 py-4  flex-3 rounded-xl border-border-neutral-200">
+        <div
+          class="stat bg-white px-8 py-4 flex-3 rounded-xl border-border-neutral-200"
+        >
           4+<br />
           <span class="text-base text-nowrap">Anos de Experiência</span>
         </div>
-        <div class="stat bg-white px-8 py-4  flex-4 rounded-xl border-border-neutral-200">
+        <div
+          class="stat bg-white px-8 py-4 flex-4 rounded-xl border-border-neutral-200"
+        >
           {{ skills.length }}+<br />
           <span class="text-base text-nowrap">Tecnologias Dominadas</span>
         </div>
-        <div class="stat bg-white px-8 py-4  flex-3 rounded-xl border-border-neutral-200">
+        <div
+          class="stat bg-white px-8 py-4 flex-3 rounded-xl border-border-neutral-200"
+        >
           {{ projects.length }}+<br />
           <span class="text-base text-nowrap">Projetos Completos</span>
         </div>
@@ -182,22 +187,20 @@
     class="bg-slate-100/30 p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24"
   >
     <div
-      class="bg-white border-border-neutral-200  flex-2 flex flex-col p-8 gap-4 rounded-xl lg:block hidden md:min-w-[400px]"
+      class="bg-white border-border-neutral-200 flex-2 flex flex-col p-8 gap-4 rounded-xl lg:block hidden md:min-w-[400px]"
     >
       <header class="flex flex-col gap-2">
         <span class="font-bold text-2xl">{{ currentProject?.name }}</span>
         <div class="skill-holder flex gap-2">
           @for (skill of currentProject?.techBack; track $index) {
-          <span class="text-base font-bold">{{ skill.name }}</span>
+            <span class="text-base font-bold">{{ skill.name }}</span>
           }
         </div>
       </header>
 
       <span>{{ currentProject?.description }}</span>
     </div>
-    <div
-      class="aspect-video bg-white  h-[600px] overflow-hidden rounded-xl"
-    >
+    <div class="aspect-video bg-white h-[600px] overflow-hidden rounded-xl">
       <app-carrossel-projetos
         [projects]="projects"
         (iCurrentProject)="updateProject($event)"
@@ -205,18 +208,24 @@
     </div>
   </section>
   <!-- <h2 id="contact" class="divider p-12 font-bold w-full flex justify-center text-3xl  text-neutral-700 scroll-mt-24">Contato</h2> -->
-  <section id="contact" class="bg-slate-100/30 p-4 p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24">
+  <div class="justify-center flex flex-col items-center py-12">
+    <h3 class="text-3xl">
+      Tem alguma ideia de projeto, ou deseja entrar em contato?
+    </h3>
+    <p class="text-2xl text-neutral-900 font-normal">
+      Consulte comigo agora de <span class="text-blue-700">graça!</span>
+    </p>
+  </div>
+  <section
+    id="contact"
+    class="bg-slate-100/30 p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24"
+  >
     <div
-      class="p-8 bg-white w-full font-bold rounded-xl  flex flex-col gap-8 border-border-neutral-200"
+      class="p-8 bg-white w-full font-bold rounded-xl flex flex-col gap-8 border-border-neutral-200"
     >
-      <header>
-        <h3 class="text-3xl">
-          Tem alguma ideia de projeto, ou deseja entrar em contato?
-        </h3>
-        <p class="text-2xl text-neutral-900 font-normal">
-          Consulte comigo de <span class="text-blue-700">graça!</span>
-        </p>
-      </header>
+      <!-- <header>
+        
+      </header> -->
       <form
         class="w-full flex flex-col gap-2"
         [formGroup]="messageSubmitForm"
@@ -228,30 +237,38 @@
             <span class="text-red-700">*</span>
           </p>
           <p
-            [class]="`${isIndentificationMessageValid === false ? 'h-4 opacity-100 mb-2' : 'h-0 opacity-0'} duration-75 text-red-700`"
+            [class]="
+              `${isIndentificationMessageValid === false ? 'h-4 opacity-100 mb-2' : 'h-0 opacity-0'} duration-75 text-red-700`
+            "
           >
             Digite um número de celular ou email válido.
             <span>*</span>
           </p>
           <p
-          [class]="`${isNameTyped === false  ? 'h-4 opacity-100 mb-2' : 'h-0 opacity-0'} duration-75 text-red-700`"
-        >
-          Digite um nome
-          <span>*</span>
-        </p>
+            [class]="
+              `${isNameTyped === false ? 'h-4 opacity-100 mb-2' : 'h-0 opacity-0'} duration-75 text-red-700`
+            "
+          >
+            Digite um nome
+            <span>*</span>
+          </p>
           <input
-          type="text"
-          [class]="`duration-75 ${isNameTyped === false ? 'text-red-700 border-red-700 outline-red-700' : 'border-neutral-300 text-neutral-700'} border p-3 rounded-xl w-full`"
-          placeholder="Nome"
-          formControlName="name"
-          autocomplete="name"
-          title="Digite seu nome"
-          (blur)="checkIsNameTyped()"
+            type="text"
+            [class]="
+              `duration-75 ${isNameTyped === false ? 'text-red-700 border-red-700 outline-red-700' : 'border-neutral-300 text-neutral-700'} border p-3 rounded-xl w-full`
+            "
+            placeholder="Nome"
+            formControlName="name"
+            autocomplete="name"
+            title="Digite seu nome"
+            (blur)="checkIsNameTyped()"
           />
           <div class="input-holder flex gap-2">
             <input
               type="tel"
-              [class]="`duration-75 ${isIndentificationMessageValid === false ? 'text-red-700 border-red-700 outline-red-700' : 'border-neutral-300 text-neutral-700'} border p-3 rounded-xl w-full`"
+              [class]="
+                `duration-75 ${isIndentificationMessageValid === false ? 'text-red-700 border-red-700 outline-red-700' : 'border-neutral-300 text-neutral-700'} border p-3 rounded-xl w-full`
+              "
               placeholder="Celular"
               formControlName="cellphone"
               autocomplete="tel"
@@ -260,7 +277,9 @@
             />
             <input
               type="email"
-              [class]="`duration-75 ${isIndentificationMessageValid === false ? 'text-red-700 border-red-700 outline-red-700' : 'border-neutral-300 text-neutral-700'} border p-3 rounded-xl w-full`"
+              [class]="
+                `duration-75 ${isIndentificationMessageValid === false ? 'text-red-700 border-red-700 outline-red-700' : 'border-neutral-300 text-neutral-700'} border p-3 rounded-xl w-full`
+              "
               placeholder="Email"
               formControlName="email"
               autocomplete="email"
@@ -287,7 +306,11 @@
   </section>
   <footer class="p-4 w-full flex items-center justify-center gap-2">
     Luís Eduardo © All rights reserved 2025
-    <a class="underline text-blue-600" href="https://github.com/luis10barbo/portifolio-ang">Github Repository</a>
+    <a
+      class="underline text-blue-600"
+      href="https://github.com/luis10barbo/portifolio-ang"
+      >Github Repository</a
+    >
   </footer>
 </main>
 

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@use "tailwindcss";
+@import "tailwindcss";
+@import "primeicons/primeicons.css";
 
 * {
     font-family: "Outfit", sans-serif;
@@ -12,5 +13,5 @@
 }
 
 main {
-  background: color-mix(in oklab, oklch(96.8% 0.007 247.896) 50%, transparent);
+  background-color: rgba(241, 245, 249, 0.7);
 }
