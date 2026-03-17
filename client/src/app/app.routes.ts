@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
 import { AppComponent as HomeComponent } from './routes/home/home.component';
 import { ProjectComponentComponent } from './routes/project/project.component';
-import { LoginComponent } from './routes/admin/login/login.component';
-import { CriarProjetoComponent } from './routes/admin/projects/criar-projeto/criar-projeto.component';
-import { CriarHabilidadeComponent } from './routes/admin/skills/criar-habilidade/criar-habilidade.component';
+import { CreateProjectComponent } from './routes/admin/projects/create/create-project.component';
+import { CreateSkillComponent } from './routes/admin/skills/create/create-skill.component';
 import { ProjectsComponent } from './routes/admin/projects/projects.component';
 import { SkillsComponent } from './routes/admin/skills/skills.component';
+import { AdminComponent } from './routes/admin/admin.component';
 
 export const routes: Routes = [
     {
@@ -18,11 +18,11 @@ export const routes: Routes = [
     },
     {
         path: "admin/projects/create",
-        component: CriarProjetoComponent
+        component: CreateProjectComponent
     },
     {
         path: "admin/projects/edit",
-        component: CriarProjetoComponent
+        component: CreateProjectComponent
     },
     {
         path: "admin/skills",
@@ -30,11 +30,11 @@ export const routes: Routes = [
     },
     {
         path: "admin/skills/create",
-        component: CriarHabilidadeComponent
+        component: CreateSkillComponent
     },
     {
         path: "admin/skills/edit",
-        component: CriarHabilidadeComponent
+        component: CreateSkillComponent
     },
     {
         path: "proj/:id",
@@ -42,6 +42,6 @@ export const routes: Routes = [
     },
     {
         path: "admin",
-        component: LoginComponent
+        component: AdminComponent
     }
 ];

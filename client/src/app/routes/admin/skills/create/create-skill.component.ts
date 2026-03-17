@@ -10,12 +10,12 @@ import { ImageType } from '../../../../model/imageModel';
 import { imagesUrl } from '../../../../service/constants';
 
 @Component({
-  selector: 'app-criar-habilidade',
+  selector: 'app-create-skill',
   imports: [AdminPageCardComponent, ReactiveFormsModule, RouterLink],
-  templateUrl: './criar-habilidade.component.html',
-  styleUrl: './criar-habilidade.component.scss'
+  templateUrl: './create-skill.component.html',
+  styleUrl: './create-skill.component.scss'
 })
-export class CriarHabilidadeComponent {
+export class CreateSkillComponent {
     image?: {file: File, blob: string};
     urlImagens = `${enviroment.urlBackend}/image?id=`;
 

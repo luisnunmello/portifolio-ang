@@ -12,12 +12,12 @@ import { imagesUrl } from '../../../../service/constants';
 
 
 @Component({
-  selector: 'app-criar-projeto',
+  selector: 'app-create-project',
   imports: [AdminPageCardComponent, ReactiveFormsModule, RouterLink],
-  templateUrl: './criar-projeto.component.html',
-  styleUrl: './criar-projeto.component.scss'
+  templateUrl: './create-project.component.html',
+  styleUrl: './create-project.component.scss'
 })
-export class CriarProjetoComponent {
+export class CreateProjectComponent {
   @ViewChild("nameInput") inputName!: ElementRef<HTMLInputElement>;
   @ViewChild("descriptionInput") descriptionInput!: ElementRef<HTMLInputElement>;
   @ViewChild("repoInput") repoInput!: ElementRef<HTMLInputElement>;

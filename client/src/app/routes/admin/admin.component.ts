@@ -1,16 +1,16 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { LoginService } from '../../../service/login/login.service';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { AdminPageCardComponent } from "../../../components/admin-page-card/admin-page-card.component";
+import { AdminPageCardComponent } from '../../components/admin-page-card/admin-page-card.component';
+import { LoginService } from '../../service/login/login.service';
 
 @Component({
   selector: 'app-login',
   imports: [RouterLink, ReactiveFormsModule, AdminPageCardComponent],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './admin.component.html',
+  styleUrl: './admin.component.css'
 })
-export class LoginComponent {
+export class AdminComponent {
   @ViewChild("passwordComponent") passwordComponent!: ElementRef<HTMLInputElement>;
   loggedIn?: boolean;
   loginForm = new FormGroup({
