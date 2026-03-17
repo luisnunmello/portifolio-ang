@@ -61,6 +61,7 @@ export class CriarProjetoComponent {
   }
   
   onChangeImages(event: Event) {
+    this.form.controls.images.setValue([]);
     const files = (event.target as HTMLInputElement).files;
     this.images = [];
     if (!files || files.length < 1) {
@@ -164,9 +165,9 @@ export class CriarProjetoComponent {
   }
 
    isSkillChecked(skill: SkillType): boolean {
-
+    console.log(skill, this.form.getRawValue());
     return this.form.getRawValue().skills.find((formSkill) => 
-      skill.id = formSkill.id
+      skill.id === formSkill.id
     ) ? true : false;
   }
 }

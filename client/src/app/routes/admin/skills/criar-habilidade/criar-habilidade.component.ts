@@ -7,6 +7,7 @@ import { AdminPageCardComponent } from "../../../../components/admin-page-card/a
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { ImageType } from '../../../../model/imageModel';
+import { imagesUrl } from '../../../../service/constants';
 
 @Component({
   selector: 'app-criar-habilidade',
@@ -23,6 +24,7 @@ export class CriarHabilidadeComponent {
     @ViewChild("typeSelect") typeSelect!: ElementRef<HTMLInputElement>;
     @ViewChild("imageInput") imageInput!: ElementRef<HTMLInputElement>;
 
+    imagesUrl = imagesUrl;
     createForm = new FormGroup({
       id: new FormControl("", {nonNullable: true}),
       name: new FormControl("", {nonNullable: true}),
@@ -41,6 +43,7 @@ export class CriarHabilidadeComponent {
     }
     
     onChangeImages(event: Event) {
+      this.createForm.controls.image.setValue(undefined);
       const files = (event.target as HTMLInputElement).files;
       this.image = undefined;
       if (!files || files.length < 1) {

@@ -55,7 +55,7 @@
                     Project Images (first will be thumbnail)
                 </span>
 
-                <div class="images flex gap-4">
+                <div class="images flex gap-4 overflow-x-auto">
                     @for (image of form.getRawValue().images; track image.id) {
                         <img [src]="imagesUrl + image.id" [alt]="`Image number ${$index + 1}`" class="" style="max-height: 400px;">
                     }

@@ -30,6 +30,10 @@
             </div>
             <div class="image-holder flex flex-col gap-4">
                 <div class="images flex gap-4">
+                    @if (createForm.getRawValue().image) {
+                        <img [src]="imagesUrl + createForm.getRawValue().image?.id" class="" style="max-height: 32px; max-width: 32px;">
+                    }
+
                     @if (image) {
                         <img [src]="image.blob" alt="Image" class="" style="max-height: 32px; max-width: 32px;">
                     }
