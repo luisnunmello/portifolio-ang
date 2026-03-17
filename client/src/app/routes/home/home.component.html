@@ -2,7 +2,7 @@
   <app-header class="w-full flex gap-2 z-60" />
   <section
     id="home"
-    class="h-fit sm:h-[90vh] w-full overflow-hidden relative py flex flex-col sm:flex-row gap-4 scroll-mt-24 bg-radial-[at_25%_50%] from-blue-50 to-blue-100"
+    class="h-fit sm:h-[90vh] w-full overflow-hidden relative py flex flex-col sm:flex-row gap-4 scroll-mt-24 bg-radial-[at_25%_50%] from-white to-slate-100"
   >
     <div
       class="presentation"
@@ -187,18 +187,30 @@
     class="bg-slate-100/30 p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24"
   >
     <div
-      class="bg-white border-border-neutral-200 flex-2 flex flex-col p-8 gap-4 rounded-xl lg:block hidden md:min-w-[400px]"
+      class="bg-white border-border-neutral-200 flex-2 hidden flex-col p-8 gap-4 rounded-xl lg:flex md:min-w-[400px]"
     >
       <header class="flex flex-col gap-2">
         <span class="font-bold text-2xl">{{ currentProject?.name }}</span>
-        <div class="skill-holder flex gap-2">
-          @for (skill of currentProject?.techBack; track $index) {
-            <span class="text-base font-bold">{{ skill.name }}</span>
-          }
-        </div>
+        
       </header>
 
-      <span>{{ currentProject?.description }}</span>
+      <p>{{ currentProject?.description }}</p>
+      <div class="skill-holder flex gap-2 flex-wrap mt-auto">
+        @for (skill of currentProject?.techFront; track $index) {
+          <span class="text-base font-bold flex items-center gap-2">
+            @if (skill.image) {<img class="w-8 aspect-square" [src]="`${urlImagens}${skill.image.id}`">}
+            {{ skill.name }}
+          </span>
+        }
+      </div>
+      <div class="skill-holder flex gap-2 flex-wrap">
+          @for (skill of currentProject?.techBack; track $index) {
+            <span class="text-base font-bold flex items-center gap-2">
+              @if (skill.image) {<img class="w-8 aspect-square" [src]="`${urlImagens}${skill.image.id}`">}
+              {{ skill.name }}
+            </span>
+          }
+      </div>
     </div>
     <div class="aspect-video bg-white h-[600px] overflow-hidden rounded-xl">
       <app-carrossel-projetos
