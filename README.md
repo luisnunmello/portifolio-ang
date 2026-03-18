@@ -1,6 +1,8 @@
 
 # 💼 Portfólio - Fullstack App
 
+<img width="1864" height="888" alt="image" src="https://github.com/user-attachments/assets/9bf42991-cd32-4b30-a215-2a8151f42144" />
+
 Aplicação de portfólio desenvolvida com arquitetura **Fullstack**, contendo:
 
 - 🎨 Frontend em `client`
@@ -142,7 +144,17 @@ CREATE DATABASE portifolio;
 
 ## 📷 Preview
 
-*(adicione prints aqui depois)*
+<img width="1864" height="888" alt="image" src="https://github.com/user-attachments/assets/9bf42991-cd32-4b30-a215-2a8151f42144" />
+<img width="1861" height="892" alt="image" src="https://github.com/user-attachments/assets/ba42ce5b-8ce3-42e6-90ad-b88ea2f9b970" />
+<img width="1847" height="885" alt="image" src="https://github.com/user-attachments/assets/a277429e-a765-4d1a-adaf-d99a1b638543" />
+<img width="1051" height="812" alt="image" src="https://github.com/user-attachments/assets/e8b232e6-875b-4882-acd6-41b5fd1b3bab" />
+<img width="691" height="762" alt="image" src="https://github.com/user-attachments/assets/2f21f45f-040b-4504-8db9-ee8292e822dd" />
+<img width="600" height="983" alt="image" src="https://github.com/user-attachments/assets/56f30b46-ff63-40ad-8bfe-f99ab558b9d7" />
+<img width="644" height="720" alt="image" src="https://github.com/user-attachments/assets/cbf3dee8-6716-4111-a0bb-3b114a47e815" />
+<img width="653" height="686" alt="image" src="https://github.com/user-attachments/assets/8a790f92-be69-4451-9a55-d43818b3372c" />
+
+
+
 
 ---
 
