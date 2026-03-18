@@ -60,7 +60,7 @@ O objetivo do projeto é apresentar projetos, habilidades e informações profis
 ```bash
 cd client
 npm install
-ng serve
+npm start
 ````
 
 Acesse em:
