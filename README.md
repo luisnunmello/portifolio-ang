@@ -49,7 +49,7 @@ O objetivo do projeto é apresentar projetos, habilidades e informações profis
 
 - Node.js (v18+ recomendado)
 - Angular CLI
-- Java 17+
+- Java 17+ (Recomendado 21)
 - Maven ou Gradle
 - PostgreSQL
 
