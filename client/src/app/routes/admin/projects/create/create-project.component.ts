@@ -9,6 +9,7 @@ import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Image } from '../../../../types/image.type';
 import { imagesUrl } from '../../../../service/constants';
+import { NotificationService } from '../../../../service/notification/notification.service';
 
 
 @Component({
@@ -45,7 +46,7 @@ export class CreateProjectComponent {
 
   imagesUrl = imagesUrl;
   
-  constructor(private projectService: ProjetoServiceService, private imageService: ImageServiceService, skillService: SkillService, route: ActivatedRoute, private router: Router) {
+  constructor(private projectService: ProjetoServiceService, private imageService: ImageServiceService, skillService: SkillService, route: ActivatedRoute, private router: Router, private notificationService: NotificationService) {
     skillService.getSkills().subscribe((skills) => {
       this.skills = skills;
       
@@ -91,7 +92,7 @@ export class CreateProjectComponent {
 
   createProject(project: Project) {
     if (this.images.length < 1) {
-      alert("Project should have at least one image");
+      this.notificationService.show({title: "Erro", description: "É necessário ao menos uma imagem para criar um projeto", isError: true});
       return;
     }
 
@@ -101,7 +102,9 @@ export class CreateProjectComponent {
 
       this.projectService.criarProjeto(project).subscribe((res) => {
         if (res) {
-          this.router.navigate(["/admin/projects"])
+          this.notificationService.show({title: "Projeto Criado", description: "Projeto criado com sucesso.", closeFunction: () => {
+                this.gotoProjectsPage();
+          }});
         }
       });
     });
@@ -115,14 +118,18 @@ export class CreateProjectComponent {
 
         this.projectService.editProject(project).subscribe((res) => {
           if (res) {
-            this.router.navigate(["/admin/projects"])
+            this.notificationService.show({title: "Projeto Editado", description: "Projeto criado com sucesso.", closeFunction: () => {
+              this.gotoProjectsPage();
+            }});
           }
         });
       });
     } else {
       this.projectService.editProject(project).subscribe((res) => {
           if (res) {
-            this.router.navigate(["/admin/projects"])
+            this.notificationService.show({title: "Projeto Editado", description: "Projeto criado com sucesso.", closeFunction: () => {
+              this.gotoProjectsPage();
+            }});
           }
       });
     }
@@ -160,7 +167,9 @@ export class CreateProjectComponent {
 
   public removeProject() {
     this.projectService.removeProject(this.form.getRawValue().id!).subscribe(() => {
-      this.router.navigate(["/admin/projects"])
+      this.notificationService.show({title: "Projeto Removido", description: "Projeto removido com sucesso.", closeFunction: () => {
+          this.gotoProjectsPage();  
+      }});
     });
   }
 
@@ -169,5 +178,9 @@ export class CreateProjectComponent {
     return this.form.getRawValue().skills.find((formSkill) => 
       skill.id === formSkill.id
     ) ? true : false;
+  }
+
+  gotoProjectsPage() {
+    this.router.navigate(["/admin/projects"]);
   }
 }

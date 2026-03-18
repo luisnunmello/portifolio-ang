@@ -3,13 +3,15 @@ import { enviroment } from '../../../environment';
 import { HttpClient } from '@angular/common/http';
 import { Image } from '../../types/image.type';
 import { Skill } from '../../types/skill.type';
+import { tap } from 'rxjs';
+import { NotificationService } from '../notification/notification.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkillService {
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private notificationService: NotificationService) {}
 
   public getSkills() {
     return this.httpClient.get<Skill[]>(`${enviroment.urlBackend}/skill/all`, {withCredentials: true});

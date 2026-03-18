@@ -11,9 +11,13 @@ import { Notification } from '../../../types/notification.type';
 export class AlertComponent {
   notification?: Notification = undefined;
   notificationStatusMessage?: string = undefined;
+  isError?: boolean = undefined;
+  onClose?: () => void = undefined;
   constructor(private notificationService: NotificationService) {
     notificationService.notificationObservable.subscribe((notification) => {
       this.notification = notification;
+      this.onClose = notification.closeFunction;
+      this.isError = notification.isError;
       if (notification.status) {
         this.getStatusCodeMessage(notification.status)
       }
@@ -22,6 +26,8 @@ export class AlertComponent {
   dismiss() {
     this.notification = undefined;
     this.notificationStatusMessage = undefined
+    console.log(this.onClose);
+    if (this.onClose) this.onClose();
   }
 
   getStatusCodeMessage(statusCode: number) {

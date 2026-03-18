@@ -8,6 +8,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { Image } from '../../../../types/image.type';
 import { imagesUrl } from '../../../../service/constants';
+import { NotificationService } from '../../../../service/notification/notification.service';
 
 @Component({
   selector: 'app-create-skill',
@@ -33,7 +34,7 @@ export class CreateSkillComponent {
       image: new FormControl<Image | undefined>(undefined)
     });
 
-    constructor(private imageService: ImageServiceService, private skillService: SkillService, route: ActivatedRoute, private router: Router) {
+    constructor(private imageService: ImageServiceService, private skillService: SkillService, route: ActivatedRoute, private router: Router, private notificationService: NotificationService) {
       if (route.snapshot.queryParamMap.has("id")) {
         const id = route.snapshot.queryParamMap.get("id")!;
         skillService.getSkill(id).subscribe((skill) => {
@@ -74,7 +75,9 @@ export class CreateSkillComponent {
         type: this.typeSelect.nativeElement.value as Technology,
       }).subscribe((res) => {
           if (res) {
-            alert("Success")
+            this.notificationService.show({title: "Habilidade Criada", description: "Habilidade Criada com sucesso", closeFunction: () => {
+              this.gotoSkillsPage();
+            }});
           }
         });
       })
@@ -94,14 +97,18 @@ export class CreateSkillComponent {
           newSkill.image = imageResult ? imageResult[0] : undefined;
           this.skillService.editSkill(newSkill).subscribe((res) => {
               if (res) {
-                this.router.navigate(["/admin/skills"]);
+                this.notificationService.show({title: "Habilidade Editada", description: "Habilidade Editada com sucesso", closeFunction: () => {
+                  this.gotoSkillsPage();
+                }});
               }
             });
         })
       } else {
         this.skillService.editSkill(newSkill).subscribe((res) => {
           if (res) {
-            this.router.navigate(["/admin/skills"]);
+           this.notificationService.show({title: "Habilidade Editada", description: "Habilidade Editada com sucesso", closeFunction: () => {
+              this.gotoSkillsPage();
+            }});
           }
         });
       }
@@ -111,8 +118,14 @@ export class CreateSkillComponent {
       console.log(this.createForm.value);
       if (this.createForm.value.id) {
         this.skillService.removeSkill(this.createForm.value.id).subscribe(() => {
-            this.router.navigate(["/admin/skills"]);
+          this.notificationService.show({title: "Habilidade Removida", description: "Habilidade Removida com sucesso", closeFunction: () => {
+            this.gotoSkillsPage();
+          }});
         });
       }
+    }
+
+    gotoSkillsPage() {
+      this.router.navigate(["/admin/skills"]);
     }
 }
