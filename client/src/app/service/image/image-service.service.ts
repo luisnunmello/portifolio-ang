@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { enviroment } from '../../../environment';
 import { HttpClient } from '@angular/common/http';
-import { ImageType } from '../../model/imageModel';
+import { Image } from '../../types/image.type';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class ImageServiceService {
   constructor(private httpClient: HttpClient) {}
 
   public saveImages(images:({file: File, blob: string} | undefined)[]) {
-    return new Observable<ImageType[] | undefined>((subscriber) => {
+    return new Observable<Image[] | undefined>((subscriber) => {
       const formData = new FormData();
       let imgCount = 0;
       images.forEach((image) => {
@@ -26,7 +26,7 @@ export class ImageServiceService {
         subscriber.next(undefined);
         return;
       }
-      this.httpClient.post<ImageType[]>(`${enviroment.urlBackend}/image/create`, formData, {withCredentials: true}).subscribe((res) => {
+      this.httpClient.post<Image[]>(`${enviroment.urlBackend}/image/create`, formData, {withCredentials: true}).subscribe((res) => {
         subscriber.next(res);
       });
     })

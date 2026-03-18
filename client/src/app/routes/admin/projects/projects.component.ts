@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { AdminPageCardComponent } from "../../../components/admin/admin-page-card/admin-page-card.component";
-import { ProjetoType } from '../../../model/projetoModel';
+import { Project } from '../../../types/project.type';
 import { ProjetoServiceService } from '../../../service/projeto/projeto-service.service';
 import { imagesUrl } from '../../../service/constants';
 import { RouterLink } from "@angular/router";
@@ -12,7 +12,7 @@ import { RouterLink } from "@angular/router";
   styleUrl: './projects.component.css'
 })
 export class ProjectsComponent {
-  projects = signal<ProjetoType[]>([]);
+  projects = signal<Project[]>([]);
   imagesUrl = imagesUrl;
   constructor(projectService: ProjetoServiceService) {
     projectService.getProjects().subscribe((projects) => {

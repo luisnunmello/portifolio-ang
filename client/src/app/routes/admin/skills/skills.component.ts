@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { AdminPageCardComponent } from "../../../components/admin/admin-page-card/admin-page-card.component";
 import { SkillService } from '../../../service/skill/skill-service.service';
-import { SkillType } from '../../../model/skillModel';
+import { Skill } from '../../../types/skill.type';
 import { imagesUrl } from '../../../service/constants';
 import { RouterLink } from "@angular/router";
 
@@ -12,7 +12,7 @@ import { RouterLink } from "@angular/router";
   styleUrl: './skills.component.css'
 })
 export class SkillsComponent {
-  skills = signal<SkillType[] | undefined>(undefined);
+  skills = signal<Skill[] | undefined>(undefined);
   imagesUrl = imagesUrl;
   constructor(skillService: SkillService) {
     skillService.getSkills().subscribe((val) => {

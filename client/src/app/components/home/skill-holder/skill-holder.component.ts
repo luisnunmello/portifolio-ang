@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SkillType } from '../../../model/skillModel';
+import { Skill } from '../../../types/skill.type';
 import { enviroment } from '../../../../environment';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { imagesUrl } from '../../../service/constants';
@@ -15,7 +15,7 @@ export class SkillHolderComponent {
   @Input("title")
   title?: String = undefined;
   @Input("skills")
-  skills: SkillType[] = []
+  skills: Skill[] = []
   imagesUrl =  imagesUrl
   
   constructor(private translate: TranslateService) {

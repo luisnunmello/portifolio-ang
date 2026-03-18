@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NotificationService } from '../../../service/notification/notification.service';
-import { NotificationType } from '../../../model/notificationModel';
+import { Notification } from '../../../types/notification.type';
 
 @Component({
   selector: 'app-alert',
@@ -9,7 +9,7 @@ import { NotificationType } from '../../../model/notificationModel';
   styleUrl: './alert.component.scss'
 })
 export class AlertComponent {
-  notification?: NotificationType = undefined;
+  notification?: Notification = undefined;
   notificationStatusMessage?: string = undefined;
   constructor(private notificationService: NotificationService) {
     notificationService.notificationObservable.subscribe((notification) => {

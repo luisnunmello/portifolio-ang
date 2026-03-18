@@ -1,4 +1,4 @@
-export type MessageType = {
+export type Message = {
     id: number | null,
     name: string,
     email: string | null,

@@ -3,9 +3,9 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ProjetoServiceService } from '../../service/projeto/projeto-service.service';
-import { ProjetoType } from '../../model/projetoModel';
+import { Project } from '../../types/project.type';
 import { ProjectCarouselComponent } from "../../components/home/project-carousel/project-carousel.component";
-import { SkillCategory, SkillType } from '../../model/skillModel';
+import { SkillCategory, Skill } from '../../types/skill.type';
 import { SkillService } from '../../service/skill/skill-service.service';
 import { NgFor } from '@angular/common';
 import { enviroment } from '../../../environment';
@@ -24,15 +24,15 @@ import { HeaderComponent } from '../../components/shared/header/header.component
 export class AppComponent {
   title = 'portifolio';
   linkedInUrl = "https://www.linkedin.com/in/luisnunmello/";
-  projects: ProjetoType[] = [];
-  skills: SkillType[] = [];
-  skillByCategory: {[key in SkillCategory]: SkillType[]} = {DATABASE: [], FRAMEWORK: [], LANGUAGE: [], OPERATIONAL_SYSTEM: [], VERSIONING: []};
+  projects: Project[] = [];
+  skills: Skill[] = [];
+  skillByCategory: {[key in SkillCategory]: Skill[]} = {DATABASE: [], FRAMEWORK: [], LANGUAGE: [], OPERATIONAL_SYSTEM: [], VERSIONING: []};
 
   dateStart = new Date("12/4/2021");
 
   urlImagens = `${enviroment.urlBackend}/image?id=`;
 
-  currentProject?: ProjetoType = undefined; 
+  currentProject?: Project = undefined; 
 
   isMobile = false;
 
@@ -128,7 +128,7 @@ export class AppComponent {
     this.backgroundFillerText.nativeElement.textContent = `<div class="container"><h1 onclick="alert('Hello World!')">Click Me</h1><p id="text">This is a paragraph with <strong>bold</strong> and <em>italic</em> text.</p><button onclick="document.getElementById('text').style.color='red'">Change Color</button><script>function randomNumber(){return Math.floor(Math.random()*100);}console.log("Random number: "+randomNumber());document.addEventListener("DOMContentLoaded",function(){document.body.style.backgroundColor="#f0f0f0";});</script></div></em> text.</p><button </em> text.</p><button onclick="document.getElementById('text').style.color='red'">Change Color</button><script>function raonclick="document.getElementById('text').style.color='red'">Change Color</button><script>function ra`
   }
 
-  public sortSkillsByCategory(skills: SkillType[]) {
+  public sortSkillsByCategory(skills: Skill[]) {
     skills.forEach((skill) => {
       this.skillByCategory[skill.category].push(skill);
     }) 

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ProjetoType } from '../../model/projetoModel';
+import { Project } from '../../types/project.type';
 import { ProjetoServiceService } from '../../service/projeto/projeto-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { enviroment } from '../../../environment';
@@ -12,7 +12,7 @@ import { enviroment } from '../../../environment';
   styleUrl: './project.component.scss'
 })
 export class ProjectComponentComponent {
-  project?: ProjetoType;
+  project?: Project;
   urlImagens = `${enviroment.urlBackend}/image?id=`;
   
   constructor(private translateService: TranslateService, private projectService: ProjetoServiceService, private route: ActivatedRoute) {

@@ -1,13 +1,13 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ProjetoType, ProjetoStatus } from '../../../../model/projetoModel';
-import { SkillType } from '../../../../model/skillModel';
+import { Project, ProjectStatus } from '../../../../types/project.type';
+import { Skill } from '../../../../types/skill.type';
 import { ImageServiceService } from '../../../../service/image/image-service.service';
 import { ProjetoServiceService } from '../../../../service/projeto/projeto-service.service';
 import { SkillService } from '../../../../service/skill/skill-service.service';
 import { AdminPageCardComponent } from "../../../../components/admin/admin-page-card/admin-page-card.component";
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { ImageType } from '../../../../model/imageModel';
+import { Image } from '../../../../types/image.type';
 import { imagesUrl } from '../../../../service/constants';
 
 
@@ -27,9 +27,9 @@ export class CreateProjectComponent {
   @ViewChild("imagesInput") imagesInput!: ElementRef<HTMLInputElement>;
   
   images: {file: File, blob: string}[] = [];
-  skills: SkillType[] = [];
+  skills: Skill[] = [];
 
-  usedSkills = new Set<SkillType>();
+  usedSkills = new Set<Skill>();
 
   form = new FormGroup({
         id: new FormControl<number | undefined>(undefined, {nonNullable: true}),
@@ -39,8 +39,8 @@ export class CreateProjectComponent {
         website: new FormControl("", {nonNullable: true}),
         download: new FormControl("", {nonNullable: true}),
         status: new FormControl(""),
-        skills: new FormControl<SkillType[]>([], {nonNullable: true}),
-      images: new FormControl<ImageType[]>([], {nonNullable: true})
+        skills: new FormControl<Skill[]>([], {nonNullable: true}),
+      images: new FormControl<Image[]>([], {nonNullable: true})
   });
 
   imagesUrl = imagesUrl;
@@ -76,7 +76,7 @@ export class CreateProjectComponent {
     })
   }
 
-  toggleSkill(event: Event, skill: SkillType) {
+  toggleSkill(event: Event, skill: Skill) {
     const input = event.target as HTMLInputElement;
 
     const current = this.form.getRawValue().skills;
@@ -89,7 +89,7 @@ export class CreateProjectComponent {
     console.log(this.form.value.skills);
   }
 
-  createProject(project: ProjetoType) {
+  createProject(project: Project) {
     if (this.images.length < 1) {
       alert("Project should have at least one image");
       return;
@@ -107,7 +107,7 @@ export class CreateProjectComponent {
     });
   }
 
-  editProject(project: ProjetoType) {
+  editProject(project: Project) {
     if (this.images.length > 0) {
       this.imageService.saveImages(this.images).subscribe((images) => {
         project.images = images;
@@ -131,7 +131,7 @@ export class CreateProjectComponent {
 
   public clickSubmit() {
     const formValues = this.form.getRawValue();
-    const project: ProjetoType = {
+    const project: Project = {
       id: formValues.id,
       name: formValues.name,
       description: formValues.description,
@@ -141,7 +141,7 @@ export class CreateProjectComponent {
       techBack: [],
       techFront: [],
       images: formValues.images,
-      status: this.statusSelect.nativeElement.value as ProjetoStatus
+      status: this.statusSelect.nativeElement.value as ProjectStatus
     };
     formValues.skills.forEach((skill) => {
         if (skill.type === "BACKEND") {
@@ -164,7 +164,7 @@ export class CreateProjectComponent {
     });
   }
 
-   isSkillChecked(skill: SkillType): boolean {
+   isSkillChecked(skill: Skill): boolean {
     console.log(skill, this.form.getRawValue());
     return this.form.getRawValue().skills.find((formSkill) => 
       skill.id === formSkill.id

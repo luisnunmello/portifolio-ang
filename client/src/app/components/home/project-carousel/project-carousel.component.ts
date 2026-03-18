@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
-import { ProjetoType } from '../../../model/projetoModel';
+import { Project } from '../../../types/project.type';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ScrollService } from '../../../service/scroll/scroll.service';
 import { RouterLink } from '@angular/router';
@@ -17,12 +17,12 @@ export class ProjectCarouselComponent implements OnInit, OnDestroy {
   iCurrentProject: EventEmitter<number> = new EventEmitter<number>();
 
   @Input("projects")
-  projects: ProjetoType[] = [];
+  projects: Project[] = [];
 
   @ViewChild("projectPageHolder", {static: true}) projectPageHolder!: ElementRef<HTMLDivElement>;
   projectPage?: HTMLDivElement = undefined;
 
-  currentProject?: ProjetoType = undefined;
+  currentProject?: Project = undefined;
 
   iProjetoAtual = 0;
   nextInterval: any;

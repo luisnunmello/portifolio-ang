@@ -1,12 +1,12 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { enviroment } from '../../../../../environment';
-import { SkillCategory, SkillType, TechnologyTypeEnum } from '../../../../model/skillModel';
+import { SkillCategory, Skill, Technology } from '../../../../types/skill.type';
 import { ImageServiceService } from '../../../../service/image/image-service.service';
 import { SkillService } from '../../../../service/skill/skill-service.service';
 import { AdminPageCardComponent } from "../../../../components/admin/admin-page-card/admin-page-card.component";
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
-import { ImageType } from '../../../../model/imageModel';
+import { Image } from '../../../../types/image.type';
 import { imagesUrl } from '../../../../service/constants';
 
 @Component({
@@ -30,7 +30,7 @@ export class CreateSkillComponent {
       name: new FormControl("", {nonNullable: true}),
       categorySelect: new FormControl(""),
       typeSelect: new FormControl(""),
-      image: new FormControl<ImageType | undefined>(undefined)
+      image: new FormControl<Image | undefined>(undefined)
     });
 
     constructor(private imageService: ImageServiceService, private skillService: SkillService, route: ActivatedRoute, private router: Router) {
@@ -71,7 +71,7 @@ export class CreateSkillComponent {
         name: this.nameInput.nativeElement.value,
         category: this.categorySelect.nativeElement.value as SkillCategory,
         image: imageResult ? imageResult[0] : undefined,
-        type: this.typeSelect.nativeElement.value as TechnologyTypeEnum,
+        type: this.typeSelect.nativeElement.value as Technology,
       }).subscribe((res) => {
           if (res) {
             alert("Success")
@@ -87,8 +87,8 @@ export class CreateSkillComponent {
             name: formValues.name,
             category: formValues.categorySelect as SkillCategory,
             image: formValues.image,
-            type: formValues.typeSelect as TechnologyTypeEnum,
-      } as SkillType; 
+            type: formValues.typeSelect as Technology,
+      } as Skill; 
       if (this.image) {
         this.imageService.saveImages([this.image]).subscribe((imageResult) => {
           newSkill.image = imageResult ? imageResult[0] : undefined;
