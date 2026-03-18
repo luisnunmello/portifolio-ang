@@ -10,10 +10,16 @@
     <h3 [class]="`${isInformationToggled ? 'text-blue-800/0' : 'text-blue-800'} duration-75 text-2xl text-shadow-pretty`">{{projects.at(iProjetoAtual)?.name}}</h3>
   </header>
   <button (click)="toggleInformation()" [class]="`cursor-pointer block h-12 lg:hidden absolute top-4 right-4 z-50 aspect-square p-4 text-xl flex items-center justify-center rounded-xl shadow-pretty ${isInformationToggled ? 'bg-blue-700 text-white' : 'text-blue-700 hover:bg-blue-50 bg-white'}  duration-75`">i</button>
-  <div [class]="`overlay w-full h-full bg-white z-40 absolute duration-75 rounded-xl p-4 flex flex-col`" [style]="`${isInformationToggled ? 'transform: translateX(0%)' : 'transform: translateX(100%)'}`">
+  <div [class]="`overlay w-full h-full bg-white z-40 absolute duration-75 rounded-xl p-4 flex flex-col gap-2`" [style]="`${isInformationToggled ? 'transform: translateX(0%)' : 'transform: translateX(100%)'}`">
     <h3 class="text-blue-800 text-2xl font-bold">{{projects.at(iProjetoAtual)?.name}}</h3>
     <p class="text-blue-900 text-lg font-bold pt-12 w-full h-full text-justify">{{ projects.at(iProjetoAtual)?.description }}</p>
-    <div class="flex text-xl gap-2 overflow-auto w-full bg-neutral-100 p-4 rounded-md">
+    <div class="flex gap-2">
+        @if (projects.at(iProjetoAtual)?.website) {<a [href]="projects.at(iProjetoAtual)?.website" class="bg-slate-100 p-3 rounded-lg">Acessar</a>}
+        @if (projects.at(iProjetoAtual)?.repo) {<a [href]="projects.at(iProjetoAtual)?.repo" class="bg-slate-100 p-3 rounded-lg">Repositorio</a>}
+        @if (projects.at(iProjetoAtual)?.download) {<a [href]="projects.at(iProjetoAtual)?.download" class="bg-slate-100 p-3 rounded-lg">Download</a>}
+
+      </div>
+    <div class="flex text-xl gap-2 overflow-auto w-full bg-slate-100 p-4 rounded-md">
       @for (tech of projects.at(iProjetoAtual)?.techBack; track tech.id; let i = $index) {
         @if (tech.image) {<img class="w-8 aspect-square" [src]="`${urlImagens}${tech.image.id}`">} {{ tech.name }}
       }
