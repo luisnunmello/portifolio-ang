@@ -13,7 +13,7 @@ import { imagesUrl } from '../../../../service/constants';
   selector: 'app-create-skill',
   imports: [AdminPageCardComponent, ReactiveFormsModule, RouterLink],
   templateUrl: './create-skill.component.html',
-  styleUrl: './create-skill.component.scss'
+  styleUrl: './create-skill.component.css'
 })
 export class CreateSkillComponent {
     image?: {file: File, blob: string};

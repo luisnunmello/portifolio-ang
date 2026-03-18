@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-language-holder',
   imports: [],
   templateUrl: './language-holder.component.html',
-  styleUrl: './language-holder.component.scss'
+  styleUrl: './language-holder.component.css'
 })
 export class LanguageHolderComponent {
 

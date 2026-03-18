@@ -19,7 +19,7 @@ import { HeaderComponent } from '../../components/shared/header/header.component
   selector: 'home-root',
   imports: [RouterOutlet, TranslateModule, ProjectCarouselComponent, SkillHolderComponent, HeaderComponent, ReactiveFormsModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.css'
 })
 export class AppComponent {
   title = 'portifolio';

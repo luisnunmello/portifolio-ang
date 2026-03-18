@@ -9,7 +9,7 @@ import { enviroment } from '../../../../environment';
   selector: 'app-project-carousel',
   imports: [RouterLink, TranslateModule],
   templateUrl: './project-carousel.component.html',
-  styleUrl: './project-carousel.component.scss'
+  styleUrl: './project-carousel.component.css'
 })
 export class ProjectCarouselComponent implements OnInit, OnDestroy {
 

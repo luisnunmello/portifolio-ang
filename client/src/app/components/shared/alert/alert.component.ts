@@ -6,7 +6,7 @@ import { Notification } from '../../../types/notification.type';
   selector: 'app-alert',
   imports: [],
   templateUrl: './alert.component.html',
-  styleUrl: './alert.component.scss'
+  styleUrl: './alert.component.css'
 })
 export class AlertComponent {
   notification?: Notification = undefined;

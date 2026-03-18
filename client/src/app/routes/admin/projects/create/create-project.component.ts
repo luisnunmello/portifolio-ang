@@ -15,7 +15,7 @@ import { imagesUrl } from '../../../../service/constants';
   selector: 'app-create-project',
   imports: [AdminPageCardComponent, ReactiveFormsModule, RouterLink],
   templateUrl: './create-project.component.html',
-  styleUrl: './create-project.component.scss'
+  styleUrl: './create-project.component.css'
 })
 export class CreateProjectComponent {
   @ViewChild("nameInput") inputName!: ElementRef<HTMLInputElement>;

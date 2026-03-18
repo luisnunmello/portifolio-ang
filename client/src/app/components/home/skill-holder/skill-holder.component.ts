@@ -9,7 +9,7 @@ import { imagesUrl } from '../../../service/constants';
   imports: [TranslateModule],
   inputs: [],
   templateUrl: './skill-holder.component.html',
-  styleUrl: './skill-holder.component.scss'
+  styleUrl: './skill-holder.component.css'
 })
 export class SkillHolderComponent {
   @Input("title")
@@ -18,8 +18,6 @@ export class SkillHolderComponent {
   skills: Skill[] = []
   imagesUrl =  imagesUrl
   
-  constructor(private translate: TranslateService) {
-    // this.translate.setDefaultLang("pt");
-  } 
+  constructor() {} 
 
 }

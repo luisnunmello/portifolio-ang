@@ -9,7 +9,7 @@ import { enviroment } from '../../../environment';
   selector: 'app-project-component',
   imports: [TranslateModule],
   templateUrl: './project.component.html',
-  styleUrl: './project.component.scss'
+  styleUrl: './project.component.css'
 })
 export class ProjectComponentComponent {
   project?: Project;

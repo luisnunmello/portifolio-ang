@@ -8,7 +8,7 @@ import { AlertComponent } from './components/shared/alert/alert.component';
   selector: 'app-root',
   imports: [RouterOutlet, TranslateModule, AlertComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'portifolio';
