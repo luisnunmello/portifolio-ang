@@ -49,7 +49,7 @@ O objetivo do projeto é apresentar projetos, habilidades e informações profis
 
 - Node.js (v18+ recomendado)
 - Angular CLI
-- Java 17+
+- Java 17+ (Recomendado 21)
 - Maven ou Gradle
 - PostgreSQL
 
@@ -60,7 +60,7 @@ O objetivo do projeto é apresentar projetos, habilidades e informações profis
 ```bash
 cd client
 npm install
-ng serve
+npm start
 ````
 
 Acesse em:
