@@ -3,8 +3,7 @@ package br.com.luisbrb.portifolio.springboot.service.discord;
 import java.io.IOException;
 import java.util.Collections;
 
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -12,8 +11,6 @@ import br.com.luisbrb.portifolio.springboot.service.LoggerService;
 import br.com.luisbrb.portifolio.springboot.dao.entities.ContactEntity;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import lombok.Getter;
-import lombok.Setter;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -29,16 +26,16 @@ import org.springframework.stereotype.Service;
 public class DiscordBotService {
     @Getter private JDA jda = null;
 
-    @Value("${discord.channel}")
+    @Value("${discord.channel:#{null}}")
     private String channel;
 
-    @Value("${discord.user}")
+    @Value("${discord.user:#{null}}")
     private String user;
 
-    @Value("${discord.token}")
+    @Value("${discord.token:#{null}}")
     private String token;
 
-
+    @NonNull
     private LoggerService logger;
 
     @PreDestroy
