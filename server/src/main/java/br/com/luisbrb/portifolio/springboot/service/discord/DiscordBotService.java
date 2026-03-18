@@ -1,4 +1,4 @@
-package br.com.luisbrb.portifolio.springboot.controller.integrations.discord;
+package br.com.luisbrb.portifolio.springboot.service.discord;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -7,7 +7,7 @@ import br.com.luisbrb.portifolio.springboot.service.ConfigService;
 import org.springframework.stereotype.Component;
 
 import br.com.luisbrb.portifolio.springboot.service.LoggerService;
-import br.com.luisbrb.portifolio.springboot.controller.integrations.discord.listeners.SlashCommandListener;
+import br.com.luisbrb.portifolio.springboot.service.discord.listeners.SlashCommandListener;
 import br.com.luisbrb.portifolio.springboot.dao.entities.ContactEntity;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
@@ -21,7 +21,7 @@ import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
 @Component
-public class DiscordBotComponent {
+public class DiscordBotService {
     @Getter private JDA jda;
 
     @Getter @Setter private String channelId;
@@ -31,7 +31,7 @@ public class DiscordBotComponent {
 
     private LoggerService logger;
 
-    public DiscordBotComponent(ConfigService configService, LoggerService loggerService) {
+    public DiscordBotService(ConfigService configService, LoggerService loggerService) {
         this.configService = configService;
         this.logger = loggerService;
     }

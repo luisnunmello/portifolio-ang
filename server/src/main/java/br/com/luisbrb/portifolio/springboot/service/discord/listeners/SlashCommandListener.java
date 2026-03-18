@@ -1,16 +1,16 @@
-package br.com.luisbrb.portifolio.springboot.controller.integrations.discord.listeners;
+package br.com.luisbrb.portifolio.springboot.service.discord.listeners;
 
 import java.util.logging.Logger;
 
 import br.com.luisbrb.portifolio.springboot.service.ConfigService;
-import br.com.luisbrb.portifolio.springboot.controller.integrations.discord.DiscordBotComponent;
+import br.com.luisbrb.portifolio.springboot.service.discord.DiscordBotService;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 public class SlashCommandListener extends ListenerAdapter {
-    private DiscordBotComponent discordBot;
+    private DiscordBotService discordBot;
     private ConfigService configService;
 
-    public SlashCommandListener(DiscordBotComponent discordBot, ConfigService configService) {
+    public SlashCommandListener(DiscordBotService discordBot, ConfigService configService) {
         this.discordBot = discordBot;
         this.configService = configService;
     }

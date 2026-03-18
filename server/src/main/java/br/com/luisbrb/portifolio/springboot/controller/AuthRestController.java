@@ -1,4 +1,4 @@
-package br.com.luisbrb.portifolio.springboot.controller.rest;
+package br.com.luisbrb.portifolio.springboot.controller;
 
 import java.util.List;
 import java.util.UUID;

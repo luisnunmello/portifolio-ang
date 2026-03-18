@@ -1,4 +1,4 @@
-package br.com.luisbrb.portifolio.springboot.controller.rest;
+package br.com.luisbrb.portifolio.springboot.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

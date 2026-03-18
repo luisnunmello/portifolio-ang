@@ -1,4 +1,4 @@
-package br.com.luisbrb.portifolio.springboot.controller.rest;
+package br.com.luisbrb.portifolio.springboot.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package br.com.luisbrb.portifolio.springboot.controller.rest;
+package br.com.luisbrb.portifolio.springboot.controller;
 
 import java.util.logging.Logger;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.luisbrb.portifolio.springboot.controller.integrations.discord.DiscordBotComponent;
+import br.com.luisbrb.portifolio.springboot.service.discord.DiscordBotService;
 import br.com.luisbrb.portifolio.springboot.dao.repositories.ContactRepository;
 import br.com.luisbrb.portifolio.springboot.dao.entities.ContactEntity;
 import jakarta.validation.Valid;
@@ -17,9 +17,9 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/contact")
 public class ContactRestController {
     private ContactRepository contactRepository;
-    private DiscordBotComponent discordBot;
+    private DiscordBotService discordBot;
 
-    public ContactRestController(ContactRepository contactRepository, DiscordBotComponent discordBot) {
+    public ContactRestController(ContactRepository contactRepository, DiscordBotService discordBot) {
         this.contactRepository = contactRepository;
         this.discordBot = discordBot;
     }
