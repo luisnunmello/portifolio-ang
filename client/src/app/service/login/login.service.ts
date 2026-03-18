@@ -22,25 +22,18 @@ export class LoginService {
   }
 
   doLogin(password: string) {
-    return new Observable<boolean>((subscriber) => {
-      this.httpClient.post<boolean>(`${enviroment.urlBackend}/auth`, {password: password}, {withCredentials: true}).subscribe((res) => {
-        this.loggedIn.set(true);
-        subscriber.next(res);
-      });
+    this.httpClient.post<boolean>(`${enviroment.urlBackend}/auth`, {password: password}, {withCredentials: true}).subscribe((res) => {
+      this.loggedIn.set(res);
     });
-    
   }
 
   doLogout() {
-    return new Observable<boolean>((subscriber) => {
-      this.httpClient.post<boolean>(`${enviroment.urlBackend}/auth/logout`, undefined, {withCredentials: true}).subscribe((res) => {
-        this.loggedIn.set(false);
-        subscriber.next(this.loggedIn());
-      });
+    this.httpClient.post<boolean>(`${enviroment.urlBackend}/auth/logout`, undefined, {withCredentials: true}).subscribe((res) => {
+      this.loggedIn.set(false);
     });
   }
 
   changePass(newPassword: string) {
-    return this.httpClient.post<boolean>(`${enviroment.urlBackend}/auth/changePass`, {password: newPassword}, {withCredentials: true})
+    return this.httpClient.post<boolean>(`${enviroment.urlBackend}/auth/changePass`, {password: newPassword}, {withCredentials: true});
   }
 }

@@ -23,14 +23,10 @@ export class AdminComponent {
   }
 
   doLogin() {
-    this.loginService.doLogin(this.loginForm.value.password!).subscribe((res) => {
-      this.loggedIn = this.loginService.loggedIn;
-    });
+    this.loginService.doLogin(this.loginForm.value.password!);
   }
   doLogout() {
-    this.loginService.doLogout().subscribe(() => {
-      this.loggedIn?.set(false);
-    });
+    this.loginService.doLogout();
   }
 
   doChangePassword() {
