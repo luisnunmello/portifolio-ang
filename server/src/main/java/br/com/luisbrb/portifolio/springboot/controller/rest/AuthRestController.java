@@ -3,6 +3,7 @@ package br.com.luisbrb.portifolio.springboot.controller.rest;
 import java.util.List;
 import java.util.UUID;
 
+import br.com.luisbrb.portifolio.springboot.dto.AuthBodyRequestDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,12 +31,9 @@ public class AuthRestController {
         return authenticationService.getCurrentLogin(authCookie) != null;
     }
 
-    public static class LoginBody {
-        public String password;
-    }
 
     @PostMapping("")
-    public boolean auth(@CookieValue(name = Constants.AUTH_COOKIE, required = false) String _authCookie, @RequestBody LoginBody loginBody, HttpServletResponse response) {
+    public boolean auth(@CookieValue(name = Constants.AUTH_COOKIE, required = false) String _authCookie, @RequestBody AuthBodyRequestDTO loginBody, HttpServletResponse response) {
         List<AuthorizationEntity> authorizationEntities = authorizationRepository.getAuthorization();
 
         String authCookie = _authCookie != null ? _authCookie : UUID.randomUUID().toString();
@@ -45,7 +43,7 @@ public class AuthRestController {
 
         if (authorizationEntities.isEmpty()) {
             UUID uuid = UUID.randomUUID();
-            authorizationRepository.save(new AuthorizationEntity(null, loginBody.password, uuid.toString()));
+            authorizationRepository.save(new AuthorizationEntity(null, loginBody.getPassword(), uuid.toString()));
             return true;
         }
 
@@ -55,31 +53,31 @@ public class AuthRestController {
         }
 
         if (authorizationEntity.getPassword() == null) {
-            authorizationEntity.setPassword(loginBody.password);
+            authorizationEntity.setPassword(loginBody.getPassword());
             authorizationEntity.setUserCookie(authCookie);
             authorizationRepository.save(authorizationEntity);
             return true;
         }
 
-        if (!authorizationEntity.getPassword().equals(loginBody.password)) {
+        if (!authorizationEntity.getPassword().equals(loginBody.getPassword())) {
             return false;
         }
 
-        authorizationEntity.setPassword(loginBody.password);
+        authorizationEntity.setPassword(loginBody.getPassword());
         authorizationEntity.setUserCookie(authCookie);
         authorizationRepository.save(authorizationEntity);
         return true;
     }
 
     @PostMapping("/changePass")
-    public boolean changePass(@RequestBody LoginBody loginBody) {
+    public boolean changePass(@RequestBody AuthBodyRequestDTO loginBody) {
         List<AuthorizationEntity> optAuthorizationEntity = authorizationRepository.getAuthorization();
         if (optAuthorizationEntity.isEmpty()) {
             return false;
         }
 
         AuthorizationEntity authorizationEntity = optAuthorizationEntity.get(0);
-        authorizationEntity.setPassword(loginBody.password);
+        authorizationEntity.setPassword(loginBody.getPassword());
         authorizationRepository.save(authorizationEntity);
         return true;
     }
