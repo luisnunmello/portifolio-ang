@@ -137,7 +137,7 @@ CREATE DATABASE portifolio;
 ## 🛠️ Melhorias futuras
 
 * [ ] Testes Unitários
-* [ ] Alterar todos textos do portifólio
+* [ ] Funcionalidade para alterar qualquer texto do site via pagina de Admin
 * [ ] Internacionalização
 
 ---
