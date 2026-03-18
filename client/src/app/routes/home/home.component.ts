@@ -120,14 +120,6 @@ export class AppComponent {
     this.currentProject = this.projects[iProject];
   }
 
-  public afterRender() {
-    this.setFillerText();
-  }
-
-  public setFillerText() {
-    this.backgroundFillerText.nativeElement.textContent = `<div class="container"><h1 onclick="alert('Hello World!')">Click Me</h1><p id="text">This is a paragraph with <strong>bold</strong> and <em>italic</em> text.</p><button onclick="document.getElementById('text').style.color='red'">Change Color</button><script>function randomNumber(){return Math.floor(Math.random()*100);}console.log("Random number: "+randomNumber());document.addEventListener("DOMContentLoaded",function(){document.body.style.backgroundColor="#f0f0f0";});</script></div></em> text.</p><button </em> text.</p><button onclick="document.getElementById('text').style.color='red'">Change Color</button><script>function raonclick="document.getElementById('text').style.color='red'">Change Color</button><script>function ra`
-  }
-
   public sortSkillsByCategory(skills: Skill[]) {
     skills.forEach((skill) => {
       this.skillByCategory[skill.category].push(skill);
