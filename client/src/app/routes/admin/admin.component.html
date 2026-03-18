@@ -1,29 +1,33 @@
 <app-admin-page-card>
-    <header class="flex justify-between">
-        <p class="text-2xl">Admin</p>
-        @if (loggedIn) {
-            <button type="button" (click)="doLogout()" class="px-4 py-2 border border-neutral-200 rounded-lg cursor-pointer hover:bg-red-50 hover:border-red-300 hover:text-red-700 border-red-200 text-red-500">Logout</button>
+    <header class="flex gap-4 items-center">
+        <a routerLink="/" type="button" class="p-2 aspect-square flex items-center justify-center border border-neutral-200 rounded-lg cursor-pointer hover:bg-slate-50 hover:border-slate-300 hover:text-slate-700 border-slate-200 text-slate-800">
+            <i class="pi pi-angle-left"></i>
+        </a>
+        <p class="text-xl">Admin</p>
+
+        @if (loggedIn()) {
+            <button type="button" (click)="doLogout()" class="ml-auto px-4 py-2 border border-neutral-200 rounded-lg cursor-pointer hover:bg-red-50 hover:border-red-300 hover:text-red-700 border-red-200 text-red-800">Sair</button>
         }
     </header>
-    @if (loggedIn) {
+    @if (loggedIn()) {
         <div class="flex gap-4">
-            <a routerLink="/admin/projects" class="w-full aspect-square border border-slate-300 rounded-lg flex justify-center items-center p-4 text-center hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50 duration-75">Manage Projects</a>
-            <a routerLink="/admin/skills" class="w-full aspect-square border border-slate-300 rounded-lg flex justify-center items-center p-4 text-center  hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50 duration-75">Manage Skills</a>
+            <a routerLink="/admin/projects" class="w-full aspect-square border border-slate-300 rounded-lg flex justify-center items-center p-4 text-center hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50 duration-75">Projetos</a>
+            <a routerLink="/admin/skills" class="w-full aspect-square border border-slate-300 rounded-lg flex justify-center items-center p-4 text-center  hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50 duration-75">Habilidades</a>
         
         </div>
         <div class="w-full bg-slate-300 h-0.25"></div>
         <form (ngSubmit)="doChangePassword()" [formGroup]="loginForm" class="flex flex-col gap-4">
-            <label for="password">New password</label>
-            <input type="password" formControlName="password"  class="p-2 border border-slate-200 rounded-lg" placeholder="Type your new password here" #passwordComponent>
+            <label for="password">Nova senha</label>
+            <input type="password" formControlName="password"  class="p-2 border border-slate-200 rounded-lg" placeholder="Escreva uma nova senha aqui" #passwordComponent>
             <div class="flex gap-4">
-                <button class="px-4 py-2 border border-neutral-200 rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700">Change Password</button>
+                <button class="px-4 py-2 border border-neutral-200 rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700">Trocar Senha</button>
             </div>
         </form>
     }
     @else {
         <form (ngSubmit)="doLogin()" [formGroup]="loginForm" class="flex flex-col gap-4">
-            <label for="password">Password</label>
-            <input type="password" formControlName="password"  class="p-2 border border-slate-200 rounded-lg" placeholder="Type password here" #passwordComponent>
+            <label for="password">Senha</label>
+            <input type="password" formControlName="password"  class="p-2 border border-slate-200 rounded-lg" placeholder="Escreva a senha de administrador aqui" #passwordComponent>
             <button class="px-4 py-2 border border-neutral-200 rounded-lg ml-auto cursor-pointer hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700">Login</button>
         </form>
         

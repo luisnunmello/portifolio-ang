@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ScrollService } from '../../../service/scroll/scroll.service';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

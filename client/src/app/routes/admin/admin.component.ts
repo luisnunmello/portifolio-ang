@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, Signal, ViewChild, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AdminPageCardComponent } from '../../components/admin/admin-page-card/admin-page-card.component';
@@ -12,29 +12,24 @@ import { LoginService } from '../../service/login/login.service';
 })
 export class AdminComponent {
   @ViewChild("passwordComponent") passwordComponent!: ElementRef<HTMLInputElement>;
-  loggedIn?: boolean;
+  loggedIn!: WritableSignal<boolean>;
   loginForm = new FormGroup({
     password: new FormControl("")
   })
 
   constructor(private loginService: LoginService) {
-    if (!loginService.loggedIn) {
-      loginService.checkLogin().subscribe((value) => {
-        this.loggedIn = value;
-      })
-    } else {
-      this.loggedIn = loginService.loggedIn;
-    }
+    this.loggedIn = loginService.loggedIn;
+    console.log(loginService.loggedIn());
   }
 
   doLogin() {
     this.loginService.doLogin(this.loginForm.value.password!).subscribe((res) => {
-      this.loggedIn = res;
+      this.loggedIn = this.loginService.loggedIn;
     });
   }
   doLogout() {
     this.loginService.doLogout().subscribe(() => {
-      this.loggedIn = false;
+      this.loggedIn?.set(false);
     });
   }
 

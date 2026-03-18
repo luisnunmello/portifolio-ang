@@ -1,32 +1,30 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { enviroment } from '../../../environment';
-import { Observable } from 'rxjs';
-import { FormControl, FormGroup } from '@angular/forms';
+import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  public loggedIn?: boolean = undefined;
-  public loginForm = new FormGroup({
-    password: new FormControl("")
-  })
+  public loggedIn = signal(false);
+  public isLoading = new BehaviorSubject(true);
 
-  constructor(private httpClient: HttpClient) { 
-    this.checkLogin().subscribe((res) => {
-      this.loggedIn = res;
-    });
+  constructor(private httpClient: HttpClient) {
+    this.checkLogin().subscribe();
   }
 
   checkLogin() {
-    return this.httpClient.get<boolean>(`${enviroment.urlBackend}/auth/check`, {withCredentials: true});
+    return this.httpClient.get<boolean>(`${enviroment.urlBackend}/auth/check`, {withCredentials: true}).pipe(tap((res) => {
+      this.loggedIn.set(res);
+      this.isLoading.next(false);
+    }));
   }
 
   doLogin(password: string) {
     return new Observable<boolean>((subscriber) => {
       this.httpClient.post<boolean>(`${enviroment.urlBackend}/auth`, {password: password}, {withCredentials: true}).subscribe((res) => {
-        this.loggedIn = res;
+        this.loggedIn.set(true);
         subscriber.next(res);
       });
     });
@@ -36,8 +34,8 @@ export class LoginService {
   doLogout() {
     return new Observable<boolean>((subscriber) => {
       this.httpClient.post<boolean>(`${enviroment.urlBackend}/auth/logout`, undefined, {withCredentials: true}).subscribe((res) => {
-        this.loggedIn = false;
-        subscriber.next(this.loggedIn);
+        this.loggedIn.set(false);
+        subscriber.next(this.loggedIn());
       });
     });
   }

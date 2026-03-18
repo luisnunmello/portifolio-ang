@@ -6,6 +6,7 @@ import { CreateSkillComponent } from './routes/admin/skills/create/create-skill.
 import { ProjectsComponent } from './routes/admin/projects/projects.component';
 import { SkillsComponent } from './routes/admin/skills/skills.component';
 import { AdminComponent } from './routes/admin/admin.component';
+import { adminGuard } from './guard/admin-guard';
 
 export const routes: Routes = [
     {
@@ -14,27 +15,34 @@ export const routes: Routes = [
     },
     {
         path: "admin/projects",
-        component: ProjectsComponent
+        component: ProjectsComponent,
+        canActivate: [adminGuard]
     },
     {
         path: "admin/projects/create",
-        component: CreateProjectComponent
+        component: CreateProjectComponent,
+        canActivate: [adminGuard]
     },
     {
         path: "admin/projects/edit",
-        component: CreateProjectComponent
+        component: CreateProjectComponent,
+        canActivate: [adminGuard]
+
     },
     {
         path: "admin/skills",
-        component: SkillsComponent
+        component: SkillsComponent,
+        canActivate: [adminGuard]
     },
     {
         path: "admin/skills/create",
-        component: CreateSkillComponent
+        component: CreateSkillComponent,
+        canActivate: [adminGuard]
     },
     {
         path: "admin/skills/edit",
-        component: CreateSkillComponent
+        component: CreateSkillComponent,
+        canActivate: [adminGuard]
     },
     {
         path: "proj/:id",
@@ -42,6 +50,6 @@ export const routes: Routes = [
     },
     {
         path: "admin",
-        component: AdminComponent
+        component: AdminComponent,
     }
 ];

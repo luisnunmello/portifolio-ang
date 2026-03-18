@@ -3,7 +3,7 @@
         <a routerLink="/admin" class="p-2 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 rounded-lg aspect-square flex items-center">
             <i class="pi pi-angle-left"></i>
         </a>
-        <p class="text-2xl">Projects</p>
+        <p class="text-2xl">Projetos</p>
     </header>
     <div class="projects-holder flex flex-col gap-4">
         @for (project of projects(); track project.id) {
@@ -18,5 +18,5 @@
             </a>
         }
     </div>
-    <a routerLink="create" class="relative skill ml-auto w-fit py-2 px-4 border border-slate-200 flex gap-2 justify-start hover:border-slate-300 hover:bg-slate-50 cursor-pointer rounded-lg overflow-hidden">Create New Project</a>
+    <a routerLink="create" class="relative skill ml-auto w-fit py-2 px-4 border border-slate-200 flex gap-2 justify-start hover:border-slate-300 hover:bg-slate-50 cursor-pointer rounded-lg overflow-hidden">Criar novo projeto</a>
 </app-admin-page-card>

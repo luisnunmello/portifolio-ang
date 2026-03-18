@@ -106,7 +106,7 @@
       </svg>
     </button>
   </header>
-  <nav class="flex flex-col text-xl py-8 text-blue-700 font-bold">
+  <nav class="flex flex-col text-xl py-8 text-blue-700 font-bold h-full">
     <a
       href="#home"
       (click)="toggleMenu()"
@@ -130,6 +130,12 @@
       (click)="toggleMenu()"
       class="hover:text-blue-700 duration-75 border-t border-blue-700 py-4 w-full"
       >Contato</a
+    >
+    <a
+      routerLink="admin"
+      (click)="toggleMenu()"
+      class="text-slate-800 duration-75 mt-auto py-4 w-full"
+      >Admin</a
     >
   </nav>
 </div>
