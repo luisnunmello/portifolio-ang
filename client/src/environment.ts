@@ -1,3 +1,3 @@
-export const enviroment = {
-    urlBackend: "https://luisnmello.com.br/api"
+export const environment = {
+    urlBackend: "http://localhost:8080/api"
 }
