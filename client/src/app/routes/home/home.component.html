@@ -6,7 +6,7 @@
   >
     <div
       class="presentation"
-      class="2xl:pl-[208px] sm:px-6 sm:py-24 h-full flex flex-col"
+      class="2xl:pl-52 sm:px-6 sm:py-24 h-full flex flex-col"
     >
       <div
         id="presentation-left"
@@ -20,7 +20,7 @@
             Desenvolvedor FullStack
           </h2>
         </div>
-        <p class="text-xl sm:text-4xl w-[350px] sm:w-full text-slate-800">
+        <p class="text-xl sm:text-4xl w-87.5 sm:w-full text-slate-800">
           3 anos de prática e estudo para fazer seu aplicativo perfeito!
         </p>
         <div class="button-holder flex gap-2 w-full text-blue-700 justify-center sm:justify-start">
@@ -82,7 +82,7 @@
           </a>
           <a
             href="#contact"
-            class="p-4 text-lg sm:text-2xl font-bold border border-2 rounded-xl border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white duration-150 text-nowrap"
+            class="p-4 text-lg sm:text-2xl font-bold border-2 rounded-xl border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white duration-150 text-nowrap"
             >Contatar de graça →</a
           >
         </div>
@@ -111,9 +111,9 @@
   <!-- <h2 id="about" class="divider p-12 font-bold w-full flex justify-center text-3xl  text-neutral-700 scroll-mt-24">Sobre</h2> -->
   <section
     id="about"
-    class="bg-slate-100/30 py-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex flex-col-reverse sm:flex-row gap-4 scroll-mt-24 sm:h-[90vh]"
+    class="bg-slate-100/30 py-4 md:py-12 2xl:py-24 px-4 2xl:px-52 md:px-6 flex flex-col-reverse sm:flex-row gap-4 scroll-mt-24 sm:h-[90vh]"
   >
-    <div id="about-left" class="w-full relative overflow-auto min-h-[450px]">
+    <div id="about-left" class="w-full relative overflow-auto min-h-112.5">
       <div class="absolute flex sm:flex-wrap gap-4 px-4 py-4">
         <app-skill-holder
           class="flex-1"
@@ -184,10 +184,10 @@
   <!-- <h2 id="projects" class="divider p-12 font-bold w-full flex justify-center text-3xl  text-neutral-700 scroll-mt-12">Projetos</h2> -->
   <section
     id="projects"
-    class="bg-slate-100/30 p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24"
+    class="bg-slate-100/30 p-4 md:py-12 2xl:py-24 px-4 2xl:px-52 md:px-6 flex gap-4 scroll-mt-24"
   >
     <div
-      class="bg-white border-border-neutral-200 flex-2 hidden flex-col p-8 gap-4 rounded-xl lg:flex md:min-w-[400px]"
+      class="bg-white border-border-neutral-200 flex-2 hidden flex-col p-8 gap-4 rounded-xl lg:flex md:min-w-100"
     >
       <header class="flex flex-col gap-2">
         <span class="font-bold text-2xl">{{ currentProject?.name }}</span>
@@ -219,7 +219,7 @@
           }
       </div>
     </div>
-    <div class="aspect-video bg-white h-[600px] overflow-hidden rounded-xl">
+    <div class="aspect-video bg-white h-150 overflow-hidden rounded-xl">
       <app-project-carousel
         [projects]="projects"
         (iCurrentProject)="updateProject($event)"
@@ -237,7 +237,7 @@
   </div>
   <section
     id="contact"
-    class="bg-slate-100/30 p-4 md:py-12 2xl:py-24 px-4 2xl:px-[208px] md:px-6 flex gap-4 flex scroll-mt-24"
+    class="bg-slate-100/30 p-4 md:py-12 2xl:py-24 px-4 2xl:px-52 md:px-6 flex gap-4 scroll-mt-24"
   >
     <div
       class="p-8 bg-white w-full font-bold rounded-xl flex flex-col gap-8 border-border-neutral-200"
@@ -309,7 +309,7 @@
         </div>
         <textarea
           type="text"
-          class="text-neutral-700 border p-3 border-neutral-300 rounded-xl w-full h-[300px]"
+          class="text-neutral-700 border p-3 border-neutral-300 rounded-xl w-full h-75"
           placeholder="Mensagem"
           formControlName="message"
           title="Digite uma mensagem"
