@@ -123,6 +123,8 @@ E também crie um banco de dados para o portifólio no PostgreSQL
 CREATE DATABASE portifolio;
 ```
 
+Já no frontend, para configurar a senha do Admin, você apenas precisa digitar uma senha no formulário de login (http://localhost:3010/admin) e clicar em logar.
+
 ---
 
 ## 📌 Funcionalidades
