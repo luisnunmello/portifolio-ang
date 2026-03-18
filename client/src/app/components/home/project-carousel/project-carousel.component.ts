@@ -48,7 +48,6 @@ export class ProjectCarouselComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.criarIntervalo();
     this.iCurrentProject.emit(this.iProjetoAtual);
-    console.log(this.projectPageHolder);
     this.projectPage = this.projectPageHolder.nativeElement;
   }
 

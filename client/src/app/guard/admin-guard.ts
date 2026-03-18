@@ -4,7 +4,6 @@ import { LoginService } from '../service/login/login.service';
 import { firstValueFrom, skip } from 'rxjs';
 
 export const adminGuard: CanActivateFn = async (route, state) => {
-    console.log("teste");
   const loginService = inject(LoginService);
   const router = inject(Router);
 

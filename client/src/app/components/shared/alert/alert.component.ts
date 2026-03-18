@@ -26,7 +26,6 @@ export class AlertComponent {
   dismiss() {
     this.notification = undefined;
     this.notificationStatusMessage = undefined
-    console.log(this.onClose);
     if (this.onClose) this.onClose();
   }
 

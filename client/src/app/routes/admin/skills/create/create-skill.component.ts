@@ -115,7 +115,6 @@ export class CreateSkillComponent {
     }
 
     removeSkill() {
-      console.log(this.createForm.value);
       if (this.createForm.value.id) {
         this.skillService.removeSkill(this.createForm.value.id).subscribe(() => {
           this.notificationService.show({title: "Habilidade Removida", description: "Habilidade Removida com sucesso", closeFunction: () => {

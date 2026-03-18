@@ -20,7 +20,6 @@ export class AdminComponent {
 
   constructor(private loginService: LoginService, private notificationService: NotificationService) {
     this.loggedIn = loginService.loggedIn;
-    console.log(loginService.loggedIn());
   }
 
   doLogin() {

@@ -56,7 +56,6 @@ export class CreateProjectComponent {
         const id = route.snapshot.queryParamMap.get("id")!;
         projectService.getProject(id).subscribe((project) => {
           this.form.patchValue({...project, images: project.images, skills: [...project.techBack, ...project.techFront]});
-          // console.log(project, this.form);
         });
       }
   }
@@ -87,7 +86,6 @@ export class CreateProjectComponent {
     } else {
       this.form.controls.skills.setValue([...current.filter((currentSkill) => currentSkill.id !== skill.id)])
     }
-    console.log(this.form.value.skills);
   }
 
   createProject(project: Project) {
@@ -174,7 +172,6 @@ export class CreateProjectComponent {
   }
 
    isSkillChecked(skill: Skill): boolean {
-    console.log(skill, this.form.getRawValue());
     return this.form.getRawValue().skills.find((formSkill) => 
       skill.id === formSkill.id
     ) ? true : false;
