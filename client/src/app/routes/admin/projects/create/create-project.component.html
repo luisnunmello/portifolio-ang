@@ -1,7 +1,7 @@
 
 <app-admin-page-card>
-    <header class="flex w-full gap-4">
-        <a routerLink="/admin/projects" class="p-2 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 rounded-lg aspect-square flex items-center">
+    <header class="flex w-full gap-4 items-center">
+        <a routerLink="/admin/projects" class="sm:p-2 p-4 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 rounded-lg aspect-square flex items-center">
             <i class="pi pi-angle-left"></i>
         </a>
         <p class="text-2xl">Projeto</p>
@@ -12,38 +12,38 @@
         <div class="flex flex-col gap-4 input-holder max-w-lg">
             <div class="flex flex-col gap-2">
                 <label for="name-input">Nome</label>
-                <input id="name-input" class="p-2 border border-slate-200 rounded-lg" #nameInput formControlName="name">
+                <input id="name-input" class="p-4 sm:p-2 border border-slate-200 rounded-lg" #nameInput formControlName="name">
             </div>
             <div class="flex flex-col gap-2">
                 <label for="description-input">Descrição</label>
-                <input id="description-input" class="p-2 border border-slate-200 rounded-lg" #descriptionInput formControlName="description">
+                <input id="description-input" class="p-4 sm:p-2 border border-slate-200 rounded-lg" #descriptionInput formControlName="description">
             </div>
             <div class="flex flex-col gap-2">
                 <label for="repo-input">Repositório</label>
-                <input id="repo-input" class="p-2 border border-slate-200 rounded-lg" #repoInput formControlName="repo"> 
+                <input id="repo-input" class="p-4 sm:p-2 border border-slate-200 rounded-lg" #repoInput formControlName="repo"> 
             </div>
             <div class="flex flex-col gap-2">
                 <label for="website-input">Website</label>
-                <input id="website-input" class="p-2 border border-slate-200 rounded-lg" #websiteInput formControlName="website">
+                <input id="website-input" class="p-4 sm:p-2 border border-slate-200 rounded-lg" #websiteInput formControlName="website">
             </div>
             <div class="flex flex-col gap-2">
                 <label for="download-input">Download</label>
-                <input id="download-input" class="p-2 border border-slate-200 rounded-lg" #downloadInput formControlName="download">
+                <input id="download-input" class="p-4 sm:p-2 border border-slate-200 rounded-lg" #downloadInput formControlName="download">
             </div>
             <div class="flex flex-col gap-2">
                 <label for="status-input">Status</label>
-                <select id="status-input" class="p-2 border border-slate-200 rounded-lg" #statusSelect formControlName="status">
+                <select id="status-input" class="p-4 sm:p-2 border border-slate-200 rounded-lg" #statusSelect formControlName="status">
                     <option value="COMPLETE">Completo</option>
                     <option value="INPROGRESS">Em Progresso</option>
                     <option value="INCOMPLETE">Incompleto</option>
                 </select>
             </div>
-            <fieldset>
+            <fieldset class="flex flex-col gap-2">
                 <legend>Habilidades usadas no projeto</legend>
                 
                 @for (skill of skills; track skill.id) {
-                    <div>
-                        <input type="checkbox" [id]="'skill-'+ skill.name" [checked]="isSkillChecked(skill)" (change)="toggleSkill($event, skill)"/>
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" class="w-6 h-6" [id]="'skill-'+ skill.name" [checked]="isSkillChecked(skill)" (change)="toggleSkill($event, skill)"/>
                         <label [for]="'skill-'+ skill.name">{{skill.name}}({{skill.type}})</label>
                     </div>
                 }
@@ -73,10 +73,10 @@
         
         <div class="flex">
             @if (form.getRawValue().id) {
-                <button class="p-2 border border-red-200 hover:border-red-300 hover:bg-red-50 rounded-lg h-fit cursor-pointer w-fit text-red-800" (click)="removeProject()">Remover Projeto</button>
-                <button class="p-2 border border-green-200 hover:border-green-300 hover:bg-green-50 rounded-lg h-fit cursor-pointer w-fit ml-auto text-green-800" (click)="clickSubmit()">Editar</button>
+                <button class="p-4 sm:p-2 border border-red-200 hover:border-red-300 hover:bg-red-50 rounded-lg h-fit cursor-pointer w-fit text-red-800" (click)="removeProject()">Remover Projeto</button>
+                <button class="p-4 sm:p-2 border border-green-200 hover:border-green-300 hover:bg-green-50 rounded-lg h-fit cursor-pointer w-fit ml-auto text-green-800" (click)="clickSubmit()">Editar</button>
             } @else {
-                <button class="p-2 border border-green-200 hover:border-green-300 hover:bg-green-50 rounded-lg h-fit cursor-pointer w-fit ml-auto text-green-800" (click)="clickSubmit()">Criar</button>
+                <button class="p-4 sm:p-2 border border-green-200 hover:border-green-300 hover:bg-green-50 rounded-lg h-fit cursor-pointer w-fit ml-auto text-green-800" (click)="clickSubmit()">Criar</button>
             }
         </div>
     </form>
