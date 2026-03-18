@@ -2,6 +2,8 @@ package br.com.luisbrb.portifolio.springboot.controller;
 
 import java.util.logging.Logger;
 
+import br.com.luisbrb.portifolio.springboot.exception.BaseControllerException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,16 +30,17 @@ public class ContactRestController {
     public ResponseEntity<?> submitContact(@Valid @RequestBody ContactEntity contact) {
         Logger.getAnonymousLogger().info(contact.toString());
         if (contact.getId() != null) {
-            return ResponseEntity.badRequest().body("Id nao e nulo");
+            return ResponseEntity.badRequest().body("Id nao e nulo.");
         }
 
         if (contact.getName() == null || contact.getName().isBlank()) {
-            return ResponseEntity.badRequest().body("Você precisa fornecer um nome para enviar contato");
+            throw new BaseControllerException("É necessário um nome para efetuar o contato.", HttpStatus.BAD_REQUEST);
         }
 
         if ((contact.getEmail() == null || contact.getEmail().isBlank())
                 && (contact.getCellphone() == null || contact.getCellphone().isBlank())) {
-            return ResponseEntity.badRequest().body("Você precisa fornecer um email ou telefone para enviar contato");
+            throw new BaseControllerException("É necessário um telefone ou email para efetuar o contato.", HttpStatus.BAD_REQUEST);
+
         }
 
         discordBot.sendContactMessageChannel(contact);

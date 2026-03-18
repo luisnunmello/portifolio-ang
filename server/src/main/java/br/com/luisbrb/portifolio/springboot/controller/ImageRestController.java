@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.luisbrb.portifolio.springboot.exception.BaseControllerException;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -68,14 +70,10 @@ public class ImageRestController {
     }
 
     @GetMapping(path="") 
-    public ResponseEntity<?> get(@RequestParam("id") Long id) {
-        if (id == null) {
-            return ResponseEntity.badRequest().build();
-        }
-
+    public ResponseEntity<?> get(@RequestParam(value = "id") Long id) {
         Optional<ImageEntity> image = imageRepository.findById(id);
         if (image.isEmpty()) {
-            return ResponseEntity.notFound().build();
+            throw new BaseControllerException("Imagem não encontrada.", HttpStatus.NOT_FOUND);
         }
 
         HttpHeaders headers = new HttpHeaders();

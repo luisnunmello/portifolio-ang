@@ -3,6 +3,8 @@ package br.com.luisbrb.portifolio.springboot.controller;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.luisbrb.portifolio.springboot.exception.BaseControllerException;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import br.com.luisbrb.portifolio.springboot.dao.repositories.SkillRepository;
@@ -36,10 +38,11 @@ public class SkillRestController {
     @PutMapping("/edit")
     public SkillEntity edit(@CookieValue(name = Constants.AUTH_COOKIE) String authCookie, @RequestBody SkillEntity skillEntity) {
         if (skillEntity.getId() == null) {
-            return null;
+            throw new BaseControllerException("ID da habilidade faltando.", HttpStatus.BAD_REQUEST);
         }
         if (!skillRepository.existsById(skillEntity.getId())) {
-            return null;
+            throw new BaseControllerException("Habilidade com o ID inserido não existe", HttpStatus.NOT_FOUND);
+
         }
         return skillRepository.save(skillEntity);
     }
