@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AdminPageCardComponent } from '../../components/admin/admin-page-card/admin-page-card.component';
 import { LoginService } from '../../service/login/login.service';
+import { NotificationService } from '../../service/notification/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class AdminComponent {
     password: new FormControl("")
   })
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private notificationService: NotificationService) {
     this.loggedIn = loginService.loggedIn;
     console.log(loginService.loggedIn());
   }
@@ -31,7 +32,7 @@ export class AdminComponent {
 
   doChangePassword() {
     this.loginService.changePass(this.loginForm.value.password!).subscribe((res) => {
-      console.log(res);
+      this.notificationService.show({title: "Senha alterada", description: "Senha alterada com sucesso."});
     });
   }
 }
