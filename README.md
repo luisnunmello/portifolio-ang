@@ -141,6 +141,7 @@ Já no frontend, para configurar a senha do Admin, você apenas precisa digitar 
 * [ ] Testes Unitários
 * [ ] Funcionalidade para alterar qualquer texto do site via pagina de Admin
 * [ ] Internacionalização
+* [ ] Design responsivo horizontal
 
 ---
 
