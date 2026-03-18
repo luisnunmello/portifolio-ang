@@ -1,4 +1,4 @@
-package br.com.luisbrb.portifolio.springboot.controller;
+package br.com.luisbrb.portifolio.springboot.service;
 
 import java.util.List;
 
@@ -7,8 +7,9 @@ import org.springframework.stereotype.Component;
 
 import br.com.luisbrb.portifolio.springboot.dao.repositories.AuthorizationRepository;
 import br.com.luisbrb.portifolio.springboot.dao.entities.AuthorizationEntity;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 @AllArgsConstructor
 public class AuthenticationService {
     private AuthorizationRepository authorizationRepository;

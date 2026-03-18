@@ -3,10 +3,10 @@ package br.com.luisbrb.portifolio.springboot.controller.integrations.discord;
 import java.io.IOException;
 import java.util.Collections;
 
-import br.com.luisbrb.portifolio.springboot.ConfigComponent;
+import br.com.luisbrb.portifolio.springboot.service.ConfigService;
 import org.springframework.stereotype.Component;
 
-import br.com.luisbrb.portifolio.springboot.controller.LoggerComponent;
+import br.com.luisbrb.portifolio.springboot.service.LoggerService;
 import br.com.luisbrb.portifolio.springboot.controller.integrations.discord.listeners.SlashCommandListener;
 import br.com.luisbrb.portifolio.springboot.dao.entities.ContactEntity;
 import jakarta.annotation.PostConstruct;
@@ -27,13 +27,13 @@ public class DiscordBotComponent {
     @Getter @Setter private String channelId;
     @Getter @Setter private String userId;
 
-    private ConfigComponent configComponent;
+    private ConfigService configService;
 
-    private LoggerComponent logger;
+    private LoggerService logger;
 
-    public DiscordBotComponent(ConfigComponent configComponent, LoggerComponent loggerComponent) {
-        this.configComponent = configComponent;
-        this.logger = loggerComponent;
+    public DiscordBotComponent(ConfigService configService, LoggerService loggerService) {
+        this.configService = configService;
+        this.logger = loggerService;
     }
 
     @PreDestroy
@@ -44,15 +44,15 @@ public class DiscordBotComponent {
 
     @PostConstruct
     private void init() throws IOException {
-        setChannelId(configComponent.getProperty("discord.channel"));
-        setUserId(configComponent.getProperty("discord.user"));
+        setChannelId(configService.getProperty("discord.channel"));
+        setUserId(configService.getProperty("discord.user"));
 
-        if (configComponent.getProperty("discord.token") == null) {
+        if (configService.getProperty("discord.token") == null) {
             logger.info("No discord token provided, ignoring discord bot");
             return;
         }
 
-        jda = JDABuilder.createLight(configComponent.getProperty("discord.token"), Collections.emptyList()).addEventListeners(new SlashCommandListener(this, configComponent)).build();
+        jda = JDABuilder.createLight(configService.getProperty("discord.token"), Collections.emptyList()).addEventListeners(new SlashCommandListener(this, configService)).build();
 
         CommandListUpdateAction commands = jda.updateCommands();
 

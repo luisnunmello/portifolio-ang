@@ -1,4 +1,4 @@
-package br.com.luisbrb.portifolio.springboot;
+package br.com.luisbrb.portifolio.springboot.service;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,23 +7,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import br.com.luisbrb.portifolio.springboot.controller.LoggerComponent;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import lombok.Getter;
 
-@Component
-public class ConfigComponent {
+@Service
+public class ConfigService {
     private File file;
     @Getter private Properties properties = new Properties();
     @Getter private Properties originalProperties = new Properties();
-    private LoggerComponent logger;
+    private LoggerService logger;
 
-    public ConfigComponent(LoggerComponent loggerComponent) {
-        this.logger = loggerComponent;
+    public ConfigService(LoggerService loggerService) {
+        this.logger = loggerService;
     }
 
     @PostConstruct

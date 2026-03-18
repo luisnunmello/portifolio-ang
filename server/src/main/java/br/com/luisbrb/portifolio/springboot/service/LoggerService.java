@@ -1,13 +1,14 @@
-package br.com.luisbrb.portifolio.springboot.controller;
+package br.com.luisbrb.portifolio.springboot.service;
 
 import java.util.logging.Logger;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-public class LoggerComponent {
+@Service
+public class LoggerService {
     private Logger logger;
-    public LoggerComponent() {
+    public LoggerService() {
         logger = Logger.getLogger("portifolio.backend", null);
     }
 

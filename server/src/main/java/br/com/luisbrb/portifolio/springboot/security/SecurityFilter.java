@@ -1,6 +1,6 @@
 package br.com.luisbrb.portifolio.springboot.security;
 
-import br.com.luisbrb.portifolio.springboot.controller.AuthenticationService;
+import br.com.luisbrb.portifolio.springboot.service.AuthenticationService;
 import br.com.luisbrb.portifolio.springboot.model.Constants;
 import jakarta.annotation.Nullable;
 import jakarta.servlet.FilterChain;

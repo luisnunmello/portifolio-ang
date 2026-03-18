@@ -2,24 +2,24 @@ package br.com.luisbrb.portifolio.springboot.controller.integrations.discord.lis
 
 import java.util.logging.Logger;
 
-import br.com.luisbrb.portifolio.springboot.ConfigComponent;
+import br.com.luisbrb.portifolio.springboot.service.ConfigService;
 import br.com.luisbrb.portifolio.springboot.controller.integrations.discord.DiscordBotComponent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 public class SlashCommandListener extends ListenerAdapter {
     private DiscordBotComponent discordBot;
-    private ConfigComponent configComponent;
+    private ConfigService configService;
 
-    public SlashCommandListener(DiscordBotComponent discordBot, ConfigComponent configComponent) {
+    public SlashCommandListener(DiscordBotComponent discordBot, ConfigService configService) {
         this.discordBot = discordBot;
-        this.configComponent = configComponent;
+        this.configService = configService;
     }
 
     public void setMessagesChannel(SlashCommandInteractionEvent event) {
         event.deferReply().queue();
 
         String channel = event.getChannelId();
-        configComponent.setProperty("discord.channel", channel);
+        configService.setProperty("discord.channel", channel);
         event.getHook().sendMessage("Setting this channel " + channel + " to receive interactions").queue();
         discordBot.setChannelId(channel);
     }
@@ -28,7 +28,7 @@ public class SlashCommandListener extends ListenerAdapter {
         event.deferReply().queue();
         
         String userId = event.getUser().getId();
-        configComponent.setProperty("discord.user", userId);
+        configService.setProperty("discord.user", userId);
         event.getHook().sendMessage("Setting this user " + userId + " to receive interactions").queue();
         discordBot.setUserId(userId);
     }

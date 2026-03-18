@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.luisbrb.portifolio.springboot.controller.AuthenticationService;
+import br.com.luisbrb.portifolio.springboot.service.AuthenticationService;
 import br.com.luisbrb.portifolio.springboot.dao.repositories.AuthorizationRepository;
 import br.com.luisbrb.portifolio.springboot.model.Constants;
 import br.com.luisbrb.portifolio.springboot.dao.entities.AuthorizationEntity;
