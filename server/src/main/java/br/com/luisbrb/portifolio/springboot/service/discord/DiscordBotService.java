@@ -47,7 +47,7 @@ public class DiscordBotService {
     @PostConstruct
     private void init() throws IOException {
 
-        if (token == null) {
+        if (token == null || token.isEmpty()) {
             logger.info("No discord token provided, ignoring discord bot");
             return;
         }
