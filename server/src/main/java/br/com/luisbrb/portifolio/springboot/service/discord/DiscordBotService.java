@@ -3,11 +3,12 @@ package br.com.luisbrb.portifolio.springboot.service.discord;
 import java.io.IOException;
 import java.util.Collections;
 
-import br.com.luisbrb.portifolio.springboot.service.ConfigService;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import br.com.luisbrb.portifolio.springboot.service.LoggerService;
-import br.com.luisbrb.portifolio.springboot.service.discord.listeners.SlashCommandListener;
 import br.com.luisbrb.portifolio.springboot.dao.entities.ContactEntity;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
@@ -19,22 +20,26 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class DiscordBotService {
-    @Getter private JDA jda;
+    @Getter private JDA jda = null;
 
-    @Getter @Setter private String channelId;
-    @Getter @Setter private String userId;
+    @Value("${discord.channel}")
+    private String channel;
 
-    private ConfigService configService;
+    @Value("${discord.user}")
+    private String user;
+
+    @Value("${discord.token}")
+    private String token;
+
 
     private LoggerService logger;
-
-    public DiscordBotService(ConfigService configService, LoggerService loggerService) {
-        this.configService = configService;
-        this.logger = loggerService;
-    }
 
     @PreDestroy
     public void stop() {
@@ -44,15 +49,13 @@ public class DiscordBotService {
 
     @PostConstruct
     private void init() throws IOException {
-        setChannelId(configService.getProperty("discord.channel"));
-        setUserId(configService.getProperty("discord.user"));
 
-        if (configService.getProperty("discord.token") == null) {
+        if (token == null) {
             logger.info("No discord token provided, ignoring discord bot");
             return;
         }
 
-        jda = JDABuilder.createLight(configService.getProperty("discord.token"), Collections.emptyList()).addEventListeners(new SlashCommandListener(this, configService)).build();
+        jda = JDABuilder.createLight(token, Collections.emptyList()).build();
 
         CommandListUpdateAction commands = jda.updateCommands();
 
@@ -64,11 +67,11 @@ public class DiscordBotService {
     }
 
     public void sendContactMessageChannel(ContactEntity contactEntity) {
-        if (getChannelId() == null || getUserId() == null) {
+        if (channel == null || user == null) {
             logger.info("Discord Channel or User is null, not sending message");
             return;
         }
         MessageEmbed embed = new EmbedBuilder().setAuthor(contactEntity.getName()).setDescription(contactEntity.getMessage()).setFooter("Email: " + contactEntity.getEmail() + " | Cellphone: " + contactEntity.getCellphone()).build();
-        jda.getTextChannelById(channelId).sendMessage("<@" + getUserId() + ">").setEmbeds(embed).queue();
+        jda.getTextChannelById(channel).sendMessage("<@" + user + ">").setEmbeds(embed).queue();
     }
 }

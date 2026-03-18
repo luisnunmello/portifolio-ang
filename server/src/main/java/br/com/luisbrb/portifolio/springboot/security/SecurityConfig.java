@@ -31,7 +31,7 @@ public class SecurityConfig {
 //                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .authorizeHttpRequests(authorize -> authorize
                                 .requestMatchers(HttpMethod.GET, "/api/project/all", "/api/project/get", "/api/skill/all", "/api/skill/get", "/api/image", "/api/auth/check").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/auth").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/api/auth", "/api/contact").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
