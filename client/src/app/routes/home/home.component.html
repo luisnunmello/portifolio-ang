@@ -195,7 +195,14 @@
       </header>
 
       <p>{{ currentProject?.description }}</p>
-      <div class="skill-holder flex gap-2 flex-wrap mt-auto">
+      
+      <div class="flex gap-2 mt-auto">
+        @if (currentProject?.website) {<a [href]="currentProject?.website" class="bg-slate-100 p-3 rounded-lg">Acessar</a>}
+        @if (currentProject?.repo) {<a [href]="currentProject?.repo" class="bg-slate-100 p-3 rounded-lg">Repositorio</a>}
+        @if (currentProject?.download) {<a [href]="currentProject?.download" class="bg-slate-100 p-3 rounded-lg">Download</a>}
+
+      </div>
+      <div class="skill-holder flex gap-2 flex-wrap">
         @for (skill of currentProject?.techFront; track $index) {
           <span class="text-base font-bold flex items-center gap-2">
             @if (skill.image) {<img class="w-8 aspect-square" [src]="`${urlImagens}${skill.image.id}`">}

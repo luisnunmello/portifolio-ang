@@ -116,7 +116,7 @@ export class CreateProjectComponent {
 
         this.projectService.editProject(project).subscribe((res) => {
           if (res) {
-            this.notificationService.show({title: "Projeto Editado", description: "Projeto criado com sucesso.", closeFunction: () => {
+            this.notificationService.show({title: "Projeto Editado", description: "Projeto editado com sucesso.", closeFunction: () => {
               this.gotoProjectsPage();
             }});
           }
@@ -125,7 +125,7 @@ export class CreateProjectComponent {
     } else {
       this.projectService.editProject(project).subscribe((res) => {
           if (res) {
-            this.notificationService.show({title: "Projeto Editado", description: "Projeto criado com sucesso.", closeFunction: () => {
+            this.notificationService.show({title: "Projeto Editado", description: "Projeto editado com sucesso.", closeFunction: () => {
               this.gotoProjectsPage();
             }});
           }
