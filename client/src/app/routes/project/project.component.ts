@@ -3,7 +3,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Project } from '../../types/project.type';
 import { ProjetoServiceService } from '../../service/projeto/projeto-service.service';
 import { ActivatedRoute } from '@angular/router';
-import { enviroment } from '../../../environment';
+import { environment } from '../../../environment';
 
 @Component({
   selector: 'app-project-component',
@@ -13,7 +13,7 @@ import { enviroment } from '../../../environment';
 })
 export class ProjectComponentComponent {
   project?: Project;
-  urlImagens = `${enviroment.urlBackend}/image?id=`;
+  urlImagens = `${environment.urlBackend}/image?id=`;
   
   constructor(private translateService: TranslateService, private projectService: ProjetoServiceService, private route: ActivatedRoute) {
     // this.translateService.setDefaultLang("pt");

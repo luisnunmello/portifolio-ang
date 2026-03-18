@@ -3,7 +3,7 @@ import { Project } from '../../../types/project.type';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ScrollService } from '../../../service/scroll/scroll.service';
 import { RouterLink } from '@angular/router';
-import { enviroment } from '../../../../environment';
+import { environment } from '../../../../environment';
 
 @Component({
   selector: 'app-project-carousel',
@@ -35,7 +35,7 @@ export class ProjectCarouselComponent implements OnInit, OnDestroy {
 
   isInformationToggled = false;
 
-  urlImagens = `${enviroment.urlBackend}/image?id=`;
+  urlImagens = `${environment.urlBackend}/image?id=`;
 
   constructor(
     private translate: TranslateService,

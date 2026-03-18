@@ -8,7 +8,7 @@ import { ProjectCarouselComponent } from "../../components/home/project-carousel
 import { SkillCategory, Skill } from '../../types/skill.type';
 import { SkillService } from '../../service/skill/skill-service.service';
 import { NgFor } from '@angular/common';
-import { enviroment } from '../../../environment';
+import { environment } from '../../../environment';
 import { SkillHolderComponent } from "../../components/home/skill-holder/skill-holder.component";
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import { ContactService } from '../../service/contact/contact.service';
@@ -30,7 +30,7 @@ export class AppComponent {
 
   dateStart = new Date("12/4/2021");
 
-  urlImagens = `${enviroment.urlBackend}/image?id=`;
+  urlImagens = `${environment.urlBackend}/image?id=`;
 
   currentProject?: Project = undefined; 
 

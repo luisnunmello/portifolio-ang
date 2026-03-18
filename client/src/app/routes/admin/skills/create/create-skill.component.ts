@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { enviroment } from '../../../../../environment';
+import { environment } from '../../../../../environment';
 import { SkillCategory, Skill, Technology } from '../../../../types/skill.type';
 import { ImageServiceService } from '../../../../service/image/image-service.service';
 import { SkillService } from '../../../../service/skill/skill-service.service';
@@ -18,7 +18,7 @@ import { NotificationService } from '../../../../service/notification/notificati
 })
 export class CreateSkillComponent {
     image?: {file: File, blob: string};
-    urlImagens = `${enviroment.urlBackend}/image?id=`;
+    urlImagens = `${environment.urlBackend}/image?id=`;
 
     @ViewChild("nameInput") nameInput!: ElementRef<HTMLInputElement>;
     @ViewChild("categorySelect") categorySelect!: ElementRef<HTMLInputElement>;

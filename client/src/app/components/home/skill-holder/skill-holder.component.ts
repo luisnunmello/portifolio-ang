@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Skill } from '../../../types/skill.type';
-import { enviroment } from '../../../../environment';
+import { environment } from '../../../../environment';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { imagesUrl } from '../../../service/constants';
 

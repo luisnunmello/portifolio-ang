@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { enviroment } from '../../../environment';
+import { environment } from '../../../environment';
 import { HttpClient } from '@angular/common/http';
 import { Image } from '../../types/image.type';
 import { Observable } from 'rxjs';
@@ -26,7 +26,7 @@ export class ImageServiceService {
         subscriber.next(undefined);
         return;
       }
-      this.httpClient.post<Image[]>(`${enviroment.urlBackend}/image/create`, formData, {withCredentials: true}).subscribe((res) => {
+      this.httpClient.post<Image[]>(`${environment.urlBackend}/image/create`, formData, {withCredentials: true}).subscribe((res) => {
         subscriber.next(res);
       });
     })

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { enviroment } from '../../../environment';
+import { environment } from '../../../environment';
 import { type Message } from '../../types/message.type';
 
 @Injectable({
@@ -11,6 +11,6 @@ export class ContactService {
   constructor(private httpClient: HttpClient) { }
 
   public submitMessage(message: Message) {
-    return this.httpClient.post<Message | string>(`${enviroment.urlBackend}/contact`, message, {observe: "response", });
+    return this.httpClient.post<Message | string>(`${environment.urlBackend}/contact`, message, {observe: "response", });
   }
 }

@@ -1,3 +1,3 @@
-import { enviroment } from "../../environment";
+import { environment } from "../../environment";
 
-export const imagesUrl = `${enviroment.urlBackend}/image?id=`;
+export const imagesUrl = `${environment.urlBackend}/image?id=`;
