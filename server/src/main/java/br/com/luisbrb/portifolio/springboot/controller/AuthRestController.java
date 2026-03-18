@@ -36,16 +36,16 @@ public class AuthRestController {
 
     @PostMapping("")
     public void auth(@CookieValue(name = Constants.AUTH_COOKIE, required = false) String _authCookie, @RequestBody AuthBodyRequestDTO loginBody, HttpServletResponse response) {
-        List<AuthorizationEntity> authorizationEntities = authorizationRepository.getAuthorization();
-
         String authCookie = _authCookie != null ? _authCookie : UUID.randomUUID().toString();
         if (_authCookie == null) {
             response.addCookie(new Cookie(Constants.AUTH_COOKIE, authCookie));
         }
 
+        List<AuthorizationEntity> authorizationEntities = authorizationRepository.getAuthorization();
         if (authorizationEntities.isEmpty()) {
             UUID uuid = UUID.randomUUID();
             authorizationRepository.save(new AuthorizationEntity(null, loginBody.getPassword(), uuid.toString()));
+            authorizationEntities = authorizationRepository.getAuthorization();
         }
 
         AuthorizationEntity authorizationEntity = authorizationEntities.get(0);

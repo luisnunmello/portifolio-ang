@@ -17,7 +17,7 @@ public class AuthenticationService {
     public AuthorizationEntity getCurrentLogin(String authCookie) {
         List<AuthorizationEntity> authorizationEntities = authorizationRepository.getAuthorization();
         if (authorizationEntities == null || authorizationEntities.isEmpty()) {
-            throw new RuntimeException("User Not Found");
+            return null;
         }
 
         AuthorizationEntity authorizationEntity = authorizationEntities.get(0);
