@@ -43,6 +43,14 @@ public class ContactRestController {
 
         }
 
+        if (contact.getEmail() != null && !contact.getEmail().contains("@")) {
+            throw new BaseControllerException("É necessário um @ no email.", HttpStatus.BAD_REQUEST);
+        }
+
+        if (contact.getMessage().isEmpty()) {
+            throw new BaseControllerException("É necessário uma mensagem para efetuar o contato", HttpStatus.BAD_REQUEST);
+        }
+
         discordBot.sendContactMessageChannel(contact);
 
         return ResponseEntity.ok(contactRepository.save(contact));
